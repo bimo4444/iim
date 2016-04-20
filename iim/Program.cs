@@ -24,9 +24,9 @@ namespace iim
                 if (unique.AlreadyRunning("iim"))
                     return;
 
-                //SplashScreen ss = new SplashScreen(
-                //    "Resources/box-icon-251019.png");
-                //ss.Show(true);
+                SplashScreen ss = new SplashScreen(
+                    "Resources/box-icon-251019.png");
+                ss.Show(true);
 
                 Presenter p = new Presenter();
                 App app = new App();
@@ -38,6 +38,8 @@ namespace iim
                 kernel.Load(Assembly.GetExecutingAssembly());
                 ILog log = kernel.Get<ILog>();
                 log.Write(x);
+
+                Main();
             }
         }
     }

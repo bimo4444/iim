@@ -37,6 +37,26 @@
     <StartupObject>iim.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Data.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.1.Core, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Xpf.Themes.Office2013.v14.1.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\kat\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
     </Reference>
@@ -61,16 +81,17 @@
     </ApplicationDefinition>
     <Compile Include="Bindings.cs" />
     <Compile Include="Presenter\Presenter.cs" />
-    <Compile Include="Presenter\RelayCommand.cs" />
-    <Compile Include="ViewModels\ConfirmRetryViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
-    <Compile Include="ViewModels\GridViewModel.cs" />
+    <Compile Include="ViewModels\GridViewModelBase.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\MovementViewModel.cs" />
-    <Compile Include="ViewModels\VMBase.cs" />
-    <Compile Include="Views\ConfirmRetry.xaml.cs">
-      <DependentUpon>ConfirmRetry.xaml</DependentUpon>
+    <Compile Include="ViewModels\PrimaryViewModel.cs" />
+    <Compile Include="Views\ConnectionErrorView.xaml.cs">
+      <DependentUpon>ConnectionErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FirstViewMenu.xaml.cs">
+      <DependentUpon>FirstViewMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -78,7 +99,10 @@
     <Compile Include="Views\MovementView.xaml.cs">
       <DependentUpon>MovementView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\ConfirmRetry.xaml">
+    <Compile Include="Views\PrimaryView.xaml.cs">
+      <DependentUpon>PrimaryView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\ConnectionErrorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,11 +110,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GridView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListMenu.xaml">
+    <Page Include="Views\FirstViewMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,17 +129,15 @@
     <Compile Include="Views\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GridView.xaml.cs">
-      <DependentUpon>GridView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListMenu.xaml.cs">
-      <DependentUpon>ListMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MovementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrimaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,9 +171,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ADOLib\ADOLib.csproj">
+      <Project>{2134b031-56dc-4140-85c5-cf6da5b85d16}</Project>
+      <Name>ADOLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{e3edce1a-79a8-433d-bc20-149ba2bdb4ba}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DialogBase\DialogBase.csproj">
+      <Project>{aece9533-8f0a-447a-8f71-eb964fe6749c}</Project>
+      <Name>DialogBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{e1c08f18-990a-437f-a850-d52c6f903599}</Project>
@@ -177,14 +203,48 @@
       <Project>{80d26cce-91a9-463f-bb7d-f756f01e4d57}</Project>
       <Name>Metamorphosis</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MVPLight\MVPLight.csproj">
+      <Project>{e45797b0-5341-43c1-8223-052ae7f6fd42}</Project>
+      <Name>MVPLight</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Serializer\Serializer.csproj">
       <Project>{3f98fcd1-acf2-43cb-b5b0-ed4aa85d1a11}</Project>
       <Name>Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreCells\StoreCells.csproj">
+      <Project>{ac9de944-1c6d-4fc4-b144-0b69db6a9473}</Project>
+      <Name>StoreCells</Name>
     </ProjectReference>
     <ProjectReference Include="..\Uniqueness\Uniqueness.csproj">
       <Project>{1dfebba4-5670-4346-9a87-04a40d5b5389}</Project>
       <Name>Uniqueness</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cross.png" />
+    <Resource Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arrow_refresh.png" />
+    <Resource Include="Resources\mov.png" />
+    <Resource Include="Resources\page_copy.png" />
+    <Resource Include="Resources\page_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arrow_down.png" />
+    <Resource Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\resultset_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\database_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\box-icon-251019.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

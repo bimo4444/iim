@@ -1,0 +1,4 @@
+D:\Projects\iim\StoreCells\bin\Debug\StoreCells.dll
+D:\Projects\iim\StoreCells\bin\Debug\StoreCells.pdb
+D:\Projects\iim\StoreCells\obj\Debug\StoreCells.dll
+D:\Projects\iim\StoreCells\obj\Debug\StoreCells.pdb

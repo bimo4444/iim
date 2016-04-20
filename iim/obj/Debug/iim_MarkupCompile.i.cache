@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects\iim\iim\App.xaml
-7-684709792
+7-1326915657
 
-26-1064179207
-21-927338261
-Views\ConfirmRetry.xaml;Views\FirstView.xaml;Views\GridView.xaml;Views\ListMenu.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\MovementView.xaml;
+24733479286
+30819037034
+Views\ConnectionErrorView.xaml;Views\FirstView.xaml;Views\FirstViewMenu.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\MovementView.xaml;Views\PrimaryView.xaml;
 
 False
 

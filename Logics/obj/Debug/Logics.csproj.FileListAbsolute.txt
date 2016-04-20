@@ -1,4 +1,5 @@
 D:\Projects\iim\Logics\bin\Debug\Logics.dll
 D:\Projects\iim\Logics\bin\Debug\Logics.pdb
+D:\Projects\iim\Logics\obj\Debug\Logics.csprojResolveAssemblyReference.cache
 D:\Projects\iim\Logics\obj\Debug\Logics.dll
 D:\Projects\iim\Logics\obj\Debug\Logics.pdb

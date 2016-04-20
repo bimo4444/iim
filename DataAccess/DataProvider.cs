@@ -12,7 +12,7 @@ namespace DataAccess
 {
     public class DataProvider : IDataProvider
     {
-        ILog log { get { return log ?? (log = GetLogger()); } set; }
+        ILog log { get { return log ?? (log = GetLogger()); } set { log = value; } }
 
         public ILog GetLogger()
         {

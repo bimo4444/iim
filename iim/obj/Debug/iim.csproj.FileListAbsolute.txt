@@ -43,3 +43,9 @@ D:\Projects\iim\iim\obj\Debug\iim.exe
 D:\Projects\iim\iim\obj\Debug\iim.pdb
 D:\Projects\iim\iim\obj\Debug\Views\ConnectionErrorView.baml
 D:\Projects\iim\iim\obj\Debug\Views\ConnectionErrorView.g.cs
+D:\Projects\iim\iim\bin\Debug\ADOLib.dll
+D:\Projects\iim\iim\bin\Debug\DialogBase.dll
+D:\Projects\iim\iim\bin\Debug\StoreCells.dll
+D:\Projects\iim\iim\bin\Debug\ADOLib.pdb
+D:\Projects\iim\iim\bin\Debug\DialogBase.pdb
+D:\Projects\iim\iim\bin\Debug\StoreCells.pdb

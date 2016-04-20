@@ -51,17 +51,17 @@
 
             <!--DATE-->
             <Label Content="Период До:" Height="30" VerticalContentAlignment="Bottom" HorizontalAlignment="Left"/>
-            <dxe:DateEdit x:Name="de1" IsEnabled="{Binding DisabledControls}" HorizontalAlignment="Left" Width="90" MaxValue="{x:Static sys:DateTime.Now}" DateTime="{Binding Path=DtMax, Mode=TwoWay}" Height="30" ShowClearButton="False"/>
+            <dxe:DateEdit x:Name="de1" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" Width="90" MaxValue="{x:Static sys:DateTime.Now}" DateTime="{Binding Path=DtMax, Mode=TwoWay}" Height="30" ShowClearButton="False"/>
 
             <!--CHECKBOXES-->
             <Border BorderThickness="10" />
-            <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Zeros, Mode=TwoWay}" Content="Включая 0"  HorizontalAlignment="Left"/>
-            <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Minus, Mode=TwoWay}" Content="Минусы"  HorizontalAlignment="Left"/>
+            <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Zeros, Mode=TwoWay}" Content="Включая 0"  HorizontalAlignment="Left"/>
+            <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Minus, Mode=TwoWay}" Content="Минусы"  HorizontalAlignment="Left"/>
             <Border BorderThickness="10" />
-            <CheckBox IsChecked="{Binding Path=Order, Mode=TwoWay}" IsEnabled="{Binding DisabledControls}" Content="Заказ"  HorizontalAlignment="Left"/>
-            <CheckBox IsChecked="{Binding Path=Party, Mode=TwoWay}" IsEnabled="{Binding DisabledControls}" Content="Партия" HorizontalAlignment="Left"/>
-            <CheckBox IsChecked="{Binding Path=Task, Mode=TwoWay}" IsEnabled="{Binding DisabledControls}" Content="Задание" HorizontalAlignment="Left"/>
-            <CheckBox IsChecked="{Binding Path=Stat, Mode=TwoWay}" IsEnabled="{Binding DisabledControls}" Content="Статус" HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Order, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Заказ"  HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Party, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Партия" HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Task, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Задание" HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Stat, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Статус" HorizontalAlignment="Left"/>
 
             <!--SHOW GRID-->
             <Border BorderThickness="40" />

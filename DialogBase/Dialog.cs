@@ -35,9 +35,11 @@ namespace DialogBase
 
         public Dialog(UserControl userControl, IDialogViewModel viewModel = null)
         {
-            viewModel.OK = new DelegateCommand(() => result = true);
-            viewModel.Cancel = new DelegateCommand(() => result = false);
-            userControl.DataContext = viewModel ?? this.viewModel;
+            if (viewModel != null)
+                this.viewModel = viewModel;
+            this.viewModel.OK = new DelegateCommand(() => result = true);
+            this.viewModel.Cancel = new DelegateCommand(() => result = false);
+            userControl.DataContext = this.viewModel;
         }
 
         public void Show(string text = null)

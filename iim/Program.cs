@@ -39,7 +39,7 @@ namespace iim
                 ILog log = kernel.Get<ILog>();
                 log.Write(x);
 
-                Main();
+                //Main();
             }
         }
     }

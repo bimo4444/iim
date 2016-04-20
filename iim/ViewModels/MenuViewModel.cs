@@ -232,14 +232,14 @@ namespace iim.ViewModels
                 OnPropertyChanged("Stat");
             }
         }
-        private bool _disabledControls;
-        public bool DisabledControls
+        private bool _controlsEnabled;
+        public bool ControlsEnabled
         {
-            get { return _disabledControls; }
+            get { return _controlsEnabled; }
             set
             {
-                _disabledControls = value;
-                OnPropertyChanged("DisabledControls");
+                _controlsEnabled = value;
+                OnPropertyChanged("ControlsEnabled");
             }
         }
         private bool _movVisibility;

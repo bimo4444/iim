@@ -24,7 +24,7 @@
                 <!--GO BACK-->
                 <StackPanel Grid.Column="0" Orientation="Horizontal"  VerticalAlignment="Bottom">
                     <Border  BorderThickness="10" />
-                    <Button Height="30" Width="60" IsEnabled="{Binding DisabledControls}" Command="{Binding PreviousControl}">
+                    <Button Height="30" Width="60" IsEnabled="{Binding ControlsEnabled}" Command="{Binding PreviousControl}">
                         <StackPanel Margin="-9,0,-10,0" Orientation="Horizontal" Width="80" Height="30">
                             <Image Source="/Resources/resultset_previous.png" Width="16" Height="16" Margin="0,0,0,6">
                                 <Image.Style>
@@ -55,7 +55,7 @@
                     <!--/////////-->
                     <!--REFRESHER-->
                     <!--/////////-->
-                    <Button HorizontalAlignment="Center" Command="{Binding Refresh}" IsEnabled="{Binding DisabledControls}" 
+                    <Button HorizontalAlignment="Center" Command="{Binding Refresh}" IsEnabled="{Binding ControlsEnabled}" 
                                  Width="63" Height="30" BorderBrush="Black" Foreground="Black">
                         <StackPanel Margin="-11,0,-8,0" Orientation="Horizontal" Height="30" Width="95">
                             <Image Source="/Resources/arrow_refresh.png" Width="16" Height="16" Margin="6,4,0,10">
@@ -87,7 +87,7 @@
                 <!--MIDDLE-->
                 <!--MOV BUTTONS-->
                 <!--no stackPanel to prevent text wrap bugs-->
-                <Button HorizontalAlignment="Left" Grid.Column="1" ToolTip="Обновить" IsEnabled="{Binding DisabledControls}" Command="{Binding ExcelReportMov}" VerticalAlignment="Bottom" Width="30" Height="30" 
+                <Button HorizontalAlignment="Left" Grid.Column="1" ToolTip="Обновить" IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReportMov}" VerticalAlignment="Bottom" Width="30" Height="30" 
                         Visibility="{Binding MovButtonsVisibility, Converter={StaticResource boolToVisibility}}">
                     <StackPanel Margin="-5,0,-8,0" Orientation="Horizontal" Height="30" Width="50">
                         <Image Source="/resources/page_excel.png" Width="16" Height="16" Margin="0,4,0,10">
@@ -107,7 +107,7 @@
 
                 <!--GRID BUTTONS-->
                 <StackPanel Visibility="{Binding GridButtonsVisibility, Converter={StaticResource boolToVisibility}}" Margin="0,0,0,0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center"   VerticalAlignment="Bottom">
-                    <Button IsEnabled="{Binding DisabledControls}" Command="{Binding ExcelReport}" VerticalAlignment="Bottom" Width="59" Height="30">
+                    <Button IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReport}" VerticalAlignment="Bottom" Width="59" Height="30">
                         <StackPanel Margin="-5,0,-8,0" Orientation="Horizontal" Height="30" Width="50">
                             <Image Source="/resources/page_excel.png" Width="16" Height="16" Margin="0,4,0,10">
                                 <Image.Style>
@@ -166,17 +166,17 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Bottom">
-                        <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Order, Mode=TwoWay}" Content="Заказ"  HorizontalAlignment="Left"/>
-                        <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Party, Mode=TwoWay}" Content="Партия" HorizontalAlignment="Left"/>
+                        <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Order, Mode=TwoWay}" Content="Заказ"  HorizontalAlignment="Left"/>
+                        <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Party, Mode=TwoWay}" Content="Партия" HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Bottom">
-                        <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Stat, Mode=TwoWay}" Content="Статус"  HorizontalAlignment="Left"/>
-                        <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Task, Mode=TwoWay}" Content="Задание"  HorizontalAlignment="Left"/>
+                        <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Stat, Mode=TwoWay}" Content="Статус"  HorizontalAlignment="Left"/>
+                        <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Task, Mode=TwoWay}" Content="Задание"  HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel Margin="10,0,-6,0" VerticalAlignment="Bottom" Width="90">
-                        <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Zeros, Mode=TwoWay}" 
+                        <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Zeros, Mode=TwoWay}" 
                                       Visibility="{Binding GridButtonsVisibility, Converter={StaticResource boolToVisibility}}" Content="Включая 0"  HorizontalAlignment="Left"/>
-                        <CheckBox IsEnabled="{Binding DisabledControls}" IsChecked="{Binding Minus, Mode=TwoWay}" 
+                        <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Minus, Mode=TwoWay}" 
                                        Content="Минусы"  HorizontalAlignment="Left"/>
                     </StackPanel>
 
@@ -184,11 +184,11 @@
                     <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
 
                         <TextBlock Text="Период с: " HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        <dxe:DateEdit x:Name="minDateEdit" IsEnabled="{Binding DisabledControls}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="89" MinValue="{Binding DtMin, Mode=OneWay}" MaxValue="{x:Static sys:DateTime.Today}" DateTime="{Binding DtCurrentMin, Mode=TwoWay}" ShowClearButton="False"/>
+                        <dxe:DateEdit x:Name="minDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="89" MinValue="{Binding DtMin, Mode=OneWay}" MaxValue="{x:Static sys:DateTime.Today}" DateTime="{Binding DtCurrentMin, Mode=TwoWay}" ShowClearButton="False"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Text=" по: " HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding DisabledControls}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" MinValue="{Binding DtMin, Mode=OneWay}" MaxValue="{x:Static sys:DateTime.Today}" DateTime="{Binding DtMax, Mode=TwoWay}" ShowClearButton="False"/>
+                        <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" MinValue="{Binding DtMin, Mode=OneWay}" MaxValue="{x:Static sys:DateTime.Today}" DateTime="{Binding DtMax, Mode=TwoWay}" ShowClearButton="False"/>
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text=" дней: " HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                             <TextBlock Margin="0,0,5,0" Text="142" HorizontalAlignment="Right" TextAlignment="Right" VerticalAlignment="Bottom" Width="35" FontWeight="Bold"/>

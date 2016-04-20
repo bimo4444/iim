@@ -12,7 +12,8 @@ namespace DataAccess
 {
     public class DataProvider : IDataProvider
     {
-        ILog log { get { return log ?? (log = GetLogger()); } set { log = value; } }
+        ILog _log;
+        ILog log { get { return _log ?? (_log = GetLogger()); } set { _log = value; } }
 
         public ILog GetLogger()
         {

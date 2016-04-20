@@ -1,0 +1,14 @@
+*********************************************************************************************************************************************
+13.04.2016 10:19:59 GAL-PIX8318 tukan
+Cannot locate resource 'resources/box-icon-251019.png'.
+WindowsBase
+   at System.Windows.SplashScreen.Show(Boolean autoClose, Boolean topMost)
+   at System.Windows.SplashScreen.Show(Boolean autoClose)
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 22
+*********************************************************************************************************************************************
+13.04.2016 10:20:07 GAL-PIX8318 tukan
+Cannot locate resource 'resources/box-icon-251019.png'.
+WindowsBase
+   at System.Windows.SplashScreen.Show(Boolean autoClose, Boolean topMost)
+   at System.Windows.SplashScreen.Show(Boolean autoClose)
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 22

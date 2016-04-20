@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GalAMM_test" Class="SomeLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SRVGALDB2;Initial Catalog=GalAMM_test;Integrated Security=True" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="GalAMM_testConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.НоменклатурнаяПозиция" Member="НоменклатурнаяПозицияs">
+    <Type Name="НоменклатурнаяПозиция">
+      <Column Name="Oid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ДатаСоздания" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Создатель" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="СозданПользователем" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ДатаПоследнейМодификации" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Редактор" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ИзмененПользователем" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ExternalID" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="СтроковоеПредставление" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Код" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Наименование" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="СтатусОбъекта" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ДатаИзмененияСтатуса" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ИзмененияПользователя" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ТипНП" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="НомерноеИзделие" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="КонтрольРедакций" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="КонтрольПартий" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="КонтрольСроковГодности" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="СрокГодности" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ТипПериода" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ПравилоСписанияВПроизводстве" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="МХОтпуска" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ЯчейкаОтпуска" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="МХСписания" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ЯчейкаСписания" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ПриоритетПланирования" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ЭффективностьПриОбработке" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="НоменклатураИсточникНорм" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Автопополнение" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="СпособПополнения" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Автосгенерирована" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="КодНижнегоУровня" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ЗавершатьОперацииПриВыпуске" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ФиксироватьСвязи" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ДлительностьЗакупки" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="ДлительностьЗакупкиЕИ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ДлительностьПолучения" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="ДлительностьПолученияЕИ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ЭтапФормированияНомера" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ВажноеДляЗапуска" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ФорматЧертежа" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="НомерЧертежа" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="МаксимальныйРазмерПрЗаказа" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="МинимальныйРазмерПрЗаказа" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="КратностьПартииПрЗаказа" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="МаксРазмерЗаказаЗакупки" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="МинимальныйРазмерЗаказаЗакупки" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="КратностьПартииЗаказаЗакупки" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="МинимальныйУровеньЗапаса" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="СтраховойЗапас" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="НеУчитыватьОстатки" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="МаксРазмерРазделяемойПартии" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="МинРазмерРазделяемойПартии" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="КратностьРазделяемойПартии" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="КоличествоРазделяемыхПартий" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="КоличествоПараллельныхПартий" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ОтношениеРазделенияПартий" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ЕдиницаИзмерения" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="НоменклатурнаяГруппа" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ГруппаМатериала" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Категория" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="КлассНоменклатуры" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ТНВЭД" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="КодЗатрат" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Описание" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ОсновнойИзготовитель" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="КонструкторскоеОбозначение" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ГОСТ" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="МаркаМатериала" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ПрофильМатериала" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Длина" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Ширина" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Высота" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Диаметр" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Объем" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Масса" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Размер" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ВидГабарита" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ВидПрофиля" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Размер1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Размер2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Размер3" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ВведенСостав" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PDM_ID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="КСО_ID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ВПлане3Мес" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="АктивнаяОЕ" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Category" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OptimisticLockField" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GCRecord" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ObjectType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ИсточникОтпуска" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ПравилоОтпуска" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Сортамент" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ИспользоватьСоставВКомплектах" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="МатериалЗаготовки" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ПравилоКомплектации" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ПериодПотребности" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ТипЦены" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="СтатьяЗатрат" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ExternalID2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="КратностьОтпуска" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ДлительностьКонтроля" Type="System.Decimal" DbType="Decimal(24,8)" CanBeNull="true" />
+      <Column Name="Порядок" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Раскрываемость" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="РаскрываемостьПоПлощадкам" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="УчитыватьНаличиеПФПриЗапуске" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ЕдиницаИзмеренияМассы" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ПризнакСинхронизации" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="HistoryCreateActionExecutor" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HistoryCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HistoryModifyActionExecutor" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HistoryModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="КорректироватьКолвоПоНаличию" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OwnUOMs" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UOMGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="НоменклатурнаяПозиция_НоменклатурнаяПозиция" Member="НоменклатурнаяПозицияs" ThisKey="Oid" OtherKey="МатериалЗаготовки" Type="НоменклатурнаяПозиция" />
+      <Association Name="НоменклатурнаяПозиция_НоменклатурнаяПозиция1" Member="НоменклатурнаяПозицияs1" ThisKey="Oid" OtherKey="НоменклатураИсточникНорм" Type="НоменклатурнаяПозиция" />
+      <Association Name="НоменклатурнаяПозиция_НоменклатурнаяПозиция" Member="НоменклатурнаяПозиция1" ThisKey="МатериалЗаготовки" OtherKey="Oid" Type="НоменклатурнаяПозиция" IsForeignKey="true" />
+      <Association Name="НоменклатурнаяПозиция_НоменклатурнаяПозиция1" Member="НоменклатурнаяПозиция2" ThisKey="НоменклатураИсточникНорм" OtherKey="Oid" Type="НоменклатурнаяПозиция" IsForeignKey="true" />
+      <Association Name="СкладскаяЯчейка_НоменклатурнаяПозиция" Member="СкладскаяЯчейка" ThisKey="ЯчейкаОтпуска" OtherKey="Oid" Type="СкладскаяЯчейка" IsForeignKey="true" />
+      <Association Name="СкладскаяЯчейка_НоменклатурнаяПозиция1" Member="СкладскаяЯчейка1" ThisKey="ЯчейкаСписания" OtherKey="Oid" Type="СкладскаяЯчейка" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.СкладскаяЯчейка" Member="СкладскаяЯчейкаs">
+    <Type Name="СкладскаяЯчейка">
+      <Column Name="Oid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ДатаСоздания" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Создатель" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="СозданПользователем" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ДатаПоследнейМодификации" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Редактор" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ИзмененПользователем" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ExternalID" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="СтроковоеПредставление" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Код" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Наименование" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="СтатусОбъекта" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ДатаИзмененияСтатуса" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ИзмененияПользователя" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Склад" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="СтатусЗапасов" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ПорядокПриКомплектации" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OptimisticLockField" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GCRecord" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExternalID2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Порядок" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ПризнакСинхронизации" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="HistoryCreateActionExecutor" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HistoryCreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HistoryModifyActionExecutor" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HistoryModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="СкладскаяЯчейка_НоменклатурнаяПозиция" Member="НоменклатурнаяПозицияs" ThisKey="Oid" OtherKey="ЯчейкаОтпуска" Type="НоменклатурнаяПозиция" />
+      <Association Name="СкладскаяЯчейка_НоменклатурнаяПозиция1" Member="НоменклатурнаяПозицияs1" ThisKey="Oid" OtherKey="ЯчейкаСписания" Type="НоменклатурнаяПозиция" />
+    </Type>
+  </Table>
+  <Function Name="dbo.mpzGetMxList" Method="mpzGetMxList">
+    <ElementType Name="mpzGetMxListResult">
+      <Column Name="OidStore" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="StoreString" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Higher" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

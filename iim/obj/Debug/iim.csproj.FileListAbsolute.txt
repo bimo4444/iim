@@ -88,7 +88,6 @@ C:\dev\iim\iim\bin\Debug\Serializer.dll
 C:\dev\iim\iim\bin\Debug\StoreCells.dll
 C:\dev\iim\iim\bin\Debug\Uniqueness.dll
 C:\dev\iim\iim\bin\Debug\DevExpress.Printing.v14.1.Core.dll
-C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Printing.v14.1.dll
 C:\dev\iim\iim\bin\Debug\ADOLib.pdb
 C:\dev\iim\iim\bin\Debug\DataAccess.pdb
 C:\dev\iim\iim\bin\Debug\DialogBase.pdb

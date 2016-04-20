@@ -49,6 +49,9 @@ namespace iim
             Begin();
             InitializeOtherObjects();
             SetOtherViewModels();
+
+
+
         }
 
         private void ShowFirstView()
@@ -64,12 +67,14 @@ namespace iim
             oldViews = new List<UserControl>();
             oldViews.Add(firstView);
             menuViewModel.MenuVisible = true;
-            
+            someUser = core.SomeUser;
+            firstViewModel.ListBoxItems = core.GetStoresList();
         }
 
         private void OnShutdown(object sender, CancelEventArgs e)
         {
- 	        //core.SaveProperties(someUser);
+            core.SomeUser = someUser;
+            core.SaveConfig();
         }
 
         private void DisableControls(bool b)

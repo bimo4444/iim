@@ -1,4 +1,5 @@
-﻿using Entity;
+﻿using DataAccess;
+using Entity;
 using Serializer;
 using System;
 using System.Collections.Generic;
@@ -11,28 +12,46 @@ namespace Logics
 {
     public class Core : ICore
     {
+        Config config;
+        public SomeUser SomeUser { get; set; }
         XmlSerializer xmlSerializer = new XmlSerializer();
 
-        readonly string logFileName = "log.txt";
-        readonly string logFilePath;
-
-        readonly string configFilename = "iim.config.xml";
+        readonly string configFilePath = "config";
+        readonly string configFileName = "config\\iimConfig.xml";
 
         readonly string userConfigFilePath = "users";
-        readonly string userConfigFileName = "users" + Environment.UserName + ".xml";
-        readonly string path;
+        readonly string userConfigFileName = "users" + "\\" + Environment.UserName + ".xml";
 
-        readonly string assemblyPath = System.IO.Path.GetDirectoryName(
-                System.Reflection.Assembly.GetExecutingAssembly().Location);
+        DataProvider provider = new DataProvider();
 
         public Core()
         {
-            logFilePath = assemblyPath + "\\logs";
+            config = xmlSerializer.Deserialize<Config>(configFileName);
+            SomeUser = xmlSerializer.Deserialize<SomeUser>(userConfigFileName);
         }
 
-        public void SaveProperties(SomeUser someUser)
+        public void SaveConfig()
         {
-            //xmlSerializer.Serialize(someUser);
+            xmlSerializer.Serialize(SomeUser, userConfigFilePath, userConfigFileName);
+        }
+
+
+        public List<Store> GetStoresList()
+        {
+            var storesList = provider.GetStoresList();
+            var checkedStores = SomeUser.ls
+                .Where(w => w.IsSelected == true)
+                .Select(s => s.OidStore)
+                .ToList();
+            return storesList
+                .Select(s => new Store 
+                { 
+                    OidStore = s.OidStore, 
+                    Higher = s.Higher, 
+                    StoreString = s.StoreString, 
+                    IsSelected = checkedStores.Contains(s.OidStore) 
+                })
+                .ToList();
         }
     }
 }

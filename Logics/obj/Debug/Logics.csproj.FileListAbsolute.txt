@@ -3,3 +3,12 @@ D:\Projects\iim\Logics\bin\Debug\Logics.pdb
 D:\Projects\iim\Logics\obj\Debug\Logics.csprojResolveAssemblyReference.cache
 D:\Projects\iim\Logics\obj\Debug\Logics.dll
 D:\Projects\iim\Logics\obj\Debug\Logics.pdb
+C:\dev\iim\Logics\obj\Debug\Logics.csprojResolveAssemblyReference.cache
+C:\dev\iim\Logics\obj\Debug\Logics.dll
+C:\dev\iim\Logics\bin\Debug\Logics.dll
+C:\dev\iim\Logics\bin\Debug\Logics.pdb
+C:\dev\iim\Logics\bin\Debug\Entity.dll
+C:\dev\iim\Logics\bin\Debug\Serializer.dll
+C:\dev\iim\Logics\bin\Debug\Entity.pdb
+C:\dev\iim\Logics\bin\Debug\Serializer.pdb
+C:\dev\iim\Logics\obj\Debug\Logics.pdb

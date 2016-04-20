@@ -51,8 +51,6 @@ namespace iim
             SetOtherViewModels();
         }
 
-        private void 
-
         private void ShowFirstView()
         {
             firstViewModel.SelectedMenu = firstViewMenu;
@@ -63,6 +61,7 @@ namespace iim
         private void Begin()
         {
             mainWindow.Closing += OnShutdown;
+            oldViews = new List<UserControl>();
             oldViews.Add(firstView);
             menuViewModel.MenuVisible = true;
             
@@ -70,7 +69,7 @@ namespace iim
 
         private void OnShutdown(object sender, CancelEventArgs e)
         {
- 	        core.SaveProperties(someUser);
+ 	        //core.SaveProperties(someUser);
         }
 
         private void DisableControls(bool b)

@@ -10,6 +10,7 @@ using Metamorphosis;
 using ExcelServices;
 using Serializer;
 using Logging;
+using Ninject.Parameters;
 
 namespace iim
 {

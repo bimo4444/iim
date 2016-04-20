@@ -19,3 +19,10 @@ D:\Projects\iim\DialogBase\bin\Debug\MVPLight.pdb
 D:\Projects\iim\DialogBase\obj\Debug\DialogBase.csprojResolveAssemblyReference.cache
 D:\Projects\iim\DialogBase\obj\Debug\DialogBase.dll
 D:\Projects\iim\DialogBase\obj\Debug\DialogBase.pdb
+C:\dev\iim\DialogBase\bin\Debug\DialogBase.dll
+C:\dev\iim\DialogBase\bin\Debug\DialogBase.pdb
+C:\dev\iim\DialogBase\bin\Debug\MVPLight.dll
+C:\dev\iim\DialogBase\bin\Debug\MVPLight.pdb
+C:\dev\iim\DialogBase\obj\Debug\DialogBase.csprojResolveAssemblyReference.cache
+C:\dev\iim\DialogBase\obj\Debug\DialogBase.dll
+C:\dev\iim\DialogBase\obj\Debug\DialogBase.pdb

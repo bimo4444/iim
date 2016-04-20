@@ -1,0 +1,28 @@
+*********************************************************************************************************************************************
+20.04.2016 19:58:22 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+iim
+   в iim.Presenter.Begin() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 66
+   в iim.Presenter..ctor() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 49
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 31
+*********************************************************************************************************************************************
+20.04.2016 19:58:28 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+iim
+   в iim.Presenter.Begin() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 66
+   в iim.Presenter..ctor() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 49
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 31
+*********************************************************************************************************************************************
+20.04.2016 20:12:29 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+iim
+   в iim.Presenter.Begin() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 64
+   в iim.Presenter..ctor() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 49
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 31
+*********************************************************************************************************************************************
+20.04.2016 20:13:17 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+iim
+   в iim.Presenter.Begin() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 64
+   в iim.Presenter..ctor() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 49
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 31

@@ -41,6 +41,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Data.v14.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Mvvm.v14.1">
+      <HintPath>..\..\iims\iim0502\iim\bin\Debug\DevExpress.Mvvm.v14.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Xpf.Core.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\iim4\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.dll</HintPath>

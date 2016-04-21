@@ -27,8 +27,8 @@ namespace Serializer
         }
         public bool Serialize<T>(T t, string p, string f)
         {
-            //try
-            //{
+            try
+            {
                 if (!Directory.Exists(p))
                     Directory.CreateDirectory(p);
 
@@ -37,11 +37,11 @@ namespace Serializer
                 writer.Serialize(wfile, t);
                 wfile.Close();
                 return true;
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+            }
+            catch
+            {
+                return false;
+            }
 
         }
     }

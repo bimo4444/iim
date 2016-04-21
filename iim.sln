@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iim", "iim\iim.csproj", "{7C31202A-697D-45C8-BA46-1AA521CADA40}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogBase", "DialogBase\DialogBase.csproj", "{AECE9533-8F0A-447A-8F71-EB964FE6749C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVPLight", "MVPLight\MVPLight.csproj", "{E45797B0-5341-43C1-8223-052AE7F6FD42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trap", "Trap\Trap.csproj", "{E5C232C8-F6A3-4B62-97D5-FE831D5F0110}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{E45797B0-5341-43C1-8223-052AE7F6FD42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E45797B0-5341-43C1-8223-052AE7F6FD42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E45797B0-5341-43C1-8223-052AE7F6FD42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C232C8-F6A3-4B62-97D5-FE831D5F0110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C232C8-F6A3-4B62-97D5-FE831D5F0110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C232C8-F6A3-4B62-97D5-FE831D5F0110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C232C8-F6A3-4B62-97D5-FE831D5F0110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

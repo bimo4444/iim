@@ -6,3 +6,4 @@ C:\dev\iim\StoreCells\bin\Debug\StoreCells.dll
 C:\dev\iim\StoreCells\bin\Debug\StoreCells.pdb
 C:\dev\iim\StoreCells\obj\Debug\StoreCells.dll
 C:\dev\iim\StoreCells\obj\Debug\StoreCells.pdb
+C:\dev\iim\StoreCells\obj\Debug\StoreCells.csprojResolveAssemblyReference.cache

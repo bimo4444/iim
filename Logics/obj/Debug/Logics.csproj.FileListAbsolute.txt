@@ -13,7 +13,6 @@ C:\dev\iim\Logics\bin\Debug\Entity.pdb
 C:\dev\iim\Logics\bin\Debug\Serializer.pdb
 C:\dev\iim\Logics\obj\Debug\Logics.pdb
 C:\dev\iim\Logics\bin\Debug\DataAccess.dll
-C:\dev\iim\Logics\bin\Debug\Ninject.dll
 C:\dev\iim\Logics\bin\Debug\Logging.dll
 C:\dev\iim\Logics\bin\Debug\DataAccess.pdb
 C:\dev\iim\Logics\bin\Debug\Logging.pdb
@@ -44,3 +43,5 @@ C:\dev\iim\Logics\bin\Debug\Metamorphosis.pdb
 C:\dev\iim\Logics\bin\Debug\StoreCells.pdb
 C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.dll
 C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.xml
+C:\dev\iim\Logics\bin\Debug\Trap.dll
+C:\dev\iim\Logics\bin\Debug\Trap.pdb

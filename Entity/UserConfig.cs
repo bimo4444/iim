@@ -12,7 +12,6 @@ namespace Entity
         {
             ls = new List<Store>();
         }
-
         public List<Store> ls { get; set; }
         public bool PartyGrouping { get; set; }
         public bool OrderRPGrouping { get; set; }

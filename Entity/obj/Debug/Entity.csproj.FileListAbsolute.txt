@@ -6,3 +6,4 @@ C:\dev\iim\Entity\bin\Debug\Entity.dll
 C:\dev\iim\Entity\bin\Debug\Entity.pdb
 C:\dev\iim\Entity\obj\Debug\Entity.dll
 C:\dev\iim\Entity\obj\Debug\Entity.pdb
+C:\dev\iim\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache

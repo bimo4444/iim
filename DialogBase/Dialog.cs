@@ -55,10 +55,10 @@ namespace DialogBase
             PropertyChanged -= OnPropertyChanged;
         }
     }
-
+    //using MVPLight;
     //example:
 
-    //using DialogBase;//using MVPLight;
+    //using DialogBase;
 
     //Dialog dialog;
 

@@ -11,6 +11,7 @@ using ExcelServices;
 using Serializer;
 using Logging;
 using Ninject.Parameters;
+using Trap;
 
 namespace iim
 {
@@ -18,13 +19,14 @@ namespace iim
     {
         public override void Load()
         {
-            this.Bind<ILog>().To<Log>();
-            this.Bind<ICore>().To<Core>();
             this.Bind<IPresenter>().To<Presenter>();
-            this.Bind<IDataProvider>().To<DataProvider>();
-            this.Bind<IMetamorphoses>().To<Metamorphoses>();
+            this.Bind<ICore>().To<Core>();
             this.Bind<IXmlSerializer>().To<XmlSerializer>();
+            this.Bind<IMetamorphoses>().To<Metamorphoses>();
             this.Bind<IExcelService>().To<ExcelService>();
+            this.Bind<IDataProvider>().To<DataProvider>();
+            this.Bind<IExceptionTrap>().To<ExceptionTrap>();
+            this.Bind<ILog>().To<Log>();
         }
     }
 }

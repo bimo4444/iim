@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entity;
 using System.Data.SqlClient;
 using System.Data;
+using Trap;
 using ADOLib;
 
 namespace DataAccess
@@ -17,7 +18,11 @@ namespace DataAccess
 
         ADO ado;
         SqlConnectionStringBuilder builder;
-        ExceptionTrap exceptionTrap = new ExceptionTrap();
+        IExceptionTrap exceptionTrap;
+        public DataProvider(IExceptionTrap exceptionTrap)
+        {
+            this.exceptionTrap = exceptionTrap;
+        }
 
         string userAndMachineName = 
             System.Environment.UserName + " | " + System.Environment.MachineName;

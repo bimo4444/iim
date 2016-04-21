@@ -36,12 +36,11 @@ namespace iim
                 App app = new App();
                 app.Run();
             }
+
             catch (Exception x)
             {
                 ILog log = kernel.Get<ILog>();
                 log.Write(x);
-
-                //Main();
             }
         }
     }

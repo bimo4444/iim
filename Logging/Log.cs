@@ -27,7 +27,6 @@ namespace Logging
                 Directory.CreateDirectory(dirrectoryPath);
         }
 
-        private Object key = new Object();
         public void Write(string s)
         {
             try

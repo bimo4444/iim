@@ -7,17 +7,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess
+namespace Trap
 {
-    public class ExceptionTrap
+    public class ExceptionTrap : IExceptionTrap
     {
         ILog log;
-
-        public ILog GetLogger()
+        public ExceptionTrap(ILog log)
         {
-            var kernel = new StandardKernel();
-            kernel.Load(Assembly.GetExecutingAssembly());
-            return kernel.Get<ILog>();
+            this.log = log;
         }
 
         public bool Catch(Action action)
@@ -29,7 +26,7 @@ namespace DataAccess
             }
             catch (Exception x)
             {
-                (log ?? (log = GetLogger())).Write(x);
+                log.Write(x);
                 return false;
             }
         }
@@ -42,7 +39,7 @@ namespace DataAccess
             }
             catch (Exception x)
             {
-                (log ?? (log = GetLogger())).Write(x);
+                log.Write(x);
                 return Activator.CreateInstance<T>();
             }
         }

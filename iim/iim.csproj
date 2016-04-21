@@ -230,6 +230,10 @@
       <Project>{ac9de944-1c6d-4fc4-b144-0b69db6a9473}</Project>
       <Name>StoreCells</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Trap\Trap.csproj">
+      <Project>{e5c232c8-f6a3-4b62-97d5-fe831d5f0110}</Project>
+      <Name>Trap</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Uniqueness\Uniqueness.csproj">
       <Project>{1dfebba4-5670-4346-9a87-04a40d5b5389}</Project>
       <Name>Uniqueness</Name>

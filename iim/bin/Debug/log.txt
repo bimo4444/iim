@@ -238,3 +238,125 @@ Logics
    в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
    в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
    в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34
+*********************************************************************************************************************************************
+21.04.2016 22:07:57 DESKTOP-KRUHAN2 darks
+Error activating IExceptionTrap
+No matching bindings are available, and the type is not self-bindable.
+Activation path:
+  4) Injection of dependency IExceptionTrap into parameter exceptionTrap of constructor of type DataProvider
+  3) Injection of dependency IDataProvider into parameter dataProvider of constructor of type Core
+  2) Injection of dependency ICore into parameter core of constructor of type Presenter
+  1) Request for IPresenter
+
+Suggestions:
+  1) Ensure that you have defined a binding for IExceptionTrap.
+  2) If the binding was defined in a module, ensure that the module has been loaded into the kernel.
+  3) Ensure you have not accidentally created more than one kernel.
+  4) If you are using constructor arguments, ensure that the parameter name matches the constructors parameter name.
+  5) If you are using automatic module loading, ensure the search path and filters are correct.
+
+Ninject
+   в Ninject.KernelBase.Resolve(IRequest request)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.<CastIterator>d__94`1.MoveNext()
+   в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34
+*********************************************************************************************************************************************
+21.04.2016 22:17:12 DESKTOP-KRUHAN2 darks
+Error activating IExceptionTrap
+No matching bindings are available, and the type is not self-bindable.
+Activation path:
+  4) Injection of dependency IExceptionTrap into parameter exceptionTrap of constructor of type DataProvider
+  3) Injection of dependency IDataProvider into parameter dataProvider of constructor of type Core
+  2) Injection of dependency ICore into parameter core of constructor of type Presenter
+  1) Request for IPresenter
+
+Suggestions:
+  1) Ensure that you have defined a binding for IExceptionTrap.
+  2) If the binding was defined in a module, ensure that the module has been loaded into the kernel.
+  3) Ensure you have not accidentally created more than one kernel.
+  4) If you are using constructor arguments, ensure that the parameter name matches the constructors parameter name.
+  5) If you are using automatic module loading, ensure the search path and filters are correct.
+
+Ninject
+   в Ninject.KernelBase.Resolve(IRequest request)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.<CastIterator>d__94`1.MoveNext()
+   в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34

@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpf.Grid;
+using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace ExcelServices
 
         public void Export(TableView tv, string path)
         {
-            tv.ExportToXls(path, new DevExpress.XtraPrinting.XlsExportOptions() { TextExportMode = DevExpress.XtraPrinting.TextExportMode.Text });
+            tv.ExportToXls(path, new XlsExportOptions() { TextExportMode = TextExportMode.Text });
             OpenWorkbook(path);
         }
         private void Format(ref Excel.Application excel)

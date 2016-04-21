@@ -24,3 +24,5 @@ D:\Projects\iim\DataAccess\bin\Debug\ADOLib.dll
 D:\Projects\iim\DataAccess\bin\Debug\ADOLib.pdb
 C:\dev\iim\DataAccess\bin\Debug\ADOLib.dll
 C:\dev\iim\DataAccess\bin\Debug\ADOLib.pdb
+C:\dev\iim\DataAccess\bin\Debug\Trap.dll
+C:\dev\iim\DataAccess\bin\Debug\Trap.pdb

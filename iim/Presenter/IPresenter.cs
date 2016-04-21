@@ -8,5 +8,6 @@ namespace iim
 {
     public interface IPresenter
     {
+        //Ninject
     }
 }

@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -39,8 +40,11 @@ namespace iim
         MovementView movementView;
         MovementViewModel movementViewModel;
 
+        Dialog connectionErrorDialog;
         ConnectionErrorView connectionErrorView;
-        Dialog dialog;
+
+        Dialog confirmationDialog;
+        ConfirmationView confirmationView;
 
         private List<UserControl> oldViews;
 
@@ -55,12 +59,23 @@ namespace iim
             Subscribes();
         }
 
+        private void ShowMovement()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ShowGrid()
+        {
+            throw new NotImplementedException();
+        }
+
         private void Subscribes()
         {
             mainWindow.Closing += OnShutdown;
             primaryView.tableView.CellValueChanged += OnTableViewCellChanged;
-            primaryView.tableView.KeyDown += OnTableViewKeyDown;
-            movementView.tableView.KeyDown += OnTableViewKeyDown;
+            primaryView.tableView.KeyDown += OnPrimaryTableViewKeyDown;
+            primaryView.gridControl.SelectionChanged += OnPrimaryGridControlSelectionChanged;
+            movementView.tableView.KeyDown += OnMovementTableViewKeyDown;
             mainMenu.minDateEdit.MouseDoubleClick += OnMinDateEditDoubleClick;
             mainMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
             mainMenu.menuStack.MouseDown += OnHideMenuClick;
@@ -76,6 +91,76 @@ namespace iim
             menuViewModel.PreviousControl = movementViewModel.PreviousControl = new DelegateCommand(() => PreviousControl());
             menuViewModel.ExcelReportMov = movementViewModel.ExcelReportMov = new DelegateCommand(() => ExcelReportMovement());
             menuViewModel.Refresh = primaryViewModel.Refresh = movementViewModel.Refresh = new DelegateCommand(() => RefreshData());
+
+            primaryViewModel.CopyToClipboard = new DelegateCommand(() => CopyPrimaryGridControlValue());
+            movementViewModel.CopyToClipboard = new DelegateCommand(() => CopyMovementGridControlValue());
+        }
+
+        string previousStoreCellValue;
+        Item primaryViewGridControlSelected;
+        private void OnPrimaryGridControlSelectionChanged(object sender, GridSelectionChangedEventArgs e)
+        {
+            primaryViewGridControlSelected = (Item)primaryView.gridControl.SelectedItem;
+            previousStoreCellValue = primaryViewGridControlSelected.StoreCell ?? "";
+        }
+
+        ////
+        private void OnTableViewCellChanged(object sender, CellValueChangedEventArgs e)
+        {
+            Guid guid = ((Item)e.Row).OidUnit;
+            string cell = ((Item)e.Row).StoreCell;
+            if(core.CheckCellAdequacy(cell))
+            {
+                core.UpdateStoreCell(guid, cell);
+            }
+            else
+            {
+                string newCell = core.NormalizeStoreCell(cell);
+                if (ConfirmationView("Добавить новую ячейку:  " + newCell))
+                {
+                    core.AddNewStoreCell(newCell);
+                    ((Item)e.Row).StoreCell = newCell;
+                }
+                else
+                    ((Item)e.Row).StoreCell = previousStoreCellValue;
+            }
+        }
+        private bool ConfirmationView(string text)
+        {
+            bool menuVisible = mainViewModel.MenuVisible;
+            mainViewModel.MenuVisible = false;
+            mainViewModel.SelectedView = confirmationView;
+            confirmationDialog.Show(text);
+            mainViewModel.SelectedView = oldViews.Last();
+            mainViewModel.MenuVisible = menuVisible;
+            return confirmationDialog.result ?? false;
+        }
+        private bool ConnectionErrorView()
+        {
+            bool menuVisible = mainViewModel.MenuVisible;
+            mainViewModel.MenuVisible = false;
+            mainViewModel.SelectedView = connectionErrorView;
+            connectionErrorDialog.Show();
+            if (connectionErrorDialog.result == true)
+            {
+                mainViewModel.SelectedView = oldViews.Last();
+                mainViewModel.MenuVisible = menuVisible;
+                return true;
+            }
+            else
+                Application.Current.Shutdown();
+            //
+            return false;
+        }
+
+        private void CopyMovementGridControlValue()
+        {
+            Clipboard.SetText(movementView.gridControl.GetFocusedValue().ToString());
+        }
+
+        private void CopyPrimaryGridControlValue()
+        {
+            Clipboard.SetText(primaryView.gridControl.GetFocusedValue().ToString());
         }
 
         private void SelectStoresGroup()
@@ -114,52 +199,53 @@ namespace iim
 
         private void RefreshData()
         {
-            throw new NotImplementedException();
+            core.RefreshData();
         }
 
         private void ExcelReportMovement()
         {
-            throw new NotImplementedException();
+            core.ExportToExcel(movementView.tableView);
         }
 
         private void ExcelReportGrid()
         {
-            throw new NotImplementedException();
+            core.ExportToExcel(primaryView.tableView);
         }
 
-        private void ShowMovement()
-        {
-            throw new NotImplementedException();
-        }
 
-        private void ShowGrid()
-        {
-            throw new NotImplementedException();
-        }
 
         private void OnHideMenuClick(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            menuViewModel.MenuVisible = !menuViewModel.MenuVisible;
+            menuViewModel.MenuNotVisible = !menuViewModel.MenuNotVisible;
         }
 
         private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            core.ResetMaxDate();
         }
 
         private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            core.ResetMinDate();
         }
 
-        private void OnTableViewKeyDown(object sender, KeyEventArgs e)
+        private void OnPrimaryTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                Clipboard.SetText(primaryView.gridControl.GetFocusedValue().ToString());
+                e.Handled = true;
+            }
         }
 
-        private void OnTableViewCellChanged(object sender, CellValueChangedEventArgs e)
+        private void OnMovementTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                Clipboard.SetText(movementView.gridControl.GetFocusedValue().ToString());
+                e.Handled = true;
+            }
         }
 
         private void ShowFirstView()
@@ -176,11 +262,11 @@ namespace iim
             menuViewModel.MenuVisible = true;
             someUser = core.SomeUser;
 
-            using(DisabledControls disabledControls = new DisabledControls(
-                ref mainViewModel, ref menuViewModel, ref firstViewModel))
-            {
-                firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
-            }
+            //using(DisabledControls disabledControls = new DisabledControls(
+            //    ref mainViewModel, ref menuViewModel, ref firstViewModel))
+            //{
+            //    firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
+            //}
         }
 
         private void OnShutdown(object sender, CancelEventArgs e)
@@ -220,8 +306,9 @@ namespace iim
             movementView = new MovementView();
             movementViewModel = new MovementViewModel();
             connectionErrorView = new ConnectionErrorView();
-            dialog = new Dialog(connectionErrorView);
-            oldViews = new List<UserControl>();
+            connectionErrorDialog = new Dialog(connectionErrorView);
+            confirmationView = new ConfirmationView();
+            confirmationDialog = new Dialog(confirmationView);
         }
 
         private void SetViewModels()

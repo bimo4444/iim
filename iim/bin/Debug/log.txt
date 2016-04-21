@@ -65,3 +65,84 @@ System.Data
    at Logics.Core..ctor() in d:\Projects\iim\Logics\Core.cs:line 31
    at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 19
    at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:33:19 GAL-PIX8318 tukan
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+mscorlib
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:33:43 GAL-PIX8318 tukan
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+mscorlib
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:34:21 GAL-PIX8318 tukan
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+mscorlib
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:34:49 GAL-PIX8318 tukan
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+mscorlib
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:36:13 GAL-PIX8318 tukan
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+mscorlib
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at System.Linq.Enumerable.ElementAt[TSource](IEnumerable`1 source, Int32 index)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:37:51 GAL-PIX8318 tukan
+Sequence contains no elements
+System.Core
+   at System.Linq.Enumerable.Last[TSource](IEnumerable`1 source)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:39:09 GAL-PIX8318 tukan
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+mscorlib
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 16:40:43 GAL-PIX8318 tukan
+Sequence contains no elements
+System.Core
+   at System.Linq.Enumerable.Last[TSource](IEnumerable`1 source)
+   at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
+   at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31

@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using DevExpress.Xpf.Grid;
 using Entity;
 using Serializer;
 using System;
@@ -61,6 +62,47 @@ namespace Logics
         }
 
         public List<Store> UncheckSelectedStores()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckCellAdequacy(string cell)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateStoreCell(Guid guid, string cell)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string NormalizeStoreCell(string cell)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddNewStoreCell(string newCell)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RefreshData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExportToExcel(TableView globalDevExpressXpfGridTableView)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void ResetMaxDate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ResetMinDate()
         {
             throw new NotImplementedException();
         }

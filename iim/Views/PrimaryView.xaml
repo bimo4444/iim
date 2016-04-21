@@ -53,7 +53,7 @@
                 <dxg:GridColumn FieldName="Stat" Header="Статус" Width="22" Visible="{Binding StatVisible}" />
             </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView IsRowCellMenuEnabled="True" x:Name="tv" ShowTotalSummary="True" IsDetailButtonVisibleBinding="{x:Null}" AllowEditing="False" ShowAutoFilterRow="True"
+                <dxg:TableView IsRowCellMenuEnabled="True" x:Name="tableView" ShowTotalSummary="True" IsDetailButtonVisibleBinding="{x:Null}" AllowEditing="False" ShowAutoFilterRow="True"
                                                    FilterEditorShowOperandTypeIcon="True" ShowGroupPanel="False" SearchPanelFindFilter="Like">
                     
                     <dxg:TableView.RowCellMenuCustomizations>

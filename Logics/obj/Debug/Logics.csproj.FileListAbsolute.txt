@@ -17,3 +17,15 @@ C:\dev\iim\Logics\bin\Debug\Ninject.dll
 C:\dev\iim\Logics\bin\Debug\Logging.dll
 C:\dev\iim\Logics\bin\Debug\DataAccess.pdb
 C:\dev\iim\Logics\bin\Debug\Logging.pdb
+D:\Projects\iim\Logics\bin\Debug\DataAccess.dll
+D:\Projects\iim\Logics\bin\Debug\Entity.dll
+D:\Projects\iim\Logics\bin\Debug\Serializer.dll
+D:\Projects\iim\Logics\bin\Debug\Ninject.dll
+D:\Projects\iim\Logics\bin\Debug\ADOLib.dll
+D:\Projects\iim\Logics\bin\Debug\Logging.dll
+D:\Projects\iim\Logics\bin\Debug\DataAccess.pdb
+D:\Projects\iim\Logics\bin\Debug\Entity.pdb
+D:\Projects\iim\Logics\bin\Debug\Serializer.pdb
+D:\Projects\iim\Logics\bin\Debug\Ninject.xml
+D:\Projects\iim\Logics\bin\Debug\ADOLib.pdb
+D:\Projects\iim\Logics\bin\Debug\Logging.pdb

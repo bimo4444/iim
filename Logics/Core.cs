@@ -22,12 +22,13 @@ namespace Logics
         readonly string userConfigFilePath = "users";
         readonly string userConfigFileName = "users" + "\\" + Environment.UserName + ".xml";
 
-        DataProvider provider = new DataProvider();
+        DataProvider provider;
 
         public Core()
         {
             config = xmlSerializer.Deserialize<Config>(configFileName);
             SomeUser = xmlSerializer.Deserialize<SomeUser>(userConfigFileName);
+            provider = new DataProvider(config.ConnectionString, config.ConnectionTimeOut);
         }
 
         public void SaveConfig()
@@ -52,6 +53,16 @@ namespace Logics
                     IsSelected = checkedStores.Contains(s.OidStore) 
                 })
                 .ToList();
+        }
+
+        public List<Store> SelectStoresGroup()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Store> UncheckSelectedStores()
+        {
+            throw new NotImplementedException();
         }
     }
 }

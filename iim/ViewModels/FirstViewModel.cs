@@ -35,7 +35,7 @@ namespace iim.ViewModels
         public bool ListEnabled
         {
             get { return _listEnabled; }
-            private set
+            set
             {
                 _listEnabled = value;
                 OnPropertyChanged("ListEnabled");

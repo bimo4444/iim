@@ -9,9 +9,10 @@ namespace DataAccess
 {
     public interface IDataProvider
     {
+        bool NewCell(string name);
         List<Store> GetStoresList();
-        List<Item> GetBaseQuery(List<Guid> lg);
         List<string> GetStoreCells();
         bool UpdateStoreCell(Guid guid, string cell);
+        List<Item> GetBaseQuery(IEnumerable<Guid> guids);
     }
 }

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projects\iim\iim\obj\Debug\
+C:\dev\iim\iim\obj\Debug\
 iim
 none
 false
 DEBUG;TRACE
-D:\Projects\iim\iim\App.xaml
+C:\dev\iim\iim\App.xaml
 8-1638521696
 
-211936507700
-31-1528536018
+22-1140986243
+3180992141
 Views\ConfirmationView.xaml;Views\ConnectionErrorView.xaml;Views\FirstView.xaml;Views\FirstViewMenu.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\MovementView.xaml;Views\PrimaryView.xaml;
 
 False

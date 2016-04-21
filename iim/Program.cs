@@ -18,6 +18,9 @@ namespace iim
         [STAThread]
         static void Main()
         {
+            var kernel = new StandardKernel();
+            kernel.Load(Assembly.GetExecutingAssembly());
+
             try
             {
                 Unique unique = new Unique();
@@ -28,14 +31,13 @@ namespace iim
                     "Resources/box-icon-251019.png");
                 ss.Show(true);
 
-                Presenter p = new Presenter();
+                IPresenter presenter = kernel.Get<IPresenter>();
+
                 App app = new App();
                 app.Run();
             }
             catch (Exception x)
             {
-                var kernel = new StandardKernel();
-                kernel.Load(Assembly.GetExecutingAssembly());
                 ILog log = kernel.Get<ILog>();
                 log.Write(x);
 

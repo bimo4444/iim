@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class SomeUser
+    public class UserConfig
     {
-        public SomeUser()
+        public UserConfig()
         {
             ls = new List<Store>();
         }

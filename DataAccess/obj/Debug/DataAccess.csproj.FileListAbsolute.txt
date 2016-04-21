@@ -22,3 +22,5 @@ C:\dev\iim\DataAccess\obj\Debug\DataAccess.dll
 C:\dev\iim\DataAccess\obj\Debug\DataAccess.pdb
 D:\Projects\iim\DataAccess\bin\Debug\ADOLib.dll
 D:\Projects\iim\DataAccess\bin\Debug\ADOLib.pdb
+C:\dev\iim\DataAccess\bin\Debug\ADOLib.dll
+C:\dev\iim\DataAccess\bin\Debug\ADOLib.pdb

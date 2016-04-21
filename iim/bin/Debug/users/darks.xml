@@ -5,6 +5,6 @@
   <OrderRPGrouping>false</OrderRPGrouping>
   <Zeros>false</Zeros>
   <TaskGrouping>false</TaskGrouping>
-  <Minus>true</Minus>
+  <Minus>false</Minus>
   <StatGrouping>false</StatGrouping>
 </SomeUser>

@@ -146,3 +146,95 @@ System.Core
    at iim.Presenter.ConfirmationView(String text) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 130
    at iim.Presenter..ctor() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 63
    at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 31
+*********************************************************************************************************************************************
+21.04.2016 19:21:07 DESKTOP-KRUHAN2 darks
+Метод или операция не реализована.
+Logics
+   в Logics.Core.Initializing() в c:\dev\iim\Logics\Core.cs:строка 45
+   в Logics.Core..ctor() в c:\dev\iim\Logics\Core.cs:строка 37
+   в iim.Presenter..ctor() в c:\dev\iim\iim\Presenter\Presenter.cs:строка 22
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 31
+*********************************************************************************************************************************************
+21.04.2016 20:38:34 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+Logics
+   в Logics.Core..ctor(IDataProvider dataProvider, IMetamorphoses metamorphosis, IXmlSerializer xmlSerializer, IExcelService excelService) в c:\dev\iim\Logics\Core.cs:строка 47
+   в DynamicInjectora528e7627b6a468ab3753542b19836d7(Object[] )
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.<CastIterator>d__94`1.MoveNext()
+   в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34
+*********************************************************************************************************************************************
+21.04.2016 20:38:48 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+Logics
+   в Logics.Core..ctor(IDataProvider dataProvider, IMetamorphoses metamorphosis, IXmlSerializer xmlSerializer, IExcelService excelService) в c:\dev\iim\Logics\Core.cs:строка 47
+   в DynamicInjectorac63c3e2d83944b196f38f20aa3eded2(Object[] )
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.<CastIterator>d__94`1.MoveNext()
+   в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34
+*********************************************************************************************************************************************
+21.04.2016 20:39:45 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+Logics
+   в Logics.Core..ctor(IDataProvider dataProvider, IMetamorphoses metamorphosis, IXmlSerializer xmlSerializer, IExcelService excelService)
+   в DynamicInjector5f5d5155d72c4be8a7fe295da43221ad(Object[] )
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   в Ninject.Planning.Targets.Target`1.GetValue(Type service, IContext parent)
+   в Ninject.Planning.Targets.Target`1.ResolveWithin(IContext parent)
+   в Ninject.Activation.Providers.StandardProvider.GetValue(IContext context, ITarget target)
+   в Ninject.Activation.Providers.StandardProvider.<>c__DisplayClass4.<Create>b__2(ITarget target)
+   в System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   в System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   в System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   в Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   в Ninject.Activation.Context.ResolveInternal(Object scope)
+   в Ninject.Activation.Context.Resolve()
+   в Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   в System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   в System.Linq.Enumerable.<CastIterator>d__94`1.MoveNext()
+   в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34

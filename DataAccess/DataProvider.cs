@@ -12,7 +12,7 @@ namespace DataAccess
 {
     public class DataProvider : IDataProvider
     {
-        int connectionTimeOut;
+        int connectionTimeOut = 30;
         string connectionString;
 
         ADO ado;
@@ -22,14 +22,20 @@ namespace DataAccess
         string userAndMachineName = 
             System.Environment.UserName + " | " + System.Environment.MachineName;
 
-        public DataProvider(string connectionString, int timeOut)
+        public void Initialize()
         {
-            this.connectionTimeOut = timeOut;
-            this.connectionString = connectionString;
+            ado = new ADO(connectionString, connectionTimeOut);
             builder = new SqlConnectionStringBuilder(connectionString);
-            ado = new ADO(connectionString, timeOut);
+        }
+        public void Configure(string connectionString)
+        {
+            this.connectionString = connectionString;
         }
 
+        public void Configure(int connectionTimeOut)
+        {
+            this.connectionTimeOut = connectionTimeOut;
+        }
         public List<Store> GetStoresList()
         {
             return exceptionTrap.Catch(delegate()
@@ -166,7 +172,5 @@ namespace DataAccess
                     + name + "', '" + name + "', '" + userAndMachineName + "', @dateTime)", "@dateTime", DateTime.Now);
             });
         }
-
-
     }
 }

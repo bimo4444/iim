@@ -1,6 +1,8 @@
 ﻿using DataAccess;
 using DevExpress.Xpf.Grid;
 using Entity;
+using ExcelServices;
+using Metamorphosis;
 using Serializer;
 using System;
 using System.Collections.Generic;
@@ -13,62 +15,111 @@ namespace Logics
 {
     public class Core : ICore
     {
+        public List<string> StoreCells { get; set; }
+
+        public UserConfig SomeUser { get; set; }
         Config config;
-        public SomeUser SomeUser { get; set; }
-        XmlSerializer xmlSerializer = new XmlSerializer();
+
 
         readonly string configFilePath = "config";
         readonly string configFileName = "config\\iimConfig.xml";
 
         readonly string userConfigFilePath = "users";
-        readonly string userConfigFileName = "users" + "\\" + Environment.UserName + ".xml";
+        readonly string userConfigFileName = "users\\" + Environment.UserName + ".xml";
 
-        DataProvider provider;
+        IDataProvider dataProvider;
+        IMetamorphoses metamorphosis;
+        IXmlSerializer xmlSerializer;
+        IExcelService excelService;
+        //ICellsNormalizer cellsNormalizer;
 
-        public Core()
+        public Core(
+            IDataProvider dataProvider,
+            IMetamorphoses metamorphosis,
+            IXmlSerializer xmlSerializer,
+            IExcelService excelService)
+
+        {
+            this.metamorphosis = metamorphosis;
+            this.xmlSerializer = xmlSerializer;
+            this.excelService = excelService;
+            this.dataProvider = dataProvider;
+            //dataProvider.Configure(config.ConnectionString);
+            //dataProvider.Configure(config.ConnectionTimeOut);
+
+            Initializing();
+            DeserializeConfigs();
+
+        }
+
+        private void Initializing()
+        {
+
+        }
+
+        private void DeserializeConfigs()
         {
             config = xmlSerializer.Deserialize<Config>(configFileName);
-            SomeUser = xmlSerializer.Deserialize<SomeUser>(userConfigFileName);
-            provider = new DataProvider(config.ConnectionString, config.ConnectionTimeOut);
+            SomeUser = xmlSerializer.Deserialize<UserConfig>(userConfigFileName);
         }
-
-        public void SaveConfig()
-        {
-            xmlSerializer.Serialize(SomeUser, userConfigFilePath, userConfigFileName);
-        }
-
 
         public List<Store> GetStoresList()
         {
-            var storesList = provider.GetStoresList();
-            var checkedStores = SomeUser.ls
-                .Where(w => w.IsSelected == true)
-                .Select(s => s.OidStore)
-                .ToList();
-            return storesList
-                .Select(s => new Store 
-                { 
-                    OidStore = s.OidStore, 
-                    Higher = s.Higher, 
-                    StoreString = s.StoreString, 
-                    IsSelected = checkedStores.Contains(s.OidStore) 
+            //nested
+            var storesList = dataProvider.GetStoresList();
+            return SomeUser.ls.Count > 0 ? (SomeUser.ls = storesList
+                .Select(s => new Store
+                {
+                    OidStore = s.OidStore,
+                    Higher = s.Higher,
+                    StoreString = s.StoreString,
+                    IsSelected = 
+                        (SomeUser.ls 
+                            .Where(w => w.IsSelected == true)
+                            .Select(ss => ss.OidStore))
+                        .Contains(s.OidStore)
                 })
-                .ToList();
+                .ToList()) : (SomeUser.ls = storesList);
         }
 
-        public List<Store> SelectStoresGroup()
+        public List<Store> SelectStoresGroups()
         {
-            throw new NotImplementedException();
+            //nested
+            var h = SomeUser.ls
+                .Where(w => w.IsSelected)
+                .Select(s => s.Higher)
+                .Distinct();
+            return (SomeUser.ls = SomeUser.ls
+                .Where(w => h.Contains(w.Higher))
+                .Select(s => new Store 
+                { 
+                    Higher = s.Higher, 
+                    IsSelected = true, 
+                    OidStore = s.OidStore, 
+                    StoreString = s.StoreString 
+                })
+                .ToList());
         }
 
         public List<Store> UncheckSelectedStores()
         {
-            throw new NotImplementedException();
+            return (SomeUser.ls = SomeUser.ls
+                .Select(s => new Store
+                {
+                    Higher = s.Higher,
+                    IsSelected = false,
+                    OidStore = s.OidStore,
+                    StoreString = s.StoreString
+                })
+                .ToList());
         }
 
         public bool CheckCellAdequacy(string cell)
         {
             throw new NotImplementedException();
+
+            //cell = cellsNormalizer.Normalize(cell);
+
         }
 
         public void UpdateStoreCell(Guid guid, string cell)
@@ -86,7 +137,7 @@ namespace Logics
             throw new NotImplementedException();
         }
 
-        public void RefreshData()
+        public void Refresh()
         {
             throw new NotImplementedException();
         }
@@ -103,6 +154,22 @@ namespace Logics
         }
 
         public void ResetMinDate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnShutDown()
+        {
+            xmlSerializer.Serialize(SomeUser, userConfigFilePath, userConfigFileName);
+            //xmlSerializer.Serialize(config, configFilePath, configFileName);
+        }
+
+        public List<Item> GetPrimaryItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Item> GetMovementItems()
         {
             throw new NotImplementedException();
         }

@@ -20,6 +20,7 @@ namespace iim
         {
             this.Bind<ILog>().To<Log>();
             this.Bind<ICore>().To<Core>();
+            this.Bind<IPresenter>().To<Presenter>();
             this.Bind<IDataProvider>().To<DataProvider>();
             this.Bind<IMetamorphoses>().To<Metamorphoses>();
             this.Bind<IXmlSerializer>().To<XmlSerializer>();

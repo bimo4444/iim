@@ -101,7 +101,6 @@ C:\dev\iim\iim\bin\Debug\Serializer.pdb
 C:\dev\iim\iim\bin\Debug\StoreCells.pdb
 C:\dev\iim\iim\bin\Debug\Uniqueness.pdb
 C:\dev\iim\iim\bin\Debug\DevExpress.Mvvm.v14.1.xml
-C:\dev\iim\iim\bin\Debug\Ninject.xml
 D:\Projects\iim\iim\obj\Debug\Views\ConfirmationView.baml
 D:\Projects\iim\iim\obj\Debug\Views\ConfirmationView.g.cs
 D:\Projects\iim\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.dll
@@ -119,3 +118,7 @@ D:\Projects\iim\iim\bin\Debug\de\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 D:\Projects\iim\iim\bin\Debug\es\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 D:\Projects\iim\iim\bin\Debug\ja\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 D:\Projects\iim\iim\bin\Debug\ru\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.xml
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.xml
+C:\dev\iim\iim\obj\Debug\Views\ConfirmationView.baml
+C:\dev\iim\iim\obj\Debug\Views\ConfirmationView.g.cs

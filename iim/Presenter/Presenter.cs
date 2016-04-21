@@ -17,9 +17,9 @@ using System.Windows.Input;
 
 namespace iim
 {
-    class Presenter
+    class Presenter : IPresenter
     {
-        Core core = new Core();
+        ICore core;
 
         MainWindow mainWindow = new MainWindow();
         MainViewModel mainViewModel = new MainViewModel();
@@ -29,8 +29,6 @@ namespace iim
 
         FirstViewMenu firstViewMenu = new FirstViewMenu();
         MenuViewModel menuViewModel = new MenuViewModel();
-
-        SomeUser someUser = new SomeUser();
 
         MainMenu mainMenu;
 
@@ -48,15 +46,16 @@ namespace iim
 
         private List<UserControl> oldViews;
 
-        public Presenter()
+        public Presenter(ICore core)
         {
+            this.core = core;
             SetViewModels();
-            ShowFirstView();
             Begin();
-            InitializeOtherObjects();
+            Initializing();
             SetOtherViewModels();
             Bindings();
             Subscribes();
+            ShowFirstView();
         }
 
         private void ShowMovement()
@@ -107,23 +106,23 @@ namespace iim
         ////
         private void OnTableViewCellChanged(object sender, CellValueChangedEventArgs e)
         {
-            Guid guid = ((Item)e.Row).OidUnit;
-            string cell = ((Item)e.Row).StoreCell;
-            if(core.CheckCellAdequacy(cell))
-            {
-                core.UpdateStoreCell(guid, cell);
-            }
-            else
-            {
-                string newCell = core.NormalizeStoreCell(cell);
-                if (ConfirmationView("Добавить новую ячейку:  " + newCell))
-                {
-                    core.AddNewStoreCell(newCell);
-                    ((Item)e.Row).StoreCell = newCell;
-                }
-                else
-                    ((Item)e.Row).StoreCell = previousStoreCellValue;
-            }
+            //Guid guid = ((Item)e.Row).OidUnit;
+            //string cell = ((Item)e.Row).StoreCell;
+            //if(core.CheckCellAdequacy(cell))
+            //{
+            //    core.UpdateStoreCell(guid, cell);
+            //}
+            //else
+            //{
+            //    string newCell = core.NormalizeStoreCell(cell);
+            //    if (ConfirmationView("Добавить новую ячейку:  " + newCell))
+            //    {
+            //        core.AddNewStoreCell(newCell);
+            //        ((Item)e.Row).StoreCell = newCell;
+            //    }
+            //    else
+            //        ((Item)e.Row).StoreCell = previousStoreCellValue;
+            //}
         }
         private bool ConfirmationView(string text)
         {
@@ -165,12 +164,12 @@ namespace iim
 
         private void SelectStoresGroup()
         {
-            firstViewModel.ListBoxItems = core.SelectStoresGroup();
+            //firstViewModel.ListBoxItems = core.SelectStoresGroups();
         }
 
         private void UncheckSelectedStores()
         {
-            firstViewModel.ListBoxItems = core.UncheckSelectedStores();
+            //firstViewModel.ListBoxItems = core.UncheckSelectedStores();
         }
 
         private void PreviousControl()
@@ -199,17 +198,25 @@ namespace iim
 
         private void RefreshData()
         {
-            core.RefreshData();
+            core.Refresh();
+            ResetData();
+        }
+
+        private void ResetData()
+        {
+            primaryViewModel.ListItems = core.GetPrimaryItems();
+            movementViewModel.ListItems = core.GetMovementItems();
+            primaryViewGridControlSelected = null;
         }
 
         private void ExcelReportMovement()
         {
-            core.ExportToExcel(movementView.tableView);
+            //core.ExportToExcel(movementView.tableView);
         }
 
         private void ExcelReportGrid()
         {
-            core.ExportToExcel(primaryView.tableView);
+            //core.ExportToExcel(primaryView.tableView);
         }
 
 
@@ -222,29 +229,30 @@ namespace iim
 
         private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            core.ResetMaxDate();
+            //core.ResetMaxDate();
         }
 
         private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            core.ResetMinDate();
+            //core.ResetMinDate();
         }
 
         private void OnPrimaryTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-            {
-                Clipboard.SetText(primaryView.gridControl.GetFocusedValue().ToString());
-                e.Handled = true;
-            }
+            OnKeyDown(primaryView.gridControl.GetFocusedValue().ToString());
         }
 
         private void OnMovementTableViewKeyDown(object sender, KeyEventArgs e)
         {
+            OnKeyDown(movementView.gridControl.GetFocusedValue().ToString());
+        }
+        private void OnKeyDown(string s, KeyEventArgs e = null)
+        {
             if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
-                Clipboard.SetText(movementView.gridControl.GetFocusedValue().ToString());
-                e.Handled = true;
+                Clipboard.SetText(s);
+                if(e != null)
+                    e.Handled = true;
             }
         }
 
@@ -259,8 +267,15 @@ namespace iim
         {
             oldViews = new List<UserControl>();
             oldViews.Add(firstView);
+
             menuViewModel.MenuVisible = true;
-            someUser = core.SomeUser;
+
+            menuViewModel.Task = core.SomeUser.TaskGrouping;
+            menuViewModel.Zeros = core.SomeUser.Zeros;
+            menuViewModel.Stat = core.SomeUser.StatGrouping;
+            menuViewModel.Party = core.SomeUser.PartyGrouping;
+            menuViewModel.Order = core.SomeUser.OrderRPGrouping;
+            menuViewModel.Minus = core.SomeUser.Minus;
 
             //using(DisabledControls disabledControls = new DisabledControls(
             //    ref mainViewModel, ref menuViewModel, ref firstViewModel))
@@ -271,8 +286,7 @@ namespace iim
 
         private void OnShutdown(object sender, CancelEventArgs e)
         {
-            core.SomeUser = someUser;
-            core.SaveConfig();
+            //core.OnShutDown();
         }
 
         //private void DisableControls(bool b)
@@ -287,8 +301,8 @@ namespace iim
         {
             if (!mainViewModel.MenuVisible)
                 mainViewModel.MenuVisible = true;
-            oldViews.Add(userControl);
             mainViewModel.SelectedView = userControl;
+            oldViews.Add(userControl);
         }
 
         private void SetOtherViewModels()
@@ -298,7 +312,7 @@ namespace iim
             movementView.DataContext = movementViewModel;
         }
 
-        private void InitializeOtherObjects()
+        private void Initializing()
         {
             mainMenu = new MainMenu();
             primaryView = new PrimaryView();

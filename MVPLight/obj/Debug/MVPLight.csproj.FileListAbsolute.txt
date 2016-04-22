@@ -17,3 +17,4 @@ C:\dev\iim\MVPLight\bin\Debug\MVPLight.pdb
 C:\dev\iim\MVPLight\obj\Debug\MVPLight.csprojResolveAssemblyReference.cache
 C:\dev\iim\MVPLight\obj\Debug\MVPLight.dll
 C:\dev\iim\MVPLight\obj\Debug\MVPLight.pdb
+D:\Projects\iim\MVPLight\obj\Debug\MVPLight.csprojResolveAssemblyReference.cache

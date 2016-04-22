@@ -8,8 +8,7 @@
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              dx:ThemeManager.ThemeName="Office2013"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             mc:Ignorable="d" >
     <UserControl.Resources>
         <mvp:BoolToVisibilityConverter x:Key="boolToVisibility" />
     </UserControl.Resources>
@@ -184,11 +183,11 @@
                     <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
 
                         <TextBlock Text="Период с: " HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        <dxe:DateEdit x:Name="minDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="89" MinValue="{Binding DtMin, Mode=OneWay}" MaxValue="{x:Static sys:DateTime.Today}" DateTime="{Binding DtCurrentMin, Mode=TwoWay}" ShowClearButton="False"/>
+                        <dxe:DateEdit x:Name="minDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="89" MinValue="{Binding MinDateTime, Mode=OneWay}" MaxValue="{Binding MaxDateTime, Mode=TwoWay}" DateTime="{Binding CurrentMinDateTime, Mode=TwoWay}" ShowClearButton="False"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Text=" по: " HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" MinValue="{Binding DtMin, Mode=OneWay}" MaxValue="{x:Static sys:DateTime.Today}" DateTime="{Binding DtMax, Mode=TwoWay}" ShowClearButton="False"/>
+                        <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" MinValue="{Binding MinDateTime, Mode=OneWay}" MaxValue="{Binding MaxDateTime, Mode=TwoWay}" DateTime="{Binding CurrentMaxDateTime, Mode=TwoWay}" ShowClearButton="False"/>
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text=" дней: " HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                             <TextBlock Margin="0,0,5,0" Text="142" HorizontalAlignment="Right" TextAlignment="Right" VerticalAlignment="Bottom" Width="35" FontWeight="Bold"/>

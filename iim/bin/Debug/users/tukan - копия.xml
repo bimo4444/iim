@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StoresList>
+    <Store>
+      <OidStore>fdfb34fe-9d97-4489-b2e1-badfcabd2f74</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>14 14 цех</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9ca-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9ca-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>18 Склад материалов</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7dfac5-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7dfac5-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>22 Склад электростанций</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>a4dce286-3482-4e9e-a303-74643a52f3a0</OidStore>
+      <Higher>4b7dfac5-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>22_1 Склад брака электростанций</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>cf84fd35-2861-4954-a75d-cabf1036a798</OidStore>
+      <Higher>4b7dfac5-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>22_4 Склад ДЭ СГВ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7dfe16-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7dfac5-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>22_К Склад КП электростанций</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7dfb27-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7dfb27-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>24 Участок непокрытых изделий</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9b6-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7dfb27-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>24_0 Участок покрытых изделий</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9ab-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>27 Цех агрегатного производства (цех № 27)</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>f0109fe6-cf2b-4c67-a94e-65ff9e237b16</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>27_0 Участок комплектования ЗИП</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>d1065945-bde3-47cb-b598-700cdf39e5e6</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>27_1 Коммерческое пр-во ДЭиСТ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>5a2cb5d1-026c-41b8-9823-d745227f3d16</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>27_2 Кабельный участок 27 цеха</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9dc-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>27_31 Испытательный участок</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>31c3173c-2cb8-42ef-936e-551f3b728e56</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>27_33 Малярный участок</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7dfc81-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7dfc81-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>29 Цех аппаратного производства (цех №29)</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>a2294369-68e3-11e5-b68f-7c0507ad1d58</OidStore>
+      <Higher>4b7dfc81-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>29_26 Покрытие лаком</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9c4-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9c4-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>34 Склад ПКИ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>7665df47-a4fa-444a-ae35-ac0b73bef575</OidStore>
+      <Higher>4b7df9c4-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>34_1 Склад брака ПКИ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>c24d81e4-e06e-4444-94dc-501dbf48fd85</OidStore>
+      <Higher>4b7df9c4-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>34_2 Склад комплектации СГВ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>77b2cb88-ac62-11e4-8e70-3860772e7188</OidStore>
+      <Higher>4b7df9c4-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>34_К Склад КП ПКИ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>1e86051f-5752-4109-93b3-12c95863a974</OidStore>
+      <Higher>1e86051f-5752-4109-93b3-12c95863a974</Higher>
+      <StoreString>36  !УДАЛИТЬ! Склад 36  !УДАЛИТЬ!</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7e1f49-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7e1f49-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>36 Склад 36</StoreString>
+      <IsSelected>true</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4bd63df1-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>8a7dc930-f2d2-4a8e-b054-60983421bb09</Higher>
+      <StoreString>41_1 Склад металлической мебели</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>accd1a99-6c08-47db-a3c7-9c62e9f7b228</OidStore>
+      <Higher>accd1a99-6c08-47db-a3c7-9c62e9f7b228</Higher>
+      <StoreString>41_3 Выставочный зал</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>5ba40835-f7b7-4ba6-826f-7a61e39c1752</OidStore>
+      <Higher>5ba40835-f7b7-4ba6-826f-7a61e39c1752</Higher>
+      <StoreString>42_2 Отдел технического контроля</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>35c37376-fa78-42bb-b089-221b35ab8954</OidStore>
+      <Higher>4bd63dfa-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>44_1 Склад ответ.хранения Спецтехники</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9b0-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9b0-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>5 Цех металлоконструкций (цех № 5)</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>e61f3bd1-f10a-418a-b4de-cff1292e12c5</OidStore>
+      <Higher>4b7df9b0-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>5_1 Участок шкафов 5 ц. (99)</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7e172d-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9b0-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>5_2 Цех № 5 для внутренних заказов</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>34797336-9ff7-4fff-bd77-436ca4481006</OidStore>
+      <Higher>4b7df9b0-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>5_3 Цех №5 для эл.станций</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9de-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9de-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>6 Склад полуфабрикатов</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>cb4456a5-7e98-487d-9ade-7082004d56f3</OidStore>
+      <Higher>4b7df9de-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>6_1 Склад брака 6 склада</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>5a2965ae-3ff1-4414-9221-efe5b807cb6c</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>63_1 Участок резки кабеля</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4bd63dfb-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4bd63dfb-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>72 Испытательный центр СГК</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>c48c52b6-fb0b-494a-9da8-a8ecd0e2b536</OidStore>
+      <Higher>c48c52b6-fb0b-494a-9da8-a8ecd0e2b536</Higher>
+      <StoreString>75 СГК</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4ab72954-72b9-4ad1-bd3c-3fd1d21b4c74</OidStore>
+      <Higher>1dcb88a0-5d7b-404c-bcaa-6feff7463034</Higher>
+      <StoreString>75_4 Лаборатория пром.электроники</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>1dcb88a0-5d7b-404c-bcaa-6feff7463034</OidStore>
+      <Higher>c48c52b6-fb0b-494a-9da8-a8ecd0e2b536</Higher>
+      <StoreString>75_44 Отдел промышленной электроники</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9b1-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9b1-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>78 Межцеховой склад ПДО</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>cbb12f1b-d6b6-4380-a529-4428b77000e6</OidStore>
+      <Higher>4b7df9b1-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>78_1 Склад брака 78 (24) склада</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7e1004-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9b1-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>78_2 Межцеховой склад аппаратуры</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9b8-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9b8-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>8 Склад металлов</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>83869975-0707-48c5-94f8-e4d8240fd5df</OidStore>
+      <Higher>4b7df9b8-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>8_1 Склад брака металлов</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>56ab3f5c-836c-11e3-a374-4c72b926b3ee</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>84 Участок аппаратуры</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7df9b4-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9b4-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>9 Склад кабелей</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4bd63dfa-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4bd63dfa-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>90 Склад готовой продукции</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4b7dfeb7-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>4b7df9ab-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>90_1 Столярный участок</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>c2f3fb93-fc33-4ec1-afae-454f7f03c7e6</OidStore>
+      <Higher>4bd63dfa-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>90_27 Склад готовой продукции электростанций</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>8a7dc930-f2d2-4a8e-b054-60983421bb09</OidStore>
+      <Higher>8a7dc930-f2d2-4a8e-b054-60983421bb09</Higher>
+      <StoreString>90_5 Склад шкафов</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>90033341-a4fd-4ac6-a39d-9208baf156ce</OidStore>
+      <Higher>90033341-a4fd-4ac6-a39d-9208baf156ce</Higher>
+      <StoreString>90_5212 Склад Полигон</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>643caa07-d68a-4c8e-b80f-e8dd63fc3118</OidStore>
+      <Higher>643caa07-d68a-4c8e-b80f-e8dd63fc3118</Higher>
+      <StoreString>90_58 Склад отдела внешних работ</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>a1a18c48-d3ba-11e4-be26-eca86bf8faf1</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>АлМет _ООО "АлексМетео"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>9511371b-3b7a-11e5-9793-7c0507ad1d6e</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Альт _ООО "Альтаир"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>5f86619a-387f-4f1b-92d5-3a0e3067fe4d</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Атом _ООО НПО "АТОМ"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>4bd63df2-0367-11e3-93fa-ac162d7559bf</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Блеск _ООО "Передовые инженерные технологии"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>bbbb9c00-ac63-11e4-8e70-3860772e7188</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>ГОКБ ФГУП "ГОКБ Прожектор"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>8387e01e-5861-11e5-a8d9-7c0507ad1d6e</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Краска2 _ООО "Манстер-Технолоджи"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>f61a502d-621c-480e-a7dd-72546a7762cc</OidStore>
+      <Higher>4b7dfb27-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>МГЦ _ООО "МГЦ"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>c2cbcd18-ac62-11e4-8e70-3860772e7188</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Пласт _ООО "Гарант Пласт"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>6cbd9dc6-5df2-11e5-8266-7c0507ad1d6e</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>РИФ _ЗАО "НТЦ "РИФ"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>03d3abfa-8934-4542-906c-002d74031477</OidStore>
+      <Higher>4b7dfb27-0367-11e3-93fa-ac162d7559bf</Higher>
+      <StoreString>СДГ _ООО "СДГрупп"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>a336f2a6-08fa-11e5-8cca-eca86bf8faf1</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Тремил _ООО "Тремил"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+    <Store>
+      <OidStore>6624a488-3b7e-11e5-b4ff-74d435bfd66a</OidStore>
+      <Higher>56ab3f5c-836c-11e3-a374-4c72b926b3ee</Higher>
+      <StoreString>Ферр _ОАО "Ферроприбор"</StoreString>
+      <IsSelected>false</IsSelected>
+    </Store>
+  </StoresList>
+  <PartyGrouping>false</PartyGrouping>
+  <OrderRPGrouping>false</OrderRPGrouping>
+  <Zeros>false</Zeros>
+  <TaskGrouping>false</TaskGrouping>
+  <Minus>false</Minus>
+  <StatGrouping>false</StatGrouping>
+</UserConfig>

@@ -98,27 +98,17 @@ namespace iim.ViewModels
             }
         }
 
-        private DateTime _currentDateTime;
-        public DateTime CurrentDateTime
+        private DateTime _currentMinDateTime;
+        public DateTime CurrentMinDateTime
         {
-            get { return _currentDateTime; }
+            get { return _currentMinDateTime; }
             set
             {
-                _currentDateTime = value;
-                OnPropertyChanged("CurrentDateTime");
+                _currentMinDateTime = value;
+                OnPropertyChanged("CurrentMinDateTime");
             }
         }
 
-        private bool _clearEnabled;
-        public bool ClearEnabled
-        {
-            get { return _clearEnabled; }
-            set
-            {
-                _clearEnabled = value;
-                OnPropertyChanged("ClearEnabled");
-            }
-        }
         private bool _buttonsEnabled;
         public bool ButtonsEnabled
         {
@@ -140,7 +130,16 @@ namespace iim.ViewModels
                 OnPropertyChanged("MaxDateTime");
             }
         }
-
+        private DateTime _currentMaxDateTime;
+        public DateTime CurrentMaxDateTime
+        {
+            get { return _currentMaxDateTime; }
+            set
+            {
+                _currentMaxDateTime = value;
+                OnPropertyChanged("CurrentMaxDateTime");
+            }
+        }
         private bool _task;
         public bool Task
         {

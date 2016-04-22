@@ -50,22 +50,30 @@ namespace iim
         {
             this.core = core;
             SetViewModels();
-            Begin();
             Initializing();
             SetOtherViewModels();
             Bindings();
             Subscribes();
             ShowFirstView();
+            Begin();
         }
 
         private void ShowMovement()
         {
-            throw new NotImplementedException();
+            DisableControls(true);
+            movementViewModel.ListItems = core.GetMovementItems();
+            ChangeCurrentView(movementView);
+            DisableControls(false);
         }
 
-        private void ShowGrid()
+        private async void ShowGrid()
         {
-            throw new NotImplementedException();
+            DisableControls(true);
+            primaryViewModel.ListCells = await Task.Run(() => core.GetStoreCellsList());
+            primaryViewModel.ListItems = await Task.Run(() => core.GetPrimaryItems());
+            ChangeCurrentView(primaryView);
+            menuViewModel.Time = DateTime.Now.ToShortTimeString();
+            DisableControls(false);
         }
 
         private void Subscribes()
@@ -73,11 +81,63 @@ namespace iim
             mainWindow.Closing += OnShutdown;
             primaryView.tableView.CellValueChanged += OnTableViewCellChanged;
             primaryView.tableView.KeyDown += OnPrimaryTableViewKeyDown;
-            primaryView.gridControl.SelectionChanged += OnPrimaryGridControlSelectionChanged;
+            primaryView.gridControl.SelectedItemChanged += OnPrimaryGridControlSelectionChanged;
             movementView.tableView.KeyDown += OnMovementTableViewKeyDown;
             mainMenu.minDateEdit.MouseDoubleClick += OnMinDateEditDoubleClick;
             mainMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
             mainMenu.menuStack.MouseDown += OnHideMenuClick;
+            firstView.listBox.SelectionChanged += OnFirstViewSelectionChanged;
+
+            menuViewModel.PropertyChanged += OnMenuPropertyChanged;
+        }
+
+        private void OnMenuPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case ("Stat"):
+                    core.SomeUser.StatGrouping = menuViewModel.Stat;
+                    break;
+                case ("Zeros"):
+                    core.SomeUser.Zeros = menuViewModel.Zeros;
+                    break;
+                case ("Minus"):
+                    core.SomeUser.Minus = menuViewModel.Minus;
+                    break;
+                case ("Party"):
+                    core.SomeUser.PartyGrouping = menuViewModel.Party;
+                    break;
+                case ("Order"):
+                    core.SomeUser.OrderRPGrouping = menuViewModel.Order;
+                    break;
+                case ("Task"):
+                    core.SomeUser.TaskGrouping = menuViewModel.Task;
+                    break;
+                case ("CurrentMinDateTime"):
+                    core.CurrentMinDateTime = menuViewModel.CurrentMinDateTime;
+                    break;
+                case ("CurrentMaxDateTime"):
+                    core.CurrentMaxDateTime = menuViewModel.CurrentMaxDateTime;
+                    break;
+            }
+            if (oldViews.Last() == firstView)
+                return; 
+            if (oldViews.Last() == movementView)
+            {
+                core.ResetMovement();
+                return;
+            }
+            if (oldViews.Last() == firstView)
+                core.ResetPrimary();
+        }
+
+
+        private void OnFirstViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            menuViewModel.ButtonsEnabled = firstView.listBox.SelectedItems.Count > 0 ? true : false;
+            menuViewModel.StoresCounter = firstView.listBox.SelectedItems.Count;
+            if (e != null)
+                e.Handled = true;
         }
 
         private void Bindings()
@@ -96,34 +156,48 @@ namespace iim
         }
 
         string previousStoreCellValue;
-        Item primaryViewGridControlSelected;
-        private void OnPrimaryGridControlSelectionChanged(object sender, GridSelectionChangedEventArgs e)
+        private void OnPrimaryGridControlSelectionChanged(object sender, SelectedItemChangedEventArgs e)
         {
-            primaryViewGridControlSelected = (Item)primaryView.gridControl.SelectedItem;
-            previousStoreCellValue = primaryViewGridControlSelected.StoreCell ?? "";
+            if (primaryViewModel.SelectedItem != null)
+            {
+                previousStoreCellValue = primaryViewModel.SelectedItem.StoreCell;
+                mainViewModel.StatusBarText = String.Format(
+                    "{0} | {1} | {2} | Есть: {3}",
+                    primaryViewModel.SelectedItem.UnitName,
+                    primaryViewModel.SelectedItem.KeyArticle,
+                    primaryViewModel.SelectedItem.ComtecNumber,
+                    primaryViewModel.SelectedItem.Quantity);
+                if (!menuViewModel.MovButtonEnabled)
+                    menuViewModel.MovButtonEnabled = true;
+            }
+            else
+            {
+                menuViewModel.MovButtonEnabled = false;
+            }
         }
 
         ////
         private void OnTableViewCellChanged(object sender, CellValueChangedEventArgs e)
         {
-            //Guid guid = ((Item)e.Row).OidUnit;
-            //string cell = ((Item)e.Row).StoreCell;
-            //if(core.CheckCellAdequacy(cell))
-            //{
-            //    core.UpdateStoreCell(guid, cell);
-            //}
-            //else
-            //{
-            //    string newCell = core.NormalizeStoreCell(cell);
-            //    if (ConfirmationView("Добавить новую ячейку:  " + newCell))
-            //    {
-            //        core.AddNewStoreCell(newCell);
-            //        ((Item)e.Row).StoreCell = newCell;
-            //    }
-            //    else
-            //        ((Item)e.Row).StoreCell = previousStoreCellValue;
-            //}
+            Guid guid = ((Item)e.Row).OidUnit;
+            string cell = ((Item)e.Row).StoreCell;
+            if (core.CheckCellExists(cell))
+            {
+                core.UpdateStoreCell(guid, cell);
+            }
+            else
+            {
+                string newCell = core.NormalizeStoreCell(cell);
+                if (ConfirmationView("Добавить новую ячейку:  " + newCell))
+                {
+                    core.AddNewStoreCell(newCell);
+                    ((Item)e.Row).StoreCell = newCell;
+                }
+                else
+                    ((Item)e.Row).StoreCell = previousStoreCellValue;
+            }
         }
+
         private bool ConfirmationView(string text)
         {
             bool menuVisible = mainViewModel.MenuVisible;
@@ -134,6 +208,7 @@ namespace iim
             mainViewModel.MenuVisible = menuVisible;
             return confirmationDialog.result ?? false;
         }
+
         private bool ConnectionErrorView()
         {
             bool menuVisible = mainViewModel.MenuVisible;
@@ -164,12 +239,12 @@ namespace iim
 
         private void SelectStoresGroup()
         {
-            //firstViewModel.ListBoxItems = core.SelectStoresGroups();
+            firstViewModel.ListBoxItems = core.SelectStoresGroups();
         }
 
         private void UncheckSelectedStores()
         {
-            //firstViewModel.ListBoxItems = core.UncheckSelectedStores();
+            firstViewModel.ListBoxItems = core.UncheckSelectedStores();
         }
 
         private void PreviousControl()
@@ -178,48 +253,55 @@ namespace iim
                 return;
             oldViews.RemoveAt(oldViews.Count - 1);
             mainViewModel.SelectedView = oldViews.Last();
+
             //firstView
             if (oldViews.Count < 2)
             {
                 mainViewModel.MenuVisible = false;
+                mainViewModel.StatusBarText = "";
                 return;
             }
-            MenuVisibility(mainViewModel.SelectedView);
+            else
+            {
+                SetMenuMode();
+            }
         }
 
-        //changes buttons visibility for mainMenu
-        private void MenuVisibility<T>(T t)
+        private void SetMenuMode()
         {
-            if (primaryView.GetType() == t.GetType())
+            if (oldViews.Last() == primaryView)
                 menuViewModel.GridButtonsVisibility = true;
-            else
+            if (oldViews.Last() == movementView)
                 menuViewModel.GridButtonsVisibility = false;
         }
 
         private void RefreshData()
         {
             core.Refresh();
-            ResetData();
+            if (oldViews.Last() == movementView)
+            {
+                movementViewModel.ListItems = core.ResetMovement();
+                return;
+            }
+            if (oldViews.Last() == firstView)
+                primaryViewModel.ListItems = core.ResetPrimary();
         }
 
         private void ResetData()
         {
             primaryViewModel.ListItems = core.GetPrimaryItems();
             movementViewModel.ListItems = core.GetMovementItems();
-            primaryViewGridControlSelected = null;
         }
 
         private void ExcelReportMovement()
         {
-            //core.ExportToExcel(movementView.tableView);
+            core.ExportToExcel(movementView.tableView);
         }
 
         private void ExcelReportGrid()
         {
-            //core.ExportToExcel(primaryView.tableView);
+            core.ExportToExcel(primaryView.tableView);
         }
-
-
 
         private void OnHideMenuClick(object sender, MouseButtonEventArgs e)
         {
@@ -229,29 +311,29 @@ namespace iim
 
         private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //core.ResetMaxDate();
+            menuViewModel.MaxDateTime = core.ResetMaxDate();
         }
 
         private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //core.ResetMinDate();
+            menuViewModel.MinDateTime = core.ResetMinDate();
         }
 
         private void OnPrimaryTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            OnKeyDown(primaryView.gridControl.GetFocusedValue().ToString());
+            OnKeyDown(primaryView.gridControl.GetFocusedValue().ToString(), e);
         }
 
         private void OnMovementTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            OnKeyDown(movementView.gridControl.GetFocusedValue().ToString());
+            OnKeyDown(movementView.gridControl.GetFocusedValue().ToString(), e);
         }
-        private void OnKeyDown(string s, KeyEventArgs e = null)
+        private void OnKeyDown(string s, KeyEventArgs e)
         {
             if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
                 Clipboard.SetText(s);
-                if(e != null)
+                if (e != null)
                     e.Handled = true;
             }
         }
@@ -269,6 +351,7 @@ namespace iim
             oldViews.Add(firstView);
 
             menuViewModel.MenuVisible = true;
+            mainViewModel.SelectedMenu = mainMenu;
 
             menuViewModel.Task = core.SomeUser.TaskGrouping;
             menuViewModel.Zeros = core.SomeUser.Zeros;
@@ -277,32 +360,45 @@ namespace iim
             menuViewModel.Order = core.SomeUser.OrderRPGrouping;
             menuViewModel.Minus = core.SomeUser.Minus;
 
-            //using(DisabledControls disabledControls = new DisabledControls(
+            DisableControls(true);
+            firstViewModel.ListBoxItems = core.GetStoresList();// await Task.Run(() => core.GetStoresList());
+            DisableControls(false);
+
+
+            OnFirstViewSelectionChanged(null, null);
+            //menuViewModel.ButtonsEnabled = firstView.listBox.SelectedItems.Count > 0 ? true : false;
+
+            //using (DisabledControls disabledControls = new DisabledControls(
             //    ref mainViewModel, ref menuViewModel, ref firstViewModel))
             //{
             //    firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
             //}
         }
 
+
         private void OnShutdown(object sender, CancelEventArgs e)
         {
-            //core.OnShutDown();
+            core.OnShutDown();
         }
 
-        //private void DisableControls(bool b)
-        //{
-        //    mainViewModel.CursorState =
-        //        b ? Cursors.Wait : Cursors.Arrow;
-        //    menuViewModel.ControlsEnabled = !b;
-        //    firstViewModel.ListEnabled = !b;
-        //}
+        private void DisableControls(bool b)
+        {
+            mainViewModel.CursorState =
+                b ? Cursors.Wait : Cursors.Arrow;
+            menuViewModel.ControlsEnabled = !b;
+            menuViewModel.ButtonsEnabled = !b;
+            firstViewModel.ListEnabled = !b;
+        }
 
         private void ChangeCurrentView(UserControl userControl)
         {
             if (!mainViewModel.MenuVisible)
                 mainViewModel.MenuVisible = true;
+
             mainViewModel.SelectedView = userControl;
             oldViews.Add(userControl);
+
+            SetMenuMode();
         }
 
         private void SetOtherViewModels()
@@ -331,32 +427,31 @@ namespace iim
             firstView.DataContext = firstViewModel;
             firstViewMenu.DataContext = menuViewModel;
         }
-
     }
 
-    class DisabledControls : IDisposable
-    {
-        MainViewModel mainViewModel;
-        MenuViewModel menuViewModel;
-        FirstViewModel firstViewModel;
+    //class DisabledControls : IDisposable
+    //{
+    //    MainViewModel mainViewModel;
+    //    MenuViewModel menuViewModel;
+    //    FirstViewModel firstViewModel;
 
-        public DisabledControls(
-            ref MainViewModel mainViewModel, 
-            ref MenuViewModel menuViewModel, 
-            ref FirstViewModel firstViewModel)
-        {
-            this.mainViewModel = mainViewModel;
-            this.menuViewModel = menuViewModel;
-            this.firstViewModel = firstViewModel;
-            this.mainViewModel.CursorState = Cursors.Wait;
-            this.menuViewModel.ControlsEnabled = 
-                this.firstViewModel.ListEnabled = false;
-        }
-        public void Dispose()
-        {
-            this.mainViewModel.CursorState = Cursors.Arrow;
-            this.menuViewModel.ControlsEnabled =
-                this.firstViewModel.ListEnabled = true;
-        }
-    }
+    //    public DisabledControls(
+    //        ref MainViewModel mainViewModel, 
+    //        ref MenuViewModel menuViewModel, 
+    //        ref FirstViewModel firstViewModel)
+    //    {
+    //        this.mainViewModel = mainViewModel;
+    //        this.menuViewModel = menuViewModel;
+    //        this.firstViewModel = firstViewModel;
+    //        this.mainViewModel.CursorState = Cursors.Wait;
+    //        this.menuViewModel.ControlsEnabled = 
+    //            this.firstViewModel.ListEnabled = false;
+    //    }
+    //    public void Dispose()
+    //    {
+    //        this.mainViewModel.CursorState = Cursors.Arrow;
+    //        this.menuViewModel.ControlsEnabled =
+    //            this.firstViewModel.ListEnabled = true;
+    //    }
+    //}
 }

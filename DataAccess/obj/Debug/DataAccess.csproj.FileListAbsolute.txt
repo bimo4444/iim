@@ -3,10 +3,8 @@ D:\Projects\iim\DataAccess\bin\Debug\DataAccess.dll
 D:\Projects\iim\DataAccess\bin\Debug\DataAccess.pdb
 D:\Projects\iim\DataAccess\bin\Debug\Entity.dll
 D:\Projects\iim\DataAccess\bin\Debug\Logging.dll
-D:\Projects\iim\DataAccess\bin\Debug\Ninject.dll
 D:\Projects\iim\DataAccess\bin\Debug\Entity.pdb
 D:\Projects\iim\DataAccess\bin\Debug\Logging.pdb
-D:\Projects\iim\DataAccess\bin\Debug\Ninject.xml
 D:\Projects\iim\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 D:\Projects\iim\DataAccess\obj\Debug\DataAccess.dll
 D:\Projects\iim\DataAccess\obj\Debug\DataAccess.pdb
@@ -26,3 +24,5 @@ C:\dev\iim\DataAccess\bin\Debug\ADOLib.dll
 C:\dev\iim\DataAccess\bin\Debug\ADOLib.pdb
 C:\dev\iim\DataAccess\bin\Debug\Trap.dll
 C:\dev\iim\DataAccess\bin\Debug\Trap.pdb
+D:\Projects\iim\DataAccess\bin\Debug\Trap.dll
+D:\Projects\iim\DataAccess\bin\Debug\Trap.pdb

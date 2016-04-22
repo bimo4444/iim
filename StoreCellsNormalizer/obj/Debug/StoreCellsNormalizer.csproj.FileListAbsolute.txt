@@ -1,0 +1,4 @@
+D:\Projects\iim\StoreCellsNormalizer\bin\Debug\StoreCellsNormalizer.dll
+D:\Projects\iim\StoreCellsNormalizer\bin\Debug\StoreCellsNormalizer.pdb
+D:\Projects\iim\StoreCellsNormalizer\obj\Debug\StoreCellsNormalizer.dll
+D:\Projects\iim\StoreCellsNormalizer\obj\Debug\StoreCellsNormalizer.pdb

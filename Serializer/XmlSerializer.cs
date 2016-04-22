@@ -38,7 +38,7 @@ namespace Serializer
                 wfile.Close();
                 return true;
             }
-            catch
+            catch(Exception x)
             {
                 return false;
             }

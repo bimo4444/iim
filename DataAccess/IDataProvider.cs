@@ -11,12 +11,13 @@ namespace DataAccess
     {
         void Configure(string connectionString);
         void Configure(int connectionTimeOut);
+        void Initialize();
 
         bool NewCell(string name);
         List<Store> GetStoresList();
-        List<string> GetStoreCells();
+        IEnumerable<string> GetStoreCells();
         bool UpdateStoreCell(Guid guid, string cell);
-        List<Item> GetBaseQuery(IEnumerable<Guid> guids);
+        IEnumerable<Item> GetBaseQuery(IEnumerable<Guid> guids);
 
     }
 }

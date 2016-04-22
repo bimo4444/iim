@@ -12,6 +12,7 @@ using Serializer;
 using Logging;
 using Ninject.Parameters;
 using Trap;
+using StoreCellsNormalizer;
 
 namespace iim
 {
@@ -24,6 +25,7 @@ namespace iim
             this.Bind<IXmlSerializer>().To<XmlSerializer>();
             this.Bind<IMetamorphoses>().To<Metamorphoses>();
             this.Bind<IExcelService>().To<ExcelService>();
+            this.Bind<ICellsNormalizer>().To<CellsNormalizer>();
             this.Bind<IDataProvider>().To<DataProvider>();
             this.Bind<IExceptionTrap>().To<ExceptionTrap>();
             this.Bind<ILog>().To<Log>();

@@ -19,13 +19,11 @@ C:\dev\iim\Logics\bin\Debug\Logging.pdb
 D:\Projects\iim\Logics\bin\Debug\DataAccess.dll
 D:\Projects\iim\Logics\bin\Debug\Entity.dll
 D:\Projects\iim\Logics\bin\Debug\Serializer.dll
-D:\Projects\iim\Logics\bin\Debug\Ninject.dll
 D:\Projects\iim\Logics\bin\Debug\ADOLib.dll
 D:\Projects\iim\Logics\bin\Debug\Logging.dll
 D:\Projects\iim\Logics\bin\Debug\DataAccess.pdb
 D:\Projects\iim\Logics\bin\Debug\Entity.pdb
 D:\Projects\iim\Logics\bin\Debug\Serializer.pdb
-D:\Projects\iim\Logics\bin\Debug\Ninject.xml
 D:\Projects\iim\Logics\bin\Debug\ADOLib.pdb
 D:\Projects\iim\Logics\bin\Debug\Logging.pdb
 C:\dev\iim\Logics\bin\Debug\DevExpress.Xpf.Core.v14.1.dll
@@ -45,3 +43,11 @@ C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.dll
 C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.xml
 C:\dev\iim\Logics\bin\Debug\Trap.dll
 C:\dev\iim\Logics\bin\Debug\Trap.pdb
+D:\Projects\iim\Logics\bin\Debug\ExcelServices.dll
+D:\Projects\iim\Logics\bin\Debug\Metamorphosis.dll
+D:\Projects\iim\Logics\bin\Debug\StoreCellsNormalizer.dll
+D:\Projects\iim\Logics\bin\Debug\Trap.dll
+D:\Projects\iim\Logics\bin\Debug\ExcelServices.pdb
+D:\Projects\iim\Logics\bin\Debug\Metamorphosis.pdb
+D:\Projects\iim\Logics\bin\Debug\StoreCellsNormalizer.pdb
+D:\Projects\iim\Logics\bin\Debug\Trap.pdb

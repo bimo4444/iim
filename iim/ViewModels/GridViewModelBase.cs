@@ -15,8 +15,8 @@ namespace iim.ViewModels
         public ICommand CopyToClipboard { get; set; }
 
         //GRID MAIN COLLECTION
-        private List<Item> _listItems;
-        public List<Item> ListItems
+        private IEnumerable<Item> _listItems;
+        public IEnumerable<Item> ListItems
         {
             get { return _listItems; }
             set

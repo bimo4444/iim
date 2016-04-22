@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entity
 {
@@ -10,9 +12,10 @@ namespace Entity
     {
         public UserConfig()
         {
-            ls = new List<Store>();
+            StoresList = new List<Store>();
         }
-        public List<Store> ls { get; set; }
+        public List<Store> StoresList { get; set; }
+        
         public bool PartyGrouping { get; set; }
         public bool OrderRPGrouping { get; set; }
         public bool Zeros { get; set; }

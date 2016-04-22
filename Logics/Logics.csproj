@@ -81,9 +81,9 @@
       <Project>{3f98fcd1-acf2-43cb-b5b0-ed4aa85d1a11}</Project>
       <Name>Serializer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StoreCells\StoreCells.csproj">
-      <Project>{ac9de944-1c6d-4fc4-b144-0b69db6a9473}</Project>
-      <Name>StoreCells</Name>
+    <ProjectReference Include="..\StoreCellsNormalizer\StoreCellsNormalizer.csproj">
+      <Project>{0f687f70-29f4-4d61-873e-5edb77ae3040}</Project>
+      <Name>StoreCellsNormalizer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

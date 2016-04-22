@@ -62,7 +62,7 @@ namespace DataAccess
             });
         }
 
-        public List<Item> GetBaseQuery(IEnumerable<Guid> guids)
+        public IEnumerable<Item> GetBaseQuery(IEnumerable<Guid> guids)
         {
             return exceptionTrap.Catch(delegate()
             {
@@ -105,14 +105,14 @@ namespace DataAccess
             });
         }
 
-        public List<string> GetStoreCells()
+        public IEnumerable<string> GetStoreCells()
         {
             return exceptionTrap.Catch(delegate()
             {
                 using (SomeLinqDataContext sl = new SomeLinqDataContext(builder.ConnectionString))
                 {
                     sl.CommandTimeout = connectionTimeOut;
-                    List<string> listCells = sl.СкладскаяЯчейкаs
+                    var listCells = sl.СкладскаяЯчейкаs
                         .Where(
                             w => w.GCRecord == null)
                         .Select(

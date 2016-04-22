@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mvp="clr-namespace:MVPLight.BoolToVisibility;assembly=MVPLight"
-        Title="Наличие ТМЦ v5.0077 pa" 
+        Title="Наличие ТМЦ v5.078 pa" 
         WindowStartupLocation="CenterScreen"
         Height="768" Width="1024" Icon="/Resources/box.png" 
         Cursor="{Binding CursorState}" WindowState="Maximized">

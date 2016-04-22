@@ -1,4 +1,5 @@
-﻿using Entity;
+﻿using DevExpress.Xpf.Grid;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,29 @@ namespace Logics
 {
     public interface ICore
     {
-        List<Item> GetPrimaryItems();
-        List<Item> GetMovementItems();
+        UserConfig SomeUser { get; set; }
+
+        DateTime CurrentMaxDateTime { get; set; }
+        DateTime CurrentMinDateTime { get; set; }
+        DateTime ResetMinDate();
+        DateTime ResetMaxDate();
+
+        List<Store> GetStoresList();
+        List<Store> SelectStoresGroups();
+        List<Store> UncheckSelectedStores();
+
+        IEnumerable<Item> GetPrimaryItems();
+        IEnumerable<Item> GetMovementItems();
+        IEnumerable<Item> ResetPrimary();
+        IEnumerable<Item> ResetMovement();
+        IEnumerable<string> GetStoreCellsList();
 
         void Refresh();
-
-        UserConfig SomeUser { get; set; }
+        void ExportToExcel(TableView tableView);
+        bool CheckCellExists(string cell);
+        void UpdateStoreCell(Guid guid, string cell);
+        string NormalizeStoreCell(string cell);
+        void AddNewStoreCell(string newCell);
+        void OnShutDown();
     }
 }

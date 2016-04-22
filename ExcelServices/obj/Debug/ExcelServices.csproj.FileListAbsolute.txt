@@ -27,3 +27,4 @@ C:\dev\iim\ExcelServices\bin\Debug\ExcelServices.pdb
 C:\dev\iim\ExcelServices\obj\Debug\ExcelServices.csprojResolveAssemblyReference.cache
 C:\dev\iim\ExcelServices\obj\Debug\ExcelServices.dll
 C:\dev\iim\ExcelServices\obj\Debug\ExcelServices.pdb
+D:\Projects\iim\ExcelServices\obj\Debug\ExcelServices.csprojResolveAssemblyReference.cache

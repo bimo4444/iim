@@ -31,23 +31,23 @@ namespace iim.ViewModels
                 OnPropertyChanged("MenuVisible");
             }
         }
-        private UserControl selectedView;
+        private UserControl _selectedView;
         public UserControl SelectedView
         {
-            get { return selectedView; }
+            get { return _selectedView; }
             set
             {
-                selectedView = value;
+                _selectedView = value;
                 OnPropertyChanged("SelectedView");
             }
         }
-        private UserControl selectedMenu;
+        private UserControl _selectedMenu;
         public UserControl SelectedMenu
         {
-            get { return selectedMenu; }
+            get { return _selectedMenu; }
             set
             {
-                selectedMenu = value;
+                _selectedMenu = value;
                 OnPropertyChanged("SelectedMenu");
             }
         }

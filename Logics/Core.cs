@@ -4,6 +4,7 @@ using Entity;
 using ExcelServices;
 using Metamorphosis;
 using Serializer;
+using StoreCellsNormalizer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,12 +16,19 @@ namespace Logics
 {
     public class Core : ICore
     {
-        public List<string> StoreCells { get; set; }
-
-        public UserConfig SomeUser { get; set; }
         Config config;
+        public UserConfig SomeUser { get; set; }
 
+        IEnumerable<string> storeCells;
+        IEnumerable<Item> primaryList;
+        IEnumerable<Item> currentPrimaryList;
+        IEnumerable<Item> movementList;
 
+        DateTime MaxDateTime;
+        DateTime MinDateTime;
+        public DateTime CurrentMaxDateTime { get; set; }
+        public DateTime CurrentMinDateTime { get; set; }
+        
         readonly string configFilePath = "config";
         readonly string configFileName = "config\\iimConfig.xml";
 
@@ -31,30 +39,33 @@ namespace Logics
         IMetamorphoses metamorphosis;
         IXmlSerializer xmlSerializer;
         IExcelService excelService;
-        //ICellsNormalizer cellsNormalizer;
+        ICellsNormalizer cellsNormalizer;
 
         public Core(
             IDataProvider dataProvider,
             IMetamorphoses metamorphosis,
             IXmlSerializer xmlSerializer,
-            IExcelService excelService)
+            IExcelService excelService,
+            ICellsNormalizer cellsNormalizer)
 
         {
             this.metamorphosis = metamorphosis;
             this.xmlSerializer = xmlSerializer;
             this.excelService = excelService;
             this.dataProvider = dataProvider;
-            //dataProvider.Configure(config.ConnectionString);
-            //dataProvider.Configure(config.ConnectionTimeOut);
-
-            Initializing();
             DeserializeConfigs();
 
+            dataProvider.Configure(config.ConnectionString);
+            dataProvider.Configure(config.ConnectionTimeOut);
+            dataProvider.Initialize();
+
+            Initializing();
         }
 
         private void Initializing()
         {
-
+            MaxDateTime = CurrentMaxDateTime = DateTime.Now.Date;
+            MinDateTime = CurrentMinDateTime = DateTime.MinValue;
         }
 
         private void DeserializeConfigs()
@@ -65,61 +76,29 @@ namespace Logics
 
         public List<Store> GetStoresList()
         {
+            //comment this
+            return SomeUser.StoresList.Count() > 0 ? SomeUser.StoresList : (SomeUser.StoresList = dataProvider.GetStoresList());
+
             //nested
             var storesList = dataProvider.GetStoresList();
-            return SomeUser.ls.Count > 0 ? (SomeUser.ls = storesList
+            return SomeUser.StoresList.Count() > 0 ? (SomeUser.StoresList = storesList
                 .Select(s => new Store
                 {
                     OidStore = s.OidStore,
                     Higher = s.Higher,
                     StoreString = s.StoreString,
-                    IsSelected = 
-                        (SomeUser.ls 
+                    IsSelected =
+                        (SomeUser.StoresList 
                             .Where(w => w.IsSelected == true)
                             .Select(ss => ss.OidStore))
                         .Contains(s.OidStore)
                 })
-                .ToList()) : (SomeUser.ls = storesList);
+                .ToList()) : (SomeUser.StoresList = storesList);
         }
 
-        public List<Store> SelectStoresGroups()
+        public bool CheckCellExists(string cell)
         {
-            //nested
-            var h = SomeUser.ls
-                .Where(w => w.IsSelected)
-                .Select(s => s.Higher)
-                .Distinct();
-            return (SomeUser.ls = SomeUser.ls
-                .Where(w => h.Contains(w.Higher))
-                .Select(s => new Store 
-                { 
-                    Higher = s.Higher, 
-                    IsSelected = true, 
-                    OidStore = s.OidStore, 
-                    StoreString = s.StoreString 
-                })
-                .ToList());
-        }
-
-        public List<Store> UncheckSelectedStores()
-        {
-            return (SomeUser.ls = SomeUser.ls
-                .Select(s => new Store
-                {
-                    Higher = s.Higher,
-                    IsSelected = false,
-                    OidStore = s.OidStore,
-                    StoreString = s.StoreString
-                })
-                .ToList());
-        }
-
-        public bool CheckCellAdequacy(string cell)
-        {
-            throw new NotImplementedException();
-
-            //cell = cellsNormalizer.Normalize(cell);
-
+            return storeCells.Contains(cell) ? true : storeCells.Contains(cellsNormalizer.Normalize(cell));
         }
 
         public void UpdateStoreCell(Guid guid, string cell)
@@ -139,23 +118,22 @@ namespace Logics
 
         public void Refresh()
         {
-            throw new NotImplementedException();
+            primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
         }
 
-        public void ExportToExcel(TableView globalDevExpressXpfGridTableView)
+        public void ExportToExcel(TableView tableView)
         {
             throw new NotImplementedException();
         }
 
-
-        public void ResetMaxDate()
+        public DateTime ResetMaxDate()
         {
-            throw new NotImplementedException();
+            return CurrentMaxDateTime = MaxDateTime;
         }
 
-        public void ResetMinDate()
+        public DateTime ResetMinDate()
         {
-            throw new NotImplementedException();
+            return CurrentMinDateTime = MinDateTime;
         }
 
         public void OnShutDown()
@@ -164,12 +142,69 @@ namespace Logics
             //xmlSerializer.Serialize(config, configFilePath, configFileName);
         }
 
-        public List<Item> GetPrimaryItems()
+        public IEnumerable<Item> GetPrimaryItems()
+        {
+            primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
+            return currentPrimaryList = PrimaryMetamorphosis(primaryList);
+        }
+
+        public IEnumerable<string> GetStoreCellsList()
+        {
+            return dataProvider.GetStoreCells();
+        }
+
+        public IEnumerable<Item> GetMovementItems()
         {
             throw new NotImplementedException();
         }
 
-        public List<Item> GetMovementItems()
+        public List<Store> UncheckSelectedStores()
+        {
+            return (SomeUser.StoresList = SomeUser.StoresList
+                   .Select(s => new Store
+                   {
+                       Higher = s.Higher,
+                       IsSelected = false,
+                       OidStore = s.OidStore,
+                       StoreString = s.StoreString
+                   })
+                   .ToList());
+        }
+
+        public List<Store> SelectStoresGroups()
+        {            
+            //nested
+            var h = SomeUser.StoresList
+                .Where(w => w.IsSelected)
+                .Select(s => s.Higher)
+                .Distinct();
+            return (SomeUser.StoresList = SomeUser.StoresList
+                .Select(s => new Store
+                {
+                    Higher = s.Higher,
+                    IsSelected = h.Contains(s.Higher),
+                    OidStore = s.OidStore,
+                    StoreString = s.StoreString
+                })
+                .ToList());
+        }
+
+        public IEnumerable<Item> ResetPrimary()
+        {
+            return currentPrimaryList = PrimaryMetamorphosis(primaryList);
+        }
+
+        public IEnumerable<Item> ResetMovement()
+        {
+            return currentPrimaryList = MovementMetamorphosis(primaryList);
+        }
+
+        private IEnumerable<Item> MovementMetamorphosis(IEnumerable<Item> primaryList)
+        {
+            throw new NotImplementedException();
+        }
+
+        private IEnumerable<Item> PrimaryMetamorphosis(IEnumerable<Item> primaryList)
         {
             throw new NotImplementedException();
         }

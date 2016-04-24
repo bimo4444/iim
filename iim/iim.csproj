@@ -95,22 +95,22 @@
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\MovementViewModel.cs" />
     <Compile Include="ViewModels\PrimaryViewModel.cs" />
-    <Compile Include="Views\ConfirmationView.xaml.cs">
+    <Compile Include="Views\Dialogs\ConfirmationView.xaml.cs">
       <DependentUpon>ConfirmationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ConnectionErrorView.xaml.cs">
+    <Compile Include="Views\Dialogs\ConnectionErrorView.xaml.cs">
       <DependentUpon>ConnectionErrorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FirstViewMenu.xaml.cs">
+    <Compile Include="Views\Menu\FirstViewMenu.xaml.cs">
       <DependentUpon>FirstViewMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainMenu.xaml.cs">
+    <Compile Include="Views\Menu\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainMenuMovementFrame.xaml.cs">
+    <Compile Include="Views\Menu\MainMenuMovementFrame.xaml.cs">
       <DependentUpon>MainMenuMovementFrame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainMenuPrimaryFrame.xaml.cs">
+    <Compile Include="Views\Menu\MainMenuPrimaryFrame.xaml.cs">
       <DependentUpon>MainMenuPrimaryFrame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MovementView.xaml.cs">
@@ -119,11 +119,11 @@
     <Compile Include="Views\PrimaryView.xaml.cs">
       <DependentUpon>PrimaryView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\ConfirmationView.xaml">
+    <Page Include="Views\Dialogs\ConfirmationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ConnectionErrorView.xaml">
+    <Page Include="Views\Dialogs\ConnectionErrorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,19 +131,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FirstViewMenu.xaml">
+    <Page Include="Views\Menu\FirstViewMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainMenu.xaml">
+    <Page Include="Views\Menu\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainMenuMovementFrame.xaml">
+    <Page Include="Views\Menu\MainMenuMovementFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainMenuPrimaryFrame.xaml">
+    <Page Include="Views\Menu\MainMenuPrimaryFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

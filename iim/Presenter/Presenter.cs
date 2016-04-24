@@ -124,14 +124,8 @@ namespace iim
                     break;
             }
             if (oldViews.Last() == firstView)
-                return; 
-            if (oldViews.Last() == movementView)
-            {
-                core.ResetMovement();
                 return;
-            }
-            if (oldViews.Last() == firstView)
-                core.ResetPrimary();
+            Metamorphosis();
         }
 
 
@@ -185,16 +179,16 @@ namespace iim
             Guid guid = ((Item)e.Row).OidUnit;
             string cell = ((Item)e.Row).StoreCell;
             if (core.CheckCellExists(cell))
-            {
                 core.UpdateStoreCell(guid, cell);
-            }
             else
             {
                 string newCell = core.NormalizeStoreCell(cell);
+
                 if (ConfirmationView("Добавить новую ячейку:  " + newCell))
                 {
                     core.AddNewStoreCell(newCell);
-                    ((Item)e.Row).StoreCell = newCell;
+                    primaryViewModel.ListCells = core.StoreCells;
+                    primaryViewModel.ListItems = core.CurrentPrimaryList;
                 }
                 else
                     ((Item)e.Row).StoreCell = previousStoreCellValue;
@@ -273,20 +267,26 @@ namespace iim
         private void SetMenuMode()
         {
             if (oldViews.Last() == primaryView)
-                menuViewModel.SelectedFrame = primaryMenuFrame;//menuViewModel.GridButtonsVisibility = true;
+                menuViewModel.SelectedFrame = primaryMenuFrame;
             if (oldViews.Last() == movementView)
-                menuViewModel.SelectedFrame = movementMenuFrame;//menuViewModel.GridButtonsVisibility = false;
+                menuViewModel.SelectedFrame = movementMenuFrame;
         }
 
         private void RefreshData()
         {
             core.Refresh();
-            if (oldViews.Last() == movementView)
+            Metamorphosis();
+        }
+
+        private void Metamorphosis()
+        {
+            if (oldViews.Contains(movementView))
             {
-                movementViewModel.ListItems = core.ResetMovement();
+                primaryViewModel.ListItems = core.ResetPrimary();
+                movementViewModel.ListItems = core.ResetMovement(primaryViewModel.SelectedItem.OidUnit);
                 return;
             }
-            if (oldViews.Last() == firstView)
+            if (oldViews.Contains(primaryView))
                 primaryViewModel.ListItems = core.ResetPrimary();
         }
 
@@ -422,30 +422,4 @@ namespace iim
             firstViewMenu.DataContext = menuViewModel;
         }
     }
-
-    //class DisabledControls : IDisposable
-    //{
-    //    MainViewModel mainViewModel;
-    //    MenuViewModel menuViewModel;
-    //    FirstViewModel firstViewModel;
-
-    //    public DisabledControls(
-    //        ref MainViewModel mainViewModel, 
-    //        ref MenuViewModel menuViewModel, 
-    //        ref FirstViewModel firstViewModel)
-    //    {
-    //        this.mainViewModel = mainViewModel;
-    //        this.menuViewModel = menuViewModel;
-    //        this.firstViewModel = firstViewModel;
-    //        this.mainViewModel.CursorState = Cursors.Wait;
-    //        this.menuViewModel.ControlsEnabled = 
-    //            this.firstViewModel.ListEnabled = false;
-    //    }
-    //    public void Dispose()
-    //    {
-    //        this.mainViewModel.CursorState = Cursors.Arrow;
-    //        this.menuViewModel.ControlsEnabled =
-    //            this.firstViewModel.ListEnabled = true;
-    //    }
-    //}
 }

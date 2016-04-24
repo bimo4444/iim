@@ -135,3 +135,15 @@ C:\dev\iim\iim\obj\Debug\Views\MainMenuPrimaryFrame.baml
 C:\dev\iim\iim\obj\Debug\Views\MainMenuPrimaryFrame.g.cs
 C:\dev\iim\iim\obj\Debug\Views\MainMenuMovementFrame.baml
 C:\dev\iim\iim\obj\Debug\Views\MainMenuMovementFrame.g.cs
+C:\dev\iim\iim\obj\Debug\Views\Dialogs\ConfirmationView.baml
+C:\dev\iim\iim\obj\Debug\Views\Dialogs\ConnectionErrorView.baml
+C:\dev\iim\iim\obj\Debug\Views\Menu\FirstViewMenu.baml
+C:\dev\iim\iim\obj\Debug\Views\Menu\MainMenu.baml
+C:\dev\iim\iim\obj\Debug\Views\Menu\MainMenuMovementFrame.baml
+C:\dev\iim\iim\obj\Debug\Views\Menu\MainMenuPrimaryFrame.baml
+C:\dev\iim\iim\obj\Debug\Views\Dialogs\ConfirmationView.g.cs
+C:\dev\iim\iim\obj\Debug\Views\Dialogs\ConnectionErrorView.g.cs
+C:\dev\iim\iim\obj\Debug\Views\Menu\FirstViewMenu.g.cs
+C:\dev\iim\iim\obj\Debug\Views\Menu\MainMenu.g.cs
+C:\dev\iim\iim\obj\Debug\Views\Menu\MainMenuMovementFrame.g.cs
+C:\dev\iim\iim\obj\Debug\Views\Menu\MainMenuPrimaryFrame.g.cs

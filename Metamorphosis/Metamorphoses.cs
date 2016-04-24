@@ -93,5 +93,11 @@ namespace Metamorphosis
                     })
                 .ToList();
         }
+
+
+        public IEnumerable<Item> RenameCells(IEnumerable<Item> items, string cell, string newCell)
+        {
+            return
+        }
     }
 }

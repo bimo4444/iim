@@ -14,5 +14,7 @@ namespace Metamorphosis
         IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime min, DateTime max);
         IEnumerable<Item> Grouping(
             IEnumerable<Item> t, bool party, bool order, bool task, bool stat);
+
+        IEnumerable<Item> RenameCells(IEnumerable<Item> items, string cell, string newCell);
     }
 }

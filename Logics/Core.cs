@@ -19,9 +19,9 @@ namespace Logics
         Config config;
         public UserConfig SomeUser { get; set; }
 
-        IEnumerable<string> storeCells;
+        public IEnumerable<Item> CurrentPrimaryList { get; private set; }
+        public IEnumerable<string> StoreCells { get; private set; }
         IEnumerable<Item> primaryList;
-        IEnumerable<Item> currentPrimaryList;
         IEnumerable<Item> movementList;
 
         DateTime MaxDateTime;
@@ -62,6 +62,8 @@ namespace Logics
             Initializing();
         }
 
+
+        
         public List<Store> GetStoresList()
         {
             //comment this
@@ -98,7 +100,7 @@ namespace Logics
 
         public bool CheckCellExists(string cell)
         {
-            return storeCells.Contains(cell) ? true : storeCells.Contains(cellsNormalizer.Normalize(cell));
+            return StoreCells.Contains(cell) ? true : StoreCells.Contains(cellsNormalizer.Normalize(cell));
         }
 
         public void UpdateStoreCell(Guid guid, string cell)
@@ -108,12 +110,17 @@ namespace Logics
 
         public string NormalizeStoreCell(string cell)
         {
-            throw new NotImplementedException();
+            return cellsNormalizer.Normalize(cell);
         }
 
-        public void AddNewStoreCell(string newCell)
+        public void AddNewStoreCell(string cell, string newCell)
         {
-            throw new NotImplementedException();
+            dataProvider.NewCell(newCell);
+            var v = StoreCells.ToList();
+            v.Add(newCell);
+            StoreCells = v.OrderBy(o => o);
+            primaryList = metamorphosis.RenameCells(primaryList, cell, newCell);
+            CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
         public void Refresh()
@@ -123,6 +130,15 @@ namespace Logics
 
         public void ExportToExcel(TableView tableView)
         {
+            string excelFileName = ShowExcelPathDialog();
+            excelService.Export(tableView, excelFileName);
+        }
+
+        private string ShowExcelPathDialog()
+        {
+            ////////////////////
+            ////////////////////
+            ////////////////////
             throw new NotImplementedException();
         }
 
@@ -149,12 +165,12 @@ namespace Logics
         {
             primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
             MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;
-            return currentPrimaryList = PrimaryMetamorphosis(primaryList);
+            return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
         public IEnumerable<string> GetStoreCellsList()
         {
-            return dataProvider.GetStoreCells();
+            return StoreCells = dataProvider.GetStoreCells();
         }
 
         public IEnumerable<Item> GetMovementItems(Guid guid)
@@ -201,17 +217,17 @@ namespace Logics
 
         public IEnumerable<Item> ResetPrimary()
         {
-            return currentPrimaryList = PrimaryMetamorphosis(primaryList);
+            return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
-        public IEnumerable<Item> ResetMovement()
+        public IEnumerable<Item> ResetMovement(Guid guid)
         {
-            return currentPrimaryList = MovementMetamorphosis(primaryList);
+            return CurrentPrimaryList = MovementMetamorphosis(primaryList);
         }
 
-        private IEnumerable<Item> MovementMetamorphosis(IEnumerable<Item> primaryList)
+        private IEnumerable<Item> MovementMetamorphosis(IEnumerable<Item> primaryList, Guid guid)
         {
-            throw new NotImplementedException();
+            movementList = primaryList.Where(w => w.OidUnit == )
         }
 
         private IEnumerable<Item> PrimaryMetamorphosis(IEnumerable<Item> primaryList)
@@ -223,5 +239,10 @@ namespace Logics
             primaryList = metamorphosis.Grouping(primaryList, SomeUser.PartyGrouping, SomeUser.OrderRPGrouping, SomeUser.TaskGrouping, SomeUser.StatGrouping)
             return primaryList;
         }
+
+        //public IEnumerable<Item> RenameCells(string cell, string newCell)
+        //{
+        //    return primaryList = metamorphosis.RenameCells(primaryList, cell, newCell);
+        //}
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StoresList />
+  <PartyGrouping>false</PartyGrouping>
+  <OrderRPGrouping>false</OrderRPGrouping>
+  <Zeros>false</Zeros>
+  <TaskGrouping>false</TaskGrouping>
+  <Minus>false</Minus>
+  <StatGrouping>false</StatGrouping>
+</UserConfig>

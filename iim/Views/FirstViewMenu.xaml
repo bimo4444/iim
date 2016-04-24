@@ -7,7 +7,6 @@
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
              dx:ThemeManager.ThemeName="Office2013">
     <StackPanel Width="250" HorizontalAlignment="Left" VerticalAlignment="Center">
         <StackPanel Margin="15,0,0,0">
@@ -65,7 +64,7 @@
 
             <!--SHOW GRID-->
             <Border BorderThickness="40" />
-            <Button Command="{Binding ShowGrid}" IsEnabled="{Binding ButtonsEnabled}" HorizontalAlignment="Left" Width="72" Height="30">
+            <Button Command="{Binding ShowPrimaryView}" IsEnabled="{Binding ButtonsEnabled}" HorizontalAlignment="Left" Width="72" Height="30">
                 <StackPanel  Orientation="Horizontal" Width="80" Height="30" Focusable="True" Margin="-6,-1,0,0">
                     <Image Source="/resources/box.png" Width="16" Height="16" Margin="6,4,0,10">
                         <Image.Style>

@@ -31,6 +31,8 @@ namespace iim
         MenuViewModel menuViewModel = new MenuViewModel();
 
         MainMenu mainMenu;
+        MainMenuPrimaryFrame primaryMenuFrame;
+        MainMenuMovementFrame movementMenuFrame;
 
         PrimaryView primaryView;
         PrimaryViewModel primaryViewModel;
@@ -61,16 +63,17 @@ namespace iim
         private void ShowMovement()
         {
             DisableControls(true);
-            movementViewModel.ListItems = core.GetMovementItems();
+            movementViewModel.ListItems = core.GetMovementItems(primaryViewModel.SelectedItem.OidUnit);
             ChangeCurrentView(movementView);
             DisableControls(false);
         }
 
-        private async void ShowGrid()
+        private async void ShowPrimaryView()
         {
             DisableControls(true);
             primaryViewModel.ListCells = await Task.Run(() => core.GetStoreCellsList());
             primaryViewModel.ListItems = await Task.Run(() => core.GetPrimaryItems());
+            menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
             ChangeCurrentView(primaryView);
             menuViewModel.Time = DateTime.Now.ToShortTimeString();
             DisableControls(false);
@@ -142,10 +145,10 @@ namespace iim
 
         private void Bindings()
         {
-            menuViewModel.ShowGrid = new DelegateCommand(() => ShowGrid());
+            menuViewModel.ShowPrimaryView = new DelegateCommand(() => ShowPrimaryView());
             menuViewModel.SelectGroup = new DelegateCommand(() => SelectStoresGroup());
             menuViewModel.UncheckAllButton = new DelegateCommand(() => UncheckSelectedStores());
-            menuViewModel.ShowMovement = primaryViewModel.ShowMovement = new DelegateCommand(() => ShowMovement());
+            menuViewModel.ShowMovementView = primaryViewModel.ShowMovement = new DelegateCommand(() => ShowMovement());
             menuViewModel.ExcelReport = primaryViewModel.ExcelReport = new DelegateCommand(() => ExcelReportGrid());
             menuViewModel.PreviousControl = movementViewModel.PreviousControl = new DelegateCommand(() => PreviousControl());
             menuViewModel.ExcelReportMov = movementViewModel.ExcelReportMov = new DelegateCommand(() => ExcelReportMovement());
@@ -161,7 +164,7 @@ namespace iim
             if (primaryViewModel.SelectedItem != null)
             {
                 previousStoreCellValue = primaryViewModel.SelectedItem.StoreCell;
-                mainViewModel.StatusBarText = String.Format(
+                mainViewModel.StatusBarText = menuViewModel.MovementDetails = String.Format(
                     "{0} | {1} | {2} | Есть: {3}",
                     primaryViewModel.SelectedItem.UnitName,
                     primaryViewModel.SelectedItem.KeyArticle,
@@ -270,9 +273,9 @@ namespace iim
         private void SetMenuMode()
         {
             if (oldViews.Last() == primaryView)
-                menuViewModel.GridButtonsVisibility = true;
+                menuViewModel.SelectedFrame = primaryMenuFrame;//menuViewModel.GridButtonsVisibility = true;
             if (oldViews.Last() == movementView)
-                menuViewModel.GridButtonsVisibility = false;
+                menuViewModel.SelectedFrame = movementMenuFrame;//menuViewModel.GridButtonsVisibility = false;
         }
 
         private void RefreshData()
@@ -290,7 +293,7 @@ namespace iim
         private void ResetData()
         {
             primaryViewModel.ListItems = core.GetPrimaryItems();
-            movementViewModel.ListItems = core.GetMovementItems();
+            movementViewModel.ListItems = core.GetMovementItems(primaryViewModel.SelectedItem.OidUnit);
         }
 
         private void ExcelReportMovement()
@@ -361,18 +364,9 @@ namespace iim
             menuViewModel.Minus = core.SomeUser.Minus;
 
             DisableControls(true);
-            firstViewModel.ListBoxItems = core.GetStoresList();// await Task.Run(() => core.GetStoresList());
+            firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
+            menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
             DisableControls(false);
-
-
-            OnFirstViewSelectionChanged(null, null);
-            //menuViewModel.ButtonsEnabled = firstView.listBox.SelectedItems.Count > 0 ? true : false;
-
-            //using (DisabledControls disabledControls = new DisabledControls(
-            //    ref mainViewModel, ref menuViewModel, ref firstViewModel))
-            //{
-            //    firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
-            //}
         }
 
 

@@ -107,6 +107,12 @@
     <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainMenuMovementFrame.xaml.cs">
+      <DependentUpon>MainMenuMovementFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenuPrimaryFrame.xaml.cs">
+      <DependentUpon>MainMenuPrimaryFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MovementView.xaml.cs">
       <DependentUpon>MovementView.xaml</DependentUpon>
     </Compile>
@@ -130,6 +136,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenuMovementFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenuPrimaryFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace iim.ViewModels
 {
     public class MenuViewModel : VMBase
     {
-        public ICommand ShowGrid { get; set; }
-        public ICommand ShowMovement { get; set; }
+        public ICommand ShowPrimaryView { get; set; }
+        public ICommand ShowMovementView { get; set; }
         public ICommand ExcelReportMov { get; set; }
         public ICommand Refresh { get; set; }
         public ICommand ExcelReport { get; set; }
@@ -21,6 +22,17 @@ namespace iim.ViewModels
         public ICommand ShowMenu { get; set; }
         public ICommand UncheckAllButton { get; set; }
         public ICommand SelectGroup { get; set; }
+
+        private UserControl _selectedFrame;
+        public UserControl SelectedFrame
+        {
+            get { return _selectedFrame; }
+            set
+            {
+                _selectedFrame = value;
+                OnPropertyChanged("SelectedFrame");
+            }
+        }
 
         private int _totalDays;
         public int TotalDays

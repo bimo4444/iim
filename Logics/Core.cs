@@ -62,18 +62,6 @@ namespace Logics
             Initializing();
         }
 
-        private void Initializing()
-        {
-            MaxDateTime = CurrentMaxDateTime = DateTime.Now.Date;
-            MinDateTime = CurrentMinDateTime = DateTime.MinValue;
-        }
-
-        private void DeserializeConfigs()
-        {
-            config = xmlSerializer.Deserialize<Config>(configFileName);
-            SomeUser = xmlSerializer.Deserialize<UserConfig>(userConfigFileName);
-        }
-
         public List<Store> GetStoresList()
         {
             //comment this
@@ -94,6 +82,18 @@ namespace Logics
                         .Contains(s.OidStore)
                 })
                 .ToList()) : (SomeUser.StoresList = storesList);
+        }
+
+        private void Initializing()
+        {
+            MaxDateTime = CurrentMaxDateTime = DateTime.Now.Date;
+            MinDateTime = CurrentMinDateTime = DateTime.MinValue;
+        }
+
+        private void DeserializeConfigs()
+        {
+            config = xmlSerializer.Deserialize<Config>(configFileName);
+            SomeUser = xmlSerializer.Deserialize<UserConfig>(userConfigFileName);
         }
 
         public bool CheckCellExists(string cell)
@@ -139,12 +139,16 @@ namespace Logics
         public void OnShutDown()
         {
             xmlSerializer.Serialize(SomeUser, userConfigFilePath, userConfigFileName);
-            //xmlSerializer.Serialize(config, configFilePath, configFileName);
+            if (!Directory.Exists(configFilePath))
+                Directory.CreateDirectory(configFilePath);
+            if (!File.Exists(configFileName))
+                xmlSerializer.Serialize(config, configFilePath, configFileName);
         }
 
         public IEnumerable<Item> GetPrimaryItems()
         {
             primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
+            MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;
             return currentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
@@ -153,7 +157,13 @@ namespace Logics
             return dataProvider.GetStoreCells();
         }
 
-        public IEnumerable<Item> GetMovementItems()
+        public IEnumerable<Item> GetMovementItems(Guid guid)
+        {
+            movementList = SelectMovement(guid);
+            return movementList = MovementMetamorphosis(movementList);
+        }
+
+        private IEnumerable<Item> SelectMovement(Guid guid)
         {
             throw new NotImplementedException();
         }
@@ -206,7 +216,12 @@ namespace Logics
 
         private IEnumerable<Item> PrimaryMetamorphosis(IEnumerable<Item> primaryList)
         {
-            throw new NotImplementedException();
+            if(CurrentMaxDateTime != MaxDateTime || CurrentMinDateTime != MinDateTime)
+                primaryList = metamorphosis.CutDates(primaryList, CurrentMinDateTime, CurrentMaxDateTime);
+            if (!SomeUser.Minus)
+                primaryList = metamorphosis.CutMinus(primaryList);
+            primaryList = metamorphosis.Grouping(primaryList, SomeUser.PartyGrouping, SomeUser.OrderRPGrouping, SomeUser.TaskGrouping, SomeUser.StatGrouping)
+            return primaryList;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Logics
         List<Store> UncheckSelectedStores();
 
         IEnumerable<Item> GetPrimaryItems();
-        IEnumerable<Item> GetMovementItems();
+        IEnumerable<Item> GetMovementItems(Guid guid);
         IEnumerable<Item> ResetPrimary();
         IEnumerable<Item> ResetMovement();
         IEnumerable<string> GetStoreCellsList();

@@ -9,10 +9,10 @@ namespace Metamorphosis
 {
     public interface IMetamorphoses
     {
-        List<Item> CutMinus(List<Item> t);
-        List<Item> GetRemains(List<Item> lm);
-        List<Item> CutDates(List<Item> t, DateTime min, DateTime max);
-        List<Item> Grouping(
-            List<Item> t, bool party, bool order, bool task, bool stat);
+        IEnumerable<Item> CutMinus(IEnumerable<Item> t);
+        IEnumerable<Item> GetRemains(IEnumerable<Item> lm);
+        IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime min, DateTime max);
+        IEnumerable<Item> Grouping(
+            IEnumerable<Item> t, bool party, bool order, bool task, bool stat);
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects\iim\iim\obj\Debug\
+C:\dev\iim\iim\obj\Debug\
 iim
 none
 false
 DEBUG;TRACE
-D:\Projects\iim\iim\App.xaml
-8-1638521696
+C:\dev\iim\iim\App.xaml
+10-481847224
 
-26418696266
-32296652353
-Views\ConfirmationView.xaml;Views\ConnectionErrorView.xaml;Views\FirstView.xaml;Views\FirstViewMenu.xaml;Views\MainMenu.xaml;Views\MainWindow.xaml;Views\MovementView.xaml;Views\PrimaryView.xaml;
+28-2067629338
+321687919055
+Views\ConfirmationView.xaml;Views\ConnectionErrorView.xaml;Views\FirstView.xaml;Views\FirstViewMenu.xaml;Views\MainMenu.xaml;Views\MainMenuMovementFrame.xaml;Views\MainMenuPrimaryFrame.xaml;Views\MainWindow.xaml;Views\MovementView.xaml;Views\PrimaryView.xaml;
 
 False
 

@@ -9,12 +9,12 @@ namespace Metamorphosis
 {
     public class Metamorphoses : IMetamorphoses
     {
-        public List<Item> CutMinus(List<Item> t)
+        public IEnumerable<Item> CutMinus(IEnumerable<Item> t)
         {
             return t.Where(w => w.Quantity < 0 || w.Remains < 0).ToList();
         }
 
-        public List<Item> GetRemains(List<Item> lm)
+        public IEnumerable<Item> GetRemains(IEnumerable<Item> lm)
         {
             decimal d = lm
                 .Select(s => s.Quantity)
@@ -31,7 +31,7 @@ namespace Metamorphosis
             return lm;
         }
 
-        public List<Item> CutDates(List<Item> t, DateTime min, DateTime max)
+        public IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime min, DateTime max)
         {
             //to prevent new dates
             if (max == DateTime.Now.Date)
@@ -46,7 +46,7 @@ namespace Metamorphosis
                 .ToList();
         }
 
-        public List<Item> Grouping(List<Item> t, bool party, bool order, bool task, bool stat)
+        public IEnumerable<Item> Grouping(IEnumerable<Item> t, bool party, bool order, bool task, bool stat)
         {
             return t
                 .GroupBy(

@@ -125,7 +125,7 @@
       <OidStore>1e86051f-5752-4109-93b3-12c95863a974</OidStore>
       <Higher>1e86051f-5752-4109-93b3-12c95863a974</Higher>
       <StoreString>36  !УДАЛИТЬ! Склад 36  !УДАЛИТЬ!</StoreString>
-      <IsSelected>false</IsSelected>
+      <IsSelected>true</IsSelected>
     </Store>
     <Store>
       <OidStore>4b7e1f49-0367-11e3-93fa-ac162d7559bf</OidStore>

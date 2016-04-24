@@ -83,7 +83,6 @@ C:\dev\iim\iim\bin\Debug\Logics.dll
 C:\dev\iim\iim\bin\Debug\Metamorphosis.dll
 C:\dev\iim\iim\bin\Debug\MVPLight.dll
 C:\dev\iim\iim\bin\Debug\Serializer.dll
-C:\dev\iim\iim\bin\Debug\StoreCells.dll
 C:\dev\iim\iim\bin\Debug\Uniqueness.dll
 C:\dev\iim\iim\bin\Debug\DevExpress.Printing.v14.1.Core.dll
 C:\dev\iim\iim\bin\Debug\ADOLib.pdb
@@ -96,7 +95,6 @@ C:\dev\iim\iim\bin\Debug\Logics.pdb
 C:\dev\iim\iim\bin\Debug\Metamorphosis.pdb
 C:\dev\iim\iim\bin\Debug\MVPLight.pdb
 C:\dev\iim\iim\bin\Debug\Serializer.pdb
-C:\dev\iim\iim\bin\Debug\StoreCells.pdb
 C:\dev\iim\iim\bin\Debug\Uniqueness.pdb
 C:\dev\iim\iim\bin\Debug\DevExpress.Mvvm.v14.1.xml
 D:\Projects\iim\iim\obj\Debug\Views\ConfirmationView.baml
@@ -124,3 +122,16 @@ D:\Projects\iim\iim\bin\Debug\StoreCellsNormalizer.dll
 D:\Projects\iim\iim\bin\Debug\Trap.dll
 D:\Projects\iim\iim\bin\Debug\StoreCellsNormalizer.pdb
 D:\Projects\iim\iim\bin\Debug\Trap.pdb
+C:\dev\iim\iim\bin\Debug\StoreCellsNormalizer.dll
+C:\dev\iim\iim\bin\Debug\StoreCellsNormalizer.pdb
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.xml
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.xml
+C:\dev\iim\iim\bin\Debug\DevExpress.Printing.v14.1.Core.xml
+C:\dev\iim\iim\bin\Debug\de\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\es\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\ja\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\ru\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\obj\Debug\Views\MainMenuPrimaryFrame.baml
+C:\dev\iim\iim\obj\Debug\Views\MainMenuPrimaryFrame.g.cs
+C:\dev\iim\iim\obj\Debug\Views\MainMenuMovementFrame.baml
+C:\dev\iim\iim\obj\Debug\Views\MainMenuMovementFrame.g.cs

@@ -10,7 +10,7 @@ namespace Entity
     {
         public Guid OidUnit { get; set; }
         public Guid OidStore { get; set; }
-        public Guid OidBaseDimension { get; internal set; }
+        public Guid OidBaseDimension { get; set; }
         public DateTime? Date { get; set; }
 
         public string DateString { get; set; }

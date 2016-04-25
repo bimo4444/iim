@@ -19,7 +19,7 @@
             <dxb:BarButtonItem Content="Копировать" Name="Copy" Glyph="/Resources/page_copy.png" Command="{Binding CopyToClipboardMenu}"/>
         </dxb:BarManager.Items>
         <!--GRID CONTROL-->
-        <dxg:GridControl x:Name="gridControl" ItemsSource="{Binding Ml}" AutoGenerateColumns="None">
+        <dxg:GridControl x:Name="gridControl" ItemsSource="{Binding ListItems}" AutoGenerateColumns="None">
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem DisplayFormat="0.#####" FieldName="Remains" SummaryType="Sum" Visible="True"/>
                 <dxg:GridSummaryItem DisplayFormat="0.#####" FieldName="Quantity" SummaryType="Sum" Visible="True"/>

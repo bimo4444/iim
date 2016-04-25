@@ -194,7 +194,7 @@
                         <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="96" MinValue="{Binding MinDateTime, Mode=OneWay}" MaxValue="{Binding MaxDateTime, Mode=TwoWay}" DateTime="{Binding CurrentMaxDateTime, Mode=TwoWay}" ShowClearButton="False"/>
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text=" дней: " HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-                            <TextBlock Margin="0,0,5,0" Text="142" HorizontalAlignment="Right" TextAlignment="Right" VerticalAlignment="Bottom" Width="35" FontWeight="Bold"/>
+                            <TextBlock Margin="0,0,5,0" Text="{Binding TotalDays}" HorizontalAlignment="Right" TextAlignment="Right" VerticalAlignment="Bottom" Width="35" FontWeight="Bold"/>
                         </StackPanel>
 
                     </StackPanel>

@@ -125,13 +125,13 @@
       <OidStore>1e86051f-5752-4109-93b3-12c95863a974</OidStore>
       <Higher>1e86051f-5752-4109-93b3-12c95863a974</Higher>
       <StoreString>36  !УДАЛИТЬ! Склад 36  !УДАЛИТЬ!</StoreString>
-      <IsSelected>true</IsSelected>
+      <IsSelected>false</IsSelected>
     </Store>
     <Store>
       <OidStore>4b7e1f49-0367-11e3-93fa-ac162d7559bf</OidStore>
       <Higher>4b7e1f49-0367-11e3-93fa-ac162d7559bf</Higher>
       <StoreString>36 Склад 36</StoreString>
-      <IsSelected>true</IsSelected>
+      <IsSelected>false</IsSelected>
     </Store>
     <Store>
       <OidStore>4bd63df1-0367-11e3-93fa-ac162d7559bf</OidStore>
@@ -227,7 +227,7 @@
       <OidStore>4b7df9b1-0367-11e3-93fa-ac162d7559bf</OidStore>
       <Higher>4b7df9b1-0367-11e3-93fa-ac162d7559bf</Higher>
       <StoreString>78 Межцеховой склад ПДО</StoreString>
-      <IsSelected>false</IsSelected>
+      <IsSelected>true</IsSelected>
     </Store>
     <Store>
       <OidStore>cbb12f1b-d6b6-4380-a529-4428b77000e6</OidStore>

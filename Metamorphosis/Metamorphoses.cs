@@ -94,10 +94,41 @@ namespace Metamorphosis
                 .ToList();
         }
 
-
         public IEnumerable<Item> RenameCells(IEnumerable<Item> items, string cell, string newCell)
         {
-            return
+            return items.Select(s => new Item
+                {
+                    ComtecNumber = s.ComtecNumber,
+                    Date = s.Date,
+                    DateString = s.DateString,
+                    DocumentName = s.DocumentName,
+                    DocumentNumber = s.DocumentNumber,
+                    DocumentType = s.DocumentType,
+                    Group = s.Group,
+                    KeyArticle = s.KeyArticle,
+                    Movement = s.Movement,
+                    NextOperation = s.NextOperation,
+                    OidStore = s.OidStore,
+                    OidUnit = s.OidUnit,
+                    OrderRP = s.OrderRP,
+                    Party = s.Party,
+                    Quantity = s.Quantity,
+                    Ready = s.Ready,
+                    Refill = s.Refill,
+                    Remains = s.Remains,
+                    Rest = s.Rest,
+                    Stat = s.Stat,
+                    StoreCell = s.StoreCell != cell ? s.StoreCell : newCell,
+                    StoreKey = s.StoreKey,
+                    StoreString = s.StoreString,
+                    StroreName = s.StroreName,
+                    Task = s.Task,
+                    Transition = s.Transition,
+                    UnitMeasurement = s.UnitMeasurement,
+                    UnitName = s.UnitName,
+                    User = s.User
+                })
+                .ToList();
         }
     }
 }

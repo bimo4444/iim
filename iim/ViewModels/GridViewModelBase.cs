@@ -30,7 +30,7 @@ namespace iim.ViewModels
         public bool TaskVisible
         {
             get { return _taskVisible; }
-            private set
+            set
             {
                 _taskVisible = value;
                 OnPropertyChanged("TaskVisible");
@@ -40,7 +40,7 @@ namespace iim.ViewModels
         public bool PartyVisible
         {
             get { return _partyVisible; }
-            private set
+            set
             {
                 _partyVisible = value;
                 OnPropertyChanged("PartyVisible");
@@ -50,7 +50,7 @@ namespace iim.ViewModels
         public bool OrderVisible
         {
             get { return _orderVisible; }
-            private set
+            set
             {
                 _orderVisible = value;
                 OnPropertyChanged("OrderVisible");

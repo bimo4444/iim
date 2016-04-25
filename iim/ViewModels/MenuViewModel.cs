@@ -38,7 +38,7 @@ namespace iim.ViewModels
         public int TotalDays
         {
             get { return _totalDays; }
-            private set
+            set
             {
                 _totalDays = value;
                 OnPropertyChanged("TotalDays");

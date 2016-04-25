@@ -36,7 +36,7 @@
         <!--MOVEMENT-->
         <Button HorizontalAlignment="Center" Command="{Binding ShowMovementView}" IsEnabled="{Binding MovButtonEnabled, Mode=OneWay}" 
                                  Width="91" Height="30" BorderBrush="Black" Foreground="Black">
-            <StackPanel Margin="-4,0,-8,0" Orientation="Horizontal" Height="30" Width="95">
+            <StackPanel Margin="-11,0,-8,0" Orientation="Horizontal" Height="30" Width="95">
                 <Image Source="/Resources/mov.png" Width="16" Height="16" Margin="6,4,0,10">
                     <Image.Style>
                         <Style TargetType="Image">

@@ -28,7 +28,11 @@ namespace Logics
         DateTime MinDateTime;
         public DateTime CurrentMaxDateTime { get; set; }
         public DateTime CurrentMinDateTime { get; set; }
-        
+
+        //comment
+        readonly string xmlFilePath = "xml";
+        readonly string xmlFileName = "xml\\xml.xml";
+
         readonly string configFilePath = "config";
         readonly string configFileName = "config\\iimConfig.xml";
 
@@ -62,8 +66,6 @@ namespace Logics
             Initializing();
         }
 
-
-        
         public List<Store> GetStoresList()
         {
             //comment this
@@ -123,23 +125,9 @@ namespace Logics
             CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
-        public void Refresh()
+        public void ExportToExcel(TableView tableView, string excelFileName)
         {
-            primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
-        }
-
-        public void ExportToExcel(TableView tableView)
-        {
-            string excelFileName = ShowExcelPathDialog();
             excelService.Export(tableView, excelFileName);
-        }
-
-        private string ShowExcelPathDialog()
-        {
-            ////////////////////
-            ////////////////////
-            ////////////////////
-            throw new NotImplementedException();
         }
 
         public DateTime ResetMaxDate()
@@ -159,11 +147,20 @@ namespace Logics
                 Directory.CreateDirectory(configFilePath);
             if (!File.Exists(configFileName))
                 xmlSerializer.Serialize(config, configFilePath, configFileName);
+
+            //delete
+            if (!Directory.Exists(xmlFilePath))
+                Directory.CreateDirectory(xmlFilePath);
+            if (!File.Exists(xmlFileName))
+                xmlSerializer.Serialize(primaryList.ToList(), xmlFilePath, xmlFileName);
         }
 
         public IEnumerable<Item> GetPrimaryItems()
         {
-            primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
+            //delete
+            primaryList = xmlSerializer.Deserialize<List<Item>>(xmlFileName);
+            //uncomment
+            //primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
             MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;
             return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
@@ -173,15 +170,9 @@ namespace Logics
             return StoreCells = dataProvider.GetStoreCells();
         }
 
-        public IEnumerable<Item> GetMovementItems(Guid guid)
+        public IEnumerable<Item> GetMovementItems(Guid guidUnit, Guid guidStore)
         {
-            movementList = SelectMovement(guid);
-            return movementList = MovementMetamorphosis(movementList);
-        }
-
-        private IEnumerable<Item> SelectMovement(Guid guid)
-        {
-            throw new NotImplementedException();
+            return movementList = MovementMetamorphosis(primaryList, guidUnit, guidStore);
         }
 
         public List<Store> UncheckSelectedStores()
@@ -220,29 +211,28 @@ namespace Logics
             return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
-        public IEnumerable<Item> ResetMovement(Guid guid)
+        private IEnumerable<Item> MovementMetamorphosis(IEnumerable<Item> primaryList, Guid guidUnit, Guid guidStore)
         {
-            return CurrentPrimaryList = MovementMetamorphosis(primaryList);
-        }
-
-        private IEnumerable<Item> MovementMetamorphosis(IEnumerable<Item> primaryList, Guid guid)
-        {
-            movementList = primaryList.Where(w => w.OidUnit == )
+            movementList = primaryList.Where(w => w.OidUnit == guidUnit && w.OidStore == guidStore).ToList();
+            movementList = metamorphosis.GetRemains(movementList);
+            if (SomeUser.Minus)
+                movementList = metamorphosis.CutMinus(movementList);
+            if (CurrentMaxDateTime != MaxDateTime || CurrentMinDateTime != MinDateTime)
+                movementList = metamorphosis.CutDates(movementList, CurrentMinDateTime, CurrentMaxDateTime);
+            return movementList;
         }
 
         private IEnumerable<Item> PrimaryMetamorphosis(IEnumerable<Item> primaryList)
         {
+            CurrentPrimaryList = primaryList;
             if(CurrentMaxDateTime != MaxDateTime || CurrentMinDateTime != MinDateTime)
-                primaryList = metamorphosis.CutDates(primaryList, CurrentMinDateTime, CurrentMaxDateTime);
-            if (!SomeUser.Minus)
-                primaryList = metamorphosis.CutMinus(primaryList);
-            primaryList = metamorphosis.Grouping(primaryList, SomeUser.PartyGrouping, SomeUser.OrderRPGrouping, SomeUser.TaskGrouping, SomeUser.StatGrouping)
-            return primaryList;
+                CurrentPrimaryList = metamorphosis.CutDates(CurrentPrimaryList, CurrentMinDateTime, CurrentMaxDateTime);
+            CurrentPrimaryList = metamorphosis.Grouping(CurrentPrimaryList, SomeUser.PartyGrouping, SomeUser.OrderRPGrouping, SomeUser.TaskGrouping, SomeUser.StatGrouping);
+            if (SomeUser.Minus)
+                CurrentPrimaryList = metamorphosis.CutMinus(CurrentPrimaryList);
+            if(!SomeUser.Zeros)
+                CurrentPrimaryList = CurrentPrimaryList.Where(w => w.Quantity != (decimal)0 || w.Remains != (decimal)0).ToList();
+            return CurrentPrimaryList;
         }
-
-        //public IEnumerable<Item> RenameCells(string cell, string newCell)
-        //{
-        //    return primaryList = metamorphosis.RenameCells(primaryList, cell, newCell);
-        //}
     }
 }

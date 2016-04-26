@@ -57,6 +57,7 @@ namespace Logics
             this.xmlSerializer = xmlSerializer;
             this.excelService = excelService;
             this.dataProvider = dataProvider;
+            this.cellsNormalizer = cellsNormalizer;
             DeserializeConfigs();
 
             dataProvider.Configure(config.ConnectionString);
@@ -105,9 +106,11 @@ namespace Logics
             return StoreCells.Contains(cell) ? true : StoreCells.Contains(cellsNormalizer.Normalize(cell));
         }
 
-        public void UpdateStoreCell(Guid guid, string cell)
+        public void UpdateStoreCell(Guid guid, string cell, string newCell)
         {
-            throw new NotImplementedException();
+            dataProvider.UpdateStoreCell(guid, newCell);
+            primaryList = metamorphosis.RenameCells(primaryList, cell, newCell);
+            CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
         public string NormalizeStoreCell(string cell)

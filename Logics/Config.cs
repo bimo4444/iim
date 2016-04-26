@@ -10,12 +10,16 @@ namespace Logics
     {
         public int ConnectionTimeOut { get; set; }
         public string ConnectionString { get; set; }
+        public bool UsingWcfService { get; set; }
+        public string WcfServiceAddress { get; set; }
+
         public Config()
         {
             ConnectionTimeOut = 300;
             ConnectionString = 
                 "Data Source=SRVGALDB2;Initial Catalog=GalAMM_test;Integrated Security=True";
+            UsingWcfService = true;
+            WcfServiceAddress = "192.168.0.13";
         }
-
     }
 }

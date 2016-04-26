@@ -30,7 +30,7 @@ namespace Logics
 
         void ExportToExcel(TableView tableView, string excelFileName);
         bool CheckCellExists(string cell);
-        void UpdateStoreCell(Guid guid, string cell);
+        void UpdateStoreCell(Guid guid, string cell, string newCell);
         string NormalizeStoreCell(string cell);
         void AddNewStoreCell(string cell, string newCell);
         void OnShutDown();

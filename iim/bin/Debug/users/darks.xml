@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UserConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<UserConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <StoresList>
     <Store>
       <OidStore>fdfb34fe-9d97-4489-b2e1-badfcabd2f74</OidStore>

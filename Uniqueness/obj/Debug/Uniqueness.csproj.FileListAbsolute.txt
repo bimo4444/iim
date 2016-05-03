@@ -2,7 +2,6 @@ C:\dev\iim\Uniqueness\bin\Debug\Uniqueness.dll
 C:\dev\iim\Uniqueness\bin\Debug\Uniqueness.pdb
 C:\dev\iim\Uniqueness\obj\Debug\Uniqueness.dll
 C:\dev\iim\Uniqueness\obj\Debug\Uniqueness.pdb
-C:\dev\iim\Uniqueness\obj\Debug\Uniqueness.csprojResolveAssemblyReference.cache
 D:\Projects\iim\Uniqueness\bin\Debug\Uniqueness.dll
 D:\Projects\iim\Uniqueness\bin\Debug\Uniqueness.pdb
 D:\Projects\iim\Uniqueness\obj\Debug\Uniqueness.dll

@@ -62,7 +62,6 @@ namespace iim
             SetOtherViewModels();
             Bindings();
             Subscribes();
-            MessageBox.Show("gg");
         }
 
         private void Begin()
@@ -80,10 +79,10 @@ namespace iim
             menuViewModel.Order = core.SomeUser.OrderRPGrouping;
             menuViewModel.Minus = core.SomeUser.Minus;
         }
-        private async void DownloadStoresListAsync()
+        private void DownloadStoresListAsync()// async
         {
             DisableControls(true);
-            firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
+            //firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
             menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
             DisableControls(false);
         }
@@ -95,11 +94,11 @@ namespace iim
             mainWindow.Show();
         }
 
-        private async void ShowPrimaryView()
+        private void ShowPrimaryView()// async
         {
             DisableControls(true);
-            primaryViewModel.ListCells = await Task.Run(() => core.GetStoreCellsList());
-            primaryViewModel.ListItems = await Task.Run(() => core.GetPrimaryItems());
+            //primaryViewModel.ListCells = await Task.Run(() => core.GetStoreCellsList());
+            //primaryViewModel.ListItems = await Task.Run(() => core.GetPrimaryItems());
             menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
             ChangeCurrentView(primaryView);
             menuViewModel.Time = DateTime.Now.ToShortTimeString();

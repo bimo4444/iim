@@ -19,7 +19,7 @@ namespace Logics
             ConnectionString = 
                 "Data Source=SRVGALDB2;Initial Catalog=GalAMM_test;Integrated Security=True";
             UsingWcfService = true;
-            WcfServiceAddress = "192.168.0.13";
+            WcfServiceAddress = "http://192.168.0.13:666/test";
         }
     }
 }

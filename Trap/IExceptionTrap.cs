@@ -8,6 +8,7 @@ namespace Trap
 {
     public interface IExceptionTrap
     {
+        //if caught, returns initialized T 
         T Catch<T>(Func<T> func);
         bool Catch(Action action);
     }

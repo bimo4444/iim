@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WcfClientLibrary;
 
 namespace Logics
 {
@@ -40,13 +41,16 @@ namespace Logics
         readonly string userConfigFileName = "users\\" + Environment.UserName + ".xml";
 
         IDataProvider dataProvider;
+        IWcfClient wcfClient;
         IMetamorphoses metamorphosis;
         IXmlSerializer xmlSerializer;
         IExcelService excelService;
         ICellsNormalizer cellsNormalizer;
 
+
         public Core(
             IDataProvider dataProvider,
+            IWcfClient wcfClient,
             IMetamorphoses metamorphosis,
             IXmlSerializer xmlSerializer,
             IExcelService excelService,
@@ -57,6 +61,7 @@ namespace Logics
             this.xmlSerializer = xmlSerializer;
             this.excelService = excelService;
             this.dataProvider = dataProvider;
+            this.wcfClient = wcfClient;
             this.cellsNormalizer = cellsNormalizer;
             DeserializeConfigs();
 
@@ -64,17 +69,24 @@ namespace Logics
             dataProvider.Configure(config.ConnectionTimeOut);
             dataProvider.Initialize();
 
+            wcfClient.SetUrl(config.WcfServiceAddress);
+
             Initializing();
         }
 
         public List<Store> GetStoresList()
         {
             //comment this
-            return SomeUser.StoresList.Count() > 0 ? SomeUser.StoresList : (SomeUser.StoresList = dataProvider.GetStoresList());
+            //return SomeUser.StoresList.Count() > 0 ? SomeUser.StoresList : (SomeUser.StoresList = dataProvider.GetStoresList());
+            List<Store> result = new List<Store>();
+            if(config.UsingWcfService)
+                result = wcfClient.GetStoresList();
+            if (result.Count == 0)
+                result = dataProvider.GetStoresList();
 
             //nested
-            var storesList = dataProvider.GetStoresList();
-            return SomeUser.StoresList.Count() > 0 ? (SomeUser.StoresList = storesList
+            return SomeUser.StoresList.Count() > 0 ? 
+                (SomeUser.StoresList = result
                 .Select(s => new Store
                 {
                     OidStore = s.OidStore,
@@ -86,7 +98,7 @@ namespace Logics
                             .Select(ss => ss.OidStore))
                         .Contains(s.OidStore)
                 })
-                .ToList()) : (SomeUser.StoresList = storesList);
+                .ToList()) : (SomeUser.StoresList = result);
         }
 
         private void Initializing()

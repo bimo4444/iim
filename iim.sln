@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iim", "iim\iim.csproj", "{7C31202A-697D-45C8-BA46-1AA521CADA40}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trap", "Trap\Trap.csproj", "{E5C232C8-F6A3-4B62-97D5-FE831D5F0110}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreCellsNormalizer", "StoreCellsNormalizer\StoreCellsNormalizer.csproj", "{0F687F70-29F4-4D61-873E-5EDB77AE3040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClientLibrary", "WcfClientLibrary\WcfClientLibrary.csproj", "{A72DDFD3-D0BA-473E-A330-F9E88527776E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{0F687F70-29F4-4D61-873E-5EDB77AE3040}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F687F70-29F4-4D61-873E-5EDB77AE3040}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F687F70-29F4-4D61-873E-5EDB77AE3040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

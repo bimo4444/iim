@@ -13,6 +13,7 @@ using Logging;
 using Ninject.Parameters;
 using Trap;
 using StoreCellsNormalizer;
+using WcfClientLibrary;
 
 namespace iim
 {
@@ -27,6 +28,7 @@ namespace iim
             this.Bind<IExcelService>().To<ExcelService>();
             this.Bind<ICellsNormalizer>().To<CellsNormalizer>();
             this.Bind<IDataProvider>().To<DataProvider>();
+            this.Bind<IWcfClient>().To<WcfClient>();
             this.Bind<IExceptionTrap>().To<ExceptionTrap>();
             this.Bind<ILog>().To<Log>();
         }

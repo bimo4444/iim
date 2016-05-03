@@ -7,7 +7,6 @@ C:\dev\iim\ADOLib\bin\Debug\ADOLib.dll
 C:\dev\iim\ADOLib\bin\Debug\ADOLib.pdb
 C:\dev\iim\ADOLib\obj\Debug\ADOLib.dll
 C:\dev\iim\ADOLib\obj\Debug\ADOLib.pdb
-C:\dev\iim\ADOLib\obj\Debug\ADOLib.csprojResolveAssemblyReference.cache
 D:\Projects\iim\ADOLib\bin\Debug\ADOLib.dll
 D:\Projects\iim\ADOLib\bin\Debug\ADOLib.pdb
 D:\Projects\iim\ADOLib\obj\Debug\ADOLib.dll

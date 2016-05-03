@@ -16,7 +16,6 @@ namespace Trap
         {
             this.log = log;
         }
-
         public bool Catch(Action action)
         {
             try
@@ -30,7 +29,6 @@ namespace Trap
                 return false;
             }
         }
-
         public T Catch<T>(Func<T> func)
         {
             try

@@ -1,0 +1,42 @@
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\ConsoleTest.exe.config
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\ConsoleTest.exe
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\ConsoleTest.pdb
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\obj\Debug\ConsoleTest.csprojResolveAssemblyReference.cache
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\obj\Debug\ConsoleTest.exe
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\obj\Debug\ConsoleTest.pdb
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\WcfServiceLibrary.dll
+c:\users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\WcfServiceLibrary.pdb
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Ninject.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Entity.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Serializer.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\DataAccess.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Trap.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Logging.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\ADOLib.dll
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Entity.pdb
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Serializer.pdb
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\DataAccess.pdb
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Trap.pdb
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\Logging.pdb
+C:\Users\darks\documents\visual studio 2013\Projects\ConsoleTest\ConsoleTest\bin\Debug\ADOLib.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\ConsoleTest.exe.config
+C:\dev\ConsoleTest\ConsoleTest\obj\Debug\ConsoleTest.exe
+C:\dev\ConsoleTest\ConsoleTest\obj\Debug\ConsoleTest.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\ConsoleTest.exe
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\ConsoleTest.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\WcfServiceLibrary.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Ninject.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Entity.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Serializer.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\DataAccess.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Trap.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Logging.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\ADOLib.dll
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\WcfServiceLibrary.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Entity.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Serializer.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\DataAccess.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Trap.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\Logging.pdb
+C:\dev\ConsoleTest\ConsoleTest\bin\Debug\ADOLib.pdb
+C:\dev\ConsoleTest\ConsoleTest\obj\Debug\ConsoleTest.csprojResolveAssemblyReference.cache

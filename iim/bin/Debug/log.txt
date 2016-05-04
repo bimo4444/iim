@@ -986,3 +986,35 @@ Ninject
    в System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
    в Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
    в iim.Program.Main() в c:\dev\iim\iim\Program.cs:строка 34
+*********************************************************************************************************************************************
+04.05.2016 11:01:51 GAL-PIX8318 tukan
+Object reference not set to an instance of an object.
+iim
+   at iim.Presenter.Bindings() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 240
+   at iim.Presenter..ctor(ICore core) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 57
+   at DynamicInjectorea386aa54d1e416690d57f006767956e(Object[] )
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.ResolveInternal(Object scope)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.<CastIterator>d__b1`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 34
+*********************************************************************************************************************************************
+04.05.2016 11:02:05 GAL-PIX8318 tukan
+Object reference not set to an instance of an object.
+iim
+   at iim.Presenter.Bindings() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 240
+   at iim.Presenter..ctor(ICore core) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 57
+   at DynamicInjectorf619941d36ac493ea49f984c6d748814(Object[] )
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.ResolveInternal(Object scope)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass15.<Resolve>b__f(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.<CastIterator>d__b1`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 34

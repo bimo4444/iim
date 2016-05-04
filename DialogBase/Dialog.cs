@@ -16,7 +16,7 @@ namespace DialogBase
     public class Dialog
     {
         private event EventHandler PropertyChanged;
-        DispatcherFrame frame = new DispatcherFrame();
+        DispatcherFrame frame;
 
         IDialogViewModel viewModel = new DialogViewModel();
 
@@ -46,12 +46,14 @@ namespace DialogBase
         {
             viewModel.Text = text;
             PropertyChanged += OnPropertyChanged;
+            frame = new DispatcherFrame();
             Dispatcher.PushFrame(frame);
         }
 
         private void OnPropertyChanged(object sender, EventArgs e)
         {
             frame.Continue = false;
+            frame = null;
             PropertyChanged -= OnPropertyChanged;
         }
     }

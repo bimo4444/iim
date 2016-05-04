@@ -31,8 +31,8 @@ namespace Logics
         public DateTime CurrentMinDateTime { get; set; }
 
         //comment
-        readonly string xmlFilePath = "xml";
-        readonly string xmlFileName = "xml\\xml.xml";
+        //readonly string xmlFilePath = "xml";
+        //readonly string xmlFileName = "xml\\xml.xml";
 
         readonly string configFilePath = "config";
         readonly string configFileName = "config\\iimConfig.xml";
@@ -79,10 +79,11 @@ namespace Logics
             //comment this
             //return SomeUser.StoresList.Count() > 0 ? SomeUser.StoresList : (SomeUser.StoresList = dataProvider.GetStoresList());
             List<Store> result = new List<Store>();
-            if(config.UsingWcfService)
+            if (config.UsingWcfService)
                 result = wcfClient.GetStoresList();
             if (result.Count == 0)
                 result = dataProvider.GetStoresList();
+
 
             //nested
             return SomeUser.StoresList.Count() > 0 ? 
@@ -121,7 +122,7 @@ namespace Logics
         public void UpdateStoreCell(Guid guid, string cell, string newCell)
         {
             dataProvider.UpdateStoreCell(guid, newCell);
-            primaryList = metamorphosis.RenameCells(primaryList, cell, newCell);
+            primaryList = metamorphosis.RenameCells(primaryList, guid, newCell);
             CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
@@ -130,13 +131,13 @@ namespace Logics
             return cellsNormalizer.Normalize(cell);
         }
 
-        public void AddNewStoreCell(string cell, string newCell)
+        public void AddNewStoreCell(Guid guid, string newCell)
         {
             dataProvider.NewCell(newCell);
             var v = StoreCells.ToList();
             v.Add(newCell);
             StoreCells = v.OrderBy(o => o);
-            primaryList = metamorphosis.RenameCells(primaryList, cell, newCell);
+            primaryList = metamorphosis.RenameCells(primaryList, guid, newCell);
             CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
 
@@ -162,20 +163,19 @@ namespace Logics
                 Directory.CreateDirectory(configFilePath);
             if (!File.Exists(configFileName))
                 xmlSerializer.Serialize(config, configFilePath, configFileName);
-
             //delete
-            if (!Directory.Exists(xmlFilePath))
-                Directory.CreateDirectory(xmlFilePath);
-            if (!File.Exists(xmlFileName))
-                xmlSerializer.Serialize(primaryList.ToList(), xmlFilePath, xmlFileName);
+            //if (!Directory.Exists(xmlFilePath))
+            //    Directory.CreateDirectory(xmlFilePath);
+            //if (!File.Exists(xmlFileName))
+            //    xmlSerializer.Serialize(primaryList.ToList(), xmlFilePath, xmlFileName);
         }
 
         public IEnumerable<Item> GetPrimaryItems()
         {
             //delete
-            primaryList = xmlSerializer.Deserialize<List<Item>>(xmlFileName);
+            //primaryList = xmlSerializer.Deserialize<List<Item>>(xmlFileName);
             //uncomment
-            //primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
+            primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
             MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;
             return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
@@ -240,8 +240,8 @@ namespace Logics
         private IEnumerable<Item> PrimaryMetamorphosis(IEnumerable<Item> primaryList)
         {
             CurrentPrimaryList = primaryList;
-            if(CurrentMaxDateTime != MaxDateTime || CurrentMinDateTime != MinDateTime)
-                CurrentPrimaryList = metamorphosis.CutDates(CurrentPrimaryList, CurrentMinDateTime, CurrentMaxDateTime);
+            if(CurrentMaxDateTime != MaxDateTime)
+                CurrentPrimaryList = metamorphosis.CutDates(CurrentPrimaryList, CurrentMaxDateTime);
             CurrentPrimaryList = metamorphosis.Grouping(CurrentPrimaryList, SomeUser.PartyGrouping, SomeUser.OrderRPGrouping, SomeUser.TaskGrouping, SomeUser.StatGrouping);
             if (SomeUser.Minus)
                 CurrentPrimaryList = metamorphosis.CutMinus(CurrentPrimaryList);

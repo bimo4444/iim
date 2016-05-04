@@ -50,7 +50,7 @@
 
             <!--DATE-->
             <Label Content="Период До:" Height="30" VerticalContentAlignment="Bottom" HorizontalAlignment="Left"/>
-            <dxe:DateEdit x:Name="de1" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" Width="90" MaxValue="{Binding Path=MaxDateTime, Mode=TwoWay}" DateTime="{Binding Path=CurrentMaxDateTime, Mode=TwoWay}" Height="30" ShowClearButton="False"/>
+            <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" Width="90" MaxValue="{Binding Path=MaxDateTime, Mode=TwoWay}" DateTime="{Binding Path=CurrentMaxDateTime, Mode=TwoWay}" Height="30" ShowClearButton="False"/>
 
             <!--CHECKBOXES-->
             <Border BorderThickness="10" />

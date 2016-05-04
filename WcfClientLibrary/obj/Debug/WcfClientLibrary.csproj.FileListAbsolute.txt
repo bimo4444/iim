@@ -10,3 +10,15 @@ C:\dev\iim\WcfClientLibrary\bin\Debug\Trap.pdb
 C:\dev\iim\WcfClientLibrary\bin\Debug\Logging.pdb
 C:\dev\iim\WcfClientLibrary\obj\Debug\WcfClientLibrary.dll
 C:\dev\iim\WcfClientLibrary\obj\Debug\WcfClientLibrary.pdb
+D:\Projects\iim\WcfClientLibrary\bin\Debug\WcfClientLibrary.dll
+D:\Projects\iim\WcfClientLibrary\bin\Debug\WcfClientLibrary.pdb
+D:\Projects\iim\WcfClientLibrary\bin\Debug\Entity.dll
+D:\Projects\iim\WcfClientLibrary\bin\Debug\Trap.dll
+D:\Projects\iim\WcfClientLibrary\bin\Debug\WcfContract.dll
+D:\Projects\iim\WcfClientLibrary\bin\Debug\Logging.dll
+D:\Projects\iim\WcfClientLibrary\bin\Debug\Entity.pdb
+D:\Projects\iim\WcfClientLibrary\bin\Debug\Trap.pdb
+D:\Projects\iim\WcfClientLibrary\bin\Debug\Logging.pdb
+D:\Projects\iim\WcfClientLibrary\obj\Debug\WcfClientLibrary.csprojResolveAssemblyReference.cache
+D:\Projects\iim\WcfClientLibrary\obj\Debug\WcfClientLibrary.dll
+D:\Projects\iim\WcfClientLibrary\obj\Debug\WcfClientLibrary.pdb

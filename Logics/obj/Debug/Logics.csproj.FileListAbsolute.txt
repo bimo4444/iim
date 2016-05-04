@@ -57,3 +57,8 @@ C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.xml
 D:\Projects\iim\Logics\bin\Debug\WcfClientLibrary.dll
 D:\Projects\iim\Logics\bin\Debug\WcfClientLibrary.pdb
 D:\Projects\iim\Logics\bin\Debug\WcfContract.dll
+C:\dev\iim\Logics\bin\Debug\DevExpress.Data.v14.1.xml
+C:\dev\iim\Logics\bin\Debug\de\DevExpress.Data.v14.1.resources.dll
+C:\dev\iim\Logics\bin\Debug\es\DevExpress.Data.v14.1.resources.dll
+C:\dev\iim\Logics\bin\Debug\ja\DevExpress.Data.v14.1.resources.dll
+C:\dev\iim\Logics\bin\Debug\ru\DevExpress.Data.v14.1.resources.dll

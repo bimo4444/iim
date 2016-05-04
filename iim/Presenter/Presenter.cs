@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -61,8 +62,66 @@ namespace iim
             SetOtherViewModels();
             Begin();
             ShowFirstView();
-            DownloadStoresListAsync();
+            GetStores();
+        }
+        
 
+        private async void ShowPrimaryView()
+        {
+            await Task.Factory.StartNew(() =>
+                {
+                    DisableControls();
+                    mainViewModel.StatusBarText = "загрузка...";
+                    DownloadPrimaryListAsync();
+                    while (primaryViewModel.ListItems.Count() == 0)
+                    {
+                        ActivateControls();
+                        if (ConnectionErrorView())
+                        {
+                            DisableControls();
+                            DownloadPrimaryListAsync();
+                        }
+                    }
+                    menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
+                    ChangeCurrentView(primaryView);
+                    menuViewModel.Time = DateTime.Now.ToShortTimeString();
+                    menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
+                    ActivateControls();
+                    mainViewModel.StatusBarText = "";
+                });
+        }
+        private void DownloadPrimaryListAsync()
+        {
+            Task.Factory.StartNew(() => 
+                {
+                    primaryViewModel.ListCells = core.GetStoreCellsList();
+                    primaryViewModel.ListItems = core.GetPrimaryItems();
+                }).Wait();
+        }
+        private async void GetStores()
+        {
+            await Task.Factory.StartNew(() =>
+                {
+                    DisableControls();
+                    mainViewModel.StatusBarText = "загрузка...";
+                    DownloadStoresListAsync();
+                    while (firstViewModel.ListBoxItems.Count() == 0)
+                    {
+                        ActivateControls();
+                        if (ConnectionErrorView())
+                        {
+                            DisableControls();
+                            DownloadStoresListAsync();
+                        }
+                    }
+                    menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
+                    mainViewModel.StatusBarText = "";
+                    ActivateControls();
+                });
+        }
+        private void DownloadStoresListAsync()
+        {
+            Task.Factory.StartNew(() => firstViewModel.ListBoxItems = core.GetStoresList()).Wait();
         }
         private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -96,20 +155,6 @@ namespace iim
             menuViewModel.Order = core.SomeUser.OrderRPGrouping;
             menuViewModel.Minus = core.SomeUser.Minus;
         }
-        private async void DownloadStoresListAsync()
-        {
-            DisableControls(true);
-            firstViewModel.ListBoxItems = await Task.Factory.StartNew(() => core.GetStoresList());
-            firstViewModel.ListBoxItems = core.GetStoresList();
-            menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
-            DisableControls(false);
-            //if (firstViewModel.ListBoxItems.Count() == 0)
-            //{
-            //    if (ConnectionErrorView())
-            //        Task.Factory.StartNew(() => DownloadStoresListAsync());
-            //};
-        }
-
         private void ShowFirstView()
         {
             firstViewModel.SelectedMenu = firstViewMenu;
@@ -117,34 +162,15 @@ namespace iim
             mainWindow.Show();
         }
 
-        private async void ShowPrimaryView()
-        {
-            mainViewModel.StatusBarText = "загрузка...";
-            DisableControls(true);
-            primaryViewModel.ListCells = await Task.Factory.StartNew(() => core.GetStoreCellsList());
-            primaryViewModel.ListItems = await Task.Factory.StartNew(() => core.GetPrimaryItems());
-            //if (primaryViewModel.ListItems.Count() == 0)
-            //{
-            //    if (ConnectionErrorView())
-            //        ShowPrimaryView();
-            //}
-            menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
-            ChangeCurrentView(primaryView);
-            menuViewModel.Time = DateTime.Now.ToShortTimeString();
-            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
-            DisableControls(false);
-            mainViewModel.StatusBarText = "";
-        }
-
         Guid movementGuidUnit, movementGuidStore;
         private void ShowMovement()
         {
-            DisableControls(true);
+            DisableControls();
             movementGuidUnit = primaryViewModel.SelectedItem.OidUnit;
             movementGuidStore = primaryViewModel.SelectedItem.OidStore;
             movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
             ChangeCurrentView(movementView);
-            DisableControls(false);
+            ActivateControls();
         }
 
         private bool ConfirmationView(string text)
@@ -214,36 +240,43 @@ namespace iim
         }
         private async void RefreshData()
         {
-            DisableControls(true);
+            DisableControls();
             mainViewModel.StatusBarText = "загрузка...";
             menuViewModel.MovButtonEnabled = false;
-            primaryViewModel.ListItems = await Task.Factory.StartNew(() => core.GetPrimaryItems());
-            if (primaryViewModel.ListItems.Count() == 0)
+            DownloadPrimaryListAsync();
+            while (primaryViewModel.ListItems.Count() == 0)
             {
+                ActivateControls();
                 if (ConnectionErrorView())
-                    RefreshData();
+                {
+                    DisableControls();
+                    DownloadPrimaryListAsync();
+                }
             }
             if(oldViews.Contains(movementView))
                 movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
             mainViewModel.StatusBarText = "";
-            DisableControls(false);
+            ActivateControls();
         }
         private void Metamorphosis()
         {
-            DisableControls(true);
+            DisableControls();
             if (oldViews.Contains(movementView))
             {
                 primaryViewModel.ListItems = core.ResetPrimary();
                 movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
-                DisableControls(false);
+                ActivateControls();
                 return;
             }
             if (oldViews.Contains(primaryView))
                 primaryViewModel.ListItems = core.ResetPrimary();
+            ActivateControls();
+        }
+        private void ActivateControls()
+        {
             DisableControls(false);
         }
-
-        private void DisableControls(bool b)
+        private void DisableControls(bool b = true)
         {
             mainViewModel.CursorState =
                 b ? Cursors.Wait : Cursors.Arrow;
@@ -340,8 +373,7 @@ namespace iim
         }
         private void OnMenuPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            bool refresh = false;
-            bool dates = false;
+            bool refresh = false, dates = false;
             switch (e.PropertyName)
             {
                 case ("Stat"):

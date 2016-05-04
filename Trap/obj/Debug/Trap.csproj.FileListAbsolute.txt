@@ -1,7 +1,6 @@
 C:\dev\iim\Trap\bin\Debug\Trap.dll
 C:\dev\iim\Trap\bin\Debug\Trap.pdb
 C:\dev\iim\Trap\bin\Debug\Logging.dll
-C:\dev\iim\Trap\bin\Debug\Ninject.dll
 C:\dev\iim\Trap\bin\Debug\Logging.pdb
 C:\dev\iim\Trap\obj\Debug\Trap.csprojResolveAssemblyReference.cache
 C:\dev\iim\Trap\obj\Debug\Trap.dll

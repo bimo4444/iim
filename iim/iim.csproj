@@ -82,7 +82,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject">
-      <HintPath>..\..\kat\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
+      <HintPath>..\..\..\Users\darks\Desktop\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -106,10 +106,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="Trap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Trap.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -278,6 +274,10 @@
     <ProjectReference Include="..\StoreCellsNormalizer\StoreCellsNormalizer.csproj">
       <Project>{0f687f70-29f4-4d61-873e-5edb77ae3040}</Project>
       <Name>StoreCellsNormalizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trap\Trap.csproj">
+      <Project>{e5c232c8-f6a3-4b62-97d5-fe831d5f0110}</Project>
+      <Name>Trap</Name>
     </ProjectReference>
     <ProjectReference Include="..\Uniqueness\Uniqueness.csproj">
       <Project>{1dfebba4-5670-4346-9a87-04a40d5b5389}</Project>

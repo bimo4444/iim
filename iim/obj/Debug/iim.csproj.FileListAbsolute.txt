@@ -77,7 +77,6 @@ D:\Projects\iim\iim\bin\Debug\MVPLight.dll
 D:\Projects\iim\iim\bin\Debug\Ninject.dll
 D:\Projects\iim\iim\bin\Debug\Serializer.dll
 D:\Projects\iim\iim\bin\Debug\StoreCellsNormalizer.dll
-D:\Projects\iim\iim\bin\Debug\Trap.dll
 D:\Projects\iim\iim\bin\Debug\Uniqueness.dll
 D:\Projects\iim\iim\bin\Debug\ADOLib.pdb
 D:\Projects\iim\iim\bin\Debug\DataAccess.pdb
@@ -90,7 +89,6 @@ D:\Projects\iim\iim\bin\Debug\Metamorphosis.pdb
 D:\Projects\iim\iim\bin\Debug\MVPLight.pdb
 D:\Projects\iim\iim\bin\Debug\Serializer.pdb
 D:\Projects\iim\iim\bin\Debug\StoreCellsNormalizer.pdb
-D:\Projects\iim\iim\bin\Debug\Trap.pdb
 D:\Projects\iim\iim\bin\Debug\Uniqueness.pdb
 D:\Projects\iim\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.xml
 D:\Projects\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.xml
@@ -135,3 +133,18 @@ D:\Projects\iim\iim\obj\Debug\iim.pdb
 C:\dev\iim\iim\bin\Debug\WcfClientLibrary.dll
 C:\dev\iim\iim\bin\Debug\WcfContract.dll
 C:\dev\iim\iim\bin\Debug\WcfClientLibrary.pdb
+D:\Projects\iim\iim\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\Projects\iim\iim\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Projects\iim\iim\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Projects\iim\iim\bin\Debug\System.IO.dll
+D:\Projects\iim\iim\bin\Debug\System.Runtime.dll
+D:\Projects\iim\iim\bin\Debug\System.Threading.Tasks.dll
+D:\Projects\iim\iim\bin\Debug\WcfClientLibrary.dll
+D:\Projects\iim\iim\bin\Debug\WcfClientLibrary.pdb
+D:\Projects\iim\iim\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Projects\iim\iim\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Projects\iim\iim\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Projects\iim\iim\bin\Debug\System.IO.xml
+D:\Projects\iim\iim\bin\Debug\System.Runtime.xml
+D:\Projects\iim\iim\bin\Debug\System.Threading.Tasks.xml
+D:\Projects\iim\iim\bin\Debug\WcfContract.dll

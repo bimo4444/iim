@@ -11,10 +11,11 @@ namespace Metamorphosis
     {
         IEnumerable<Item> CutMinus(IEnumerable<Item> t);
         IEnumerable<Item> GetRemains(IEnumerable<Item> lm);
+        IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime max);
         IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime min, DateTime max);
         IEnumerable<Item> Grouping(
             IEnumerable<Item> t, bool party, bool order, bool task, bool stat);
 
-        IEnumerable<Item> RenameCells(IEnumerable<Item> items, string cell, string newCell);
+        IEnumerable<Item> RenameCells(IEnumerable<Item> items, Guid guid, string newCell);
     }
 }

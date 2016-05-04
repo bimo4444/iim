@@ -18,7 +18,7 @@ namespace Logging
             : this(null, null) { }
         public Log(string dirrectoryName, string fileName)
         {
-            dirrectoryPath += "\\" + dirrectoryName ?? "logs";
+            dirrectoryPath += "\\" + (dirrectoryName ?? "logs");
             logFilename = fileName != null ? fileName + ".txt" : "log.txt";
 
             path = dirrectoryPath + "\\" + logFilename;

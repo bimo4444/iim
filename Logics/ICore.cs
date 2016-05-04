@@ -32,7 +32,7 @@ namespace Logics
         bool CheckCellExists(string cell);
         void UpdateStoreCell(Guid guid, string cell, string newCell);
         string NormalizeStoreCell(string cell);
-        void AddNewStoreCell(string cell, string newCell);
+        void AddNewStoreCell(Guid guid, string newCell);
         void OnShutDown();
     }
 }

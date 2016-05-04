@@ -30,16 +30,16 @@ namespace Metamorphosis
 
             return lm;
         }
-
+        public IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime max)
+        {
+            //here day comes tomorrow
+            max += TimeSpan.FromDays(1);
+            return t
+                .Where(w => w.Date < max)
+                .ToList();
+        }
         public IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime min, DateTime max)
         {
-            //to prevent new dates
-            if (max == DateTime.Now.Date)
-                return t
-                    .Where(w => w.Date >= min)
-                    .ToList();
-
-            //here day comes tomorrow
             max += TimeSpan.FromDays(1);
             return t
                 .Where(w => w.Date >= min && w.Date < max)
@@ -94,7 +94,7 @@ namespace Metamorphosis
                 .ToList();
         }
 
-        public IEnumerable<Item> RenameCells(IEnumerable<Item> items, string cell, string newCell)
+        public IEnumerable<Item> RenameCells(IEnumerable<Item> items, Guid guid, string newCell)
         {
             return items.Select(s => new Item
                 {
@@ -118,7 +118,7 @@ namespace Metamorphosis
                     Remains = s.Remains,
                     Rest = s.Rest,
                     Stat = s.Stat,
-                    StoreCell = s.StoreCell != cell ? s.StoreCell : newCell,
+                    StoreCell = s.OidUnit != guid ? s.StoreCell : newCell,
                     StoreKey = s.StoreKey,
                     StoreString = s.StoreString,
                     StroreName = s.StroreName,

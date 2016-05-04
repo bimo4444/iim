@@ -54,14 +54,31 @@ namespace iim
         public Presenter(ICore core)
         {
             this.core = core;
-            SetViewModels();
-            ShowFirstView();
-            Begin();
-            DownloadStoresListAsync();
             Initializing();
-            SetOtherViewModels();
             Bindings();
             Subscribes();
+            SetViewModels();
+            SetOtherViewModels();
+            Begin();
+            ShowFirstView();
+            DownloadStoresListAsync();
+
+        }
+        private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            menuViewModel.MaxDateTime = core.ResetMaxDate();
+            menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
+            if (oldViews.Last() == firstView)
+                return;
+            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
+            Metamorphosis();
+        }
+        private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            menuViewModel.MinDateTime = core.ResetMinDate();
+            menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
+            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
+            Metamorphosis();
         }
 
         private void Begin()
@@ -79,12 +96,18 @@ namespace iim
             menuViewModel.Order = core.SomeUser.OrderRPGrouping;
             menuViewModel.Minus = core.SomeUser.Minus;
         }
-        private void DownloadStoresListAsync()// async
+        private async void DownloadStoresListAsync()
         {
             DisableControls(true);
-            //firstViewModel.ListBoxItems = await Task.Run(() => core.GetStoresList());
+            firstViewModel.ListBoxItems = await Task.Factory.StartNew(() => core.GetStoresList());
+            firstViewModel.ListBoxItems = core.GetStoresList();
             menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
             DisableControls(false);
+            //if (firstViewModel.ListBoxItems.Count() == 0)
+            //{
+            //    if (ConnectionErrorView())
+            //        Task.Factory.StartNew(() => DownloadStoresListAsync());
+            //};
         }
 
         private void ShowFirstView()
@@ -94,16 +117,23 @@ namespace iim
             mainWindow.Show();
         }
 
-        private void ShowPrimaryView()// async
+        private async void ShowPrimaryView()
         {
+            mainViewModel.StatusBarText = "загрузка...";
             DisableControls(true);
-            //primaryViewModel.ListCells = await Task.Run(() => core.GetStoreCellsList());
-            //primaryViewModel.ListItems = await Task.Run(() => core.GetPrimaryItems());
+            primaryViewModel.ListCells = await Task.Factory.StartNew(() => core.GetStoreCellsList());
+            primaryViewModel.ListItems = await Task.Factory.StartNew(() => core.GetPrimaryItems());
+            //if (primaryViewModel.ListItems.Count() == 0)
+            //{
+            //    if (ConnectionErrorView())
+            //        ShowPrimaryView();
+            //}
             menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
             ChangeCurrentView(primaryView);
             menuViewModel.Time = DateTime.Now.ToShortTimeString();
             menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
             DisableControls(false);
+            mainViewModel.StatusBarText = "";
         }
 
         Guid movementGuidUnit, movementGuidStore;
@@ -182,11 +212,21 @@ namespace iim
                 menuViewModel.GridButtonsVisibility = false;
             }
         }
-        private void RefreshData()
+        private async void RefreshData()
         {
-            primaryViewModel.ListItems = core.GetPrimaryItems();
+            DisableControls(true);
+            mainViewModel.StatusBarText = "загрузка...";
+            menuViewModel.MovButtonEnabled = false;
+            primaryViewModel.ListItems = await Task.Factory.StartNew(() => core.GetPrimaryItems());
+            if (primaryViewModel.ListItems.Count() == 0)
+            {
+                if (ConnectionErrorView())
+                    RefreshData();
+            }
             if(oldViews.Contains(movementView))
                 movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
+            mainViewModel.StatusBarText = "";
+            DisableControls(false);
         }
         private void Metamorphosis()
         {
@@ -195,6 +235,7 @@ namespace iim
             {
                 primaryViewModel.ListItems = core.ResetPrimary();
                 movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
+                DisableControls(false);
                 return;
             }
             if (oldViews.Contains(primaryView))
@@ -285,7 +326,9 @@ namespace iim
             movementView.tableView.KeyDown += OnMovementTableViewKeyDown;
             mainMenu.minDateEdit.MouseDoubleClick += OnMinDateEditDoubleClick;
             mainMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
+            firstViewMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
             mainMenu.menuStack.MouseDown += OnHideMenuClick;
+            mainMenu.hiddeenMenuStack.MouseDown += OnHideMenuClick;
             firstView.listBox.SelectionChanged += OnFirstViewSelectionChanged;
             menuViewModel.PropertyChanged += OnMenuPropertyChanged;
         }
@@ -314,15 +357,15 @@ namespace iim
                     refresh = true;
                     break;
                 case ("Party"):
-                    core.SomeUser.PartyGrouping = primaryViewModel.PartyVisible = menuViewModel.Party;
+                    core.SomeUser.PartyGrouping = primaryViewModel.PartyVisible = movementViewModel.PartyVisible = menuViewModel.Party;
                     refresh = true;
                     break;
                 case ("Order"):
-                    core.SomeUser.OrderRPGrouping = primaryViewModel.OrderVisible = menuViewModel.Order;
+                    core.SomeUser.OrderRPGrouping = primaryViewModel.OrderVisible = movementViewModel.OrderVisible = menuViewModel.Order;
                     refresh = true;
                     break;
                 case ("Task"):
-                    core.SomeUser.TaskGrouping = primaryViewModel.TaskVisible = menuViewModel.Task;
+                    core.SomeUser.TaskGrouping = primaryViewModel.TaskVisible = movementViewModel.TaskVisible = menuViewModel.Task;
                     refresh = true;
                     break;
                 case ("CurrentMinDateTime"):
@@ -379,7 +422,8 @@ namespace iim
 
                 if (ConfirmationView("Добавить новую ячейку:  " + newCell))
                 {
-                    core.AddNewStoreCell(cell, newCell);
+                    primaryViewModel.SelectedItem = null;
+                    core.AddNewStoreCell(guid, newCell);
                     primaryViewModel.ListCells = core.StoreCells;
                     primaryViewModel.ListItems = core.CurrentPrimaryList;
                 }
@@ -392,20 +436,17 @@ namespace iim
             menuViewModel.MenuVisible = !menuViewModel.MenuVisible;
             menuViewModel.MenuNotVisible = !menuViewModel.MenuNotVisible;
         }
-        private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            menuViewModel.MaxDateTime = core.ResetMaxDate();
-        }
-        private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            menuViewModel.MinDateTime = core.ResetMinDate();
-        }
+
         private void OnPrimaryTableViewKeyDown(object sender, KeyEventArgs e)
         {
+            if (movementView.gridControl.GetFocusedValue() == null)
+                return;
             OnKeyDown(primaryView.gridControl.GetFocusedValue().ToString(), e);
         }
         private void OnMovementTableViewKeyDown(object sender, KeyEventArgs e)
         {
+            if (movementView.gridControl.GetFocusedValue() == null)
+                return;
             OnKeyDown(movementView.gridControl.GetFocusedValue().ToString(), e);
         }
         private void OnKeyDown(string s, KeyEventArgs e)

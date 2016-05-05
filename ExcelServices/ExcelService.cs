@@ -25,6 +25,8 @@ namespace ExcelServices
 
         public void Export(TableView tv, string path)
         {
+            //using DevExpress.Xpf.Grid;
+            //using DevExpress.XtraPrinting;
             tv.ExportToXls(path, new XlsExportOptions() { TextExportMode = TextExportMode.Text });
             OpenWorkbook(path);
         }

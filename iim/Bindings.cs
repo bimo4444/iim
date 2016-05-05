@@ -30,7 +30,7 @@ namespace iim
             this.Bind<IDataProvider>().To<DataProvider>();
             this.Bind<IWcfClient>().To<WcfClient>();
             this.Bind<IExceptionTrap>().To<ExceptionTrap>();
-            this.Bind<ILog>().To<Log>();
+            this.Bind<ILog>().To<Log>().InSingletonScope();
         }
     }
 }

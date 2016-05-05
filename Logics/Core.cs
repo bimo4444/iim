@@ -23,7 +23,6 @@ namespace Logics
         IXmlSerializer xmlSerializer;
         IExcelService excelService;
         ICellsNormalizer cellsNormalizer;
-
         Config config;
         public UserConfig SomeUser { get; set; }
         public IEnumerable<Item> CurrentPrimaryList { get; private set; }
@@ -34,7 +33,7 @@ namespace Logics
         DateTime MinDateTime;
         public DateTime CurrentMaxDateTime { get; set; }
         public DateTime CurrentMinDateTime { get; set; }
-        readonly string configFilePath = "config";
+        //readonly string configFilePath = "config";
         readonly string configFileName = "config\\iimConfig.xml";
         readonly string userConfigFilePath = "users";
         readonly string userConfigFileName = "users\\" + Environment.UserName + ".xml";
@@ -56,12 +55,13 @@ namespace Logics
             DeserializeConfigs();
             dataProvider.Configure(config.ConnectionString);
             dataProvider.Configure(config.ConnectionTimeOut);
-            dataProvider.Initialize();
+            dataProvider.Init();
             wcfClient.SetUrl(config.WcfServiceAddress);
             Initializing();
         }
         private void DeserializeConfigs()
         {
+            //serializer on error returns empty
             config = xmlSerializer.Deserialize<Config>(configFileName);
             SomeUser = xmlSerializer.Deserialize<UserConfig>(userConfigFileName);
         }
@@ -189,12 +189,11 @@ namespace Logics
             primaryList = metamorphosis.RenameCells(primaryList, guid, newCell);
             CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
-        //export
+        //
         public void ExportToExcel(TableView tableView, string excelFileName)
         {
             excelService.Export(tableView, excelFileName);
         }
-        //reset date
         public DateTime ResetMaxDate()
         {
             return CurrentMaxDateTime = MaxDateTime;
@@ -203,14 +202,14 @@ namespace Logics
         {
             return CurrentMinDateTime = MinDateTime;
         }
-        //on shutdown
         public void OnShutDown()
         {
             xmlSerializer.Serialize(SomeUser, userConfigFilePath, userConfigFileName);
-            if (!Directory.Exists(configFilePath))
-                Directory.CreateDirectory(configFilePath);
-            if (!File.Exists(configFileName))
-                xmlSerializer.Serialize(config, configFilePath, configFileName);
+            //for the first date
+            //if (!Directory.Exists(configFilePath))
+            //    Directory.CreateDirectory(configFilePath);
+            //if (!File.Exists(configFileName))
+            //    xmlSerializer.Serialize(config, configFilePath, configFileName);
         }
     }
 }

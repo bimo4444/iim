@@ -12,13 +12,11 @@ namespace ADOLib
     {
         private readonly int connectionTimeOut;
         private readonly string connectionString;
-
         public ADO(string connection, int timeOut)
         {
             this.connectionString = connection;
             this.connectionTimeOut = timeOut;
         }
-
         public int Command(string query)
         {
             int i;
@@ -34,7 +32,6 @@ namespace ADOLib
             }
             return i;
         }
-
         public int CommandWithParameter<T>(string commandString, string parameterName, T t)
         {
             int i;
@@ -50,12 +47,11 @@ namespace ADOLib
             }
             return i;
         }
-
-        public DataTable StoredProcWithGuidsTableParameter(string procName, IEnumerable<Guid> guids)
+        //dataTable as parameter for the store proc
+        public DataTable ParametrizedStoredProc(string procName, IEnumerable<Guid> guids)
         {
             DataTable parameter = new DataTable();
             parameter.Columns.Add("guid", typeof(Guid));
-
             DataRow dataRow;
             foreach (var g in guids)
             {
@@ -63,7 +59,6 @@ namespace ADOLib
                 dataRow["guid"] = g;
                 parameter.Rows.Add(dataRow);
             }
-
             DataTable result = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

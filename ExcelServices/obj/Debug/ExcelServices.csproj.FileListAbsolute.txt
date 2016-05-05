@@ -1,6 +1,5 @@
 C:\dev\iim\ExcelServices\bin\Debug\ExcelServices.dll
 C:\dev\iim\ExcelServices\bin\Debug\ExcelServices.pdb
-C:\dev\iim\ExcelServices\obj\Debug\ExcelServices.csprojResolveAssemblyReference.cache
 C:\dev\iim\ExcelServices\obj\Debug\ExcelServices.dll
 C:\dev\iim\ExcelServices\obj\Debug\ExcelServices.pdb
 D:\Projects\iim\ExcelServices\bin\Debug\ExcelServices.dll
@@ -28,3 +27,5 @@ D:\Projects\iim\ExcelServices\bin\Debug\ru\DevExpress.Xpf.Grid.v14.1.Core.resour
 D:\Projects\iim\ExcelServices\obj\Debug\ExcelServices.dll
 D:\Projects\iim\ExcelServices\obj\Debug\ExcelServices.pdb
 D:\Projects\iim\ExcelServices\obj\Debug\ExcelServices.csprojResolveAssemblyReference.cache
+C:\dev\iim\ExcelServices\bin\Debug\DevExpress.Printing.v14.1.Core.xml
+C:\dev\iim\ExcelServices\bin\Debug\DevExpress.Xpf.Grid.v14.1.xml

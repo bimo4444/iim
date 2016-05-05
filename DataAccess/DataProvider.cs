@@ -15,7 +15,6 @@ namespace DataAccess
     {
         int connectionTimeOut = 30;
         string connectionString;
-
         ADO ado;
         SqlConnectionStringBuilder builder;
         IExceptionTrap exceptionTrap;
@@ -27,7 +26,7 @@ namespace DataAccess
         string userAndMachineName = 
             System.Environment.UserName + " | " + System.Environment.MachineName;
 
-        public void Initialize()
+        public void Init()
         {
             ado = new ADO(connectionString, connectionTimeOut);
             builder = new SqlConnectionStringBuilder(connectionString);
@@ -68,8 +67,7 @@ namespace DataAccess
         {
             return exceptionTrap.Catch(delegate()
             {
-                DataTable dataTable =
-                ado.StoredProcWithGuidsTableParameter("mpzGetTmc", guids);
+                DataTable dataTable = ado.ParametrizedStoredProc("mpzGetTmc", guids);
                 List<Item> items = new List<Item>();
                 foreach (DataRow r in dataTable.Rows)
                 {
@@ -106,7 +104,6 @@ namespace DataAccess
                 return items;
             });
         }
-
         public IEnumerable<string> GetStoreCells()
         {
             return exceptionTrap.Catch(delegate()
@@ -129,7 +126,6 @@ namespace DataAccess
                 return result;
             });
         }
-
         public bool UpdateStoreCell(Guid guid, string cell)
         {
             return exceptionTrap.Catch(() =>
@@ -149,27 +145,23 @@ namespace DataAccess
                         n.ЯчейкаОтпуска = (Guid?)null;
                         sl.SubmitChanges();
                     }
-
                     Guid cellGui = sl.СкладскаяЯчейкаs
                         .Where(
                             w => w.Наименование == cell)
                         .Select(
                             s => s.Oid)
                         .FirstOrDefault();
-
                     var nn = sl.НоменклатурнаяПозицияs
                         .Where(
                             w => w.Oid == guid)
                         .Select(
                             s => s)
                         .FirstOrDefault();
-
                     nn.ЯчейкаОтпуска = cellGui;
                     sl.SubmitChanges();
                 }
             });
         }
-
         public bool NewCell(string name)
         {
             return exceptionTrap.Catch(() => 

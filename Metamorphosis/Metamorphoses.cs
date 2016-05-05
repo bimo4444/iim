@@ -13,21 +13,19 @@ namespace Metamorphosis
         {
             return t.Where(w => w.Quantity < 0 || w.Remains < 0).ToList();
         }
-
         public IEnumerable<Item> GetRemains(IEnumerable<Item> lm)
         {
             decimal d = lm
                 .Select(s => s.Quantity)
                 .Sum();
-
             foreach (var v in lm)
             {
+                //to prevent trailing zeros
                 v.Rest = (decimal)Math.Round(d, 5) / 1.000000000000000000000000000000000m;
                 d -= v.Quantity;
                 v.Remains = (decimal)Math.Round(v.Remains, 5) / 1.000000000000000000000000000000000m;
                 v.Quantity = (decimal)Math.Round(v.Quantity, 5) / 1.000000000000000000000000000000000m;
             }
-
             return lm;
         }
         public IEnumerable<Item> CutDates(IEnumerable<Item> t, DateTime max)
@@ -45,7 +43,6 @@ namespace Metamorphosis
                 .Where(w => w.Date >= min && w.Date < max)
                 .ToList();
         }
-
         public IEnumerable<Item> Grouping(IEnumerable<Item> t, bool party, bool order, bool task, bool stat)
         {
             return t
@@ -93,9 +90,15 @@ namespace Metamorphosis
                     })
                 .ToList();
         }
-
         public IEnumerable<Item> RenameCells(IEnumerable<Item> items, Guid guid, string newCell)
         {
+            //check perfomance
+            //foreach (var item in items)
+            //{
+            //    if (item.OidUnit == guid) 
+            //        item.StoreCell = newCell;
+            //    yield return item;
+            //}
             return items.Select(s => new Item
                 {
                     ComtecNumber = s.ComtecNumber,

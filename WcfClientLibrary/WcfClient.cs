@@ -24,8 +24,6 @@ namespace WcfClientLibrary
         }
         public List<Store> GetStoresList()
         {
-            if (url == null)
-                throw new Exception("url == null");
             return trap.Catch(delegate()
             {
                 List<Store> result;

@@ -11,8 +11,7 @@ namespace DataAccess
     {
         void Configure(string connectionString);
         void Configure(int connectionTimeOut);
-        void Initialize();
-
+        void Init();
         bool NewCell(string name);
         List<Store> GetStoresList();
         IEnumerable<string> GetStoreCells();

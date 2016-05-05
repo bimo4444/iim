@@ -8,6 +8,7 @@ namespace StoreCellsNormalizer
 {
     public class CellsNormalizer : ICellsNormalizer
     {
+        //do not read!!!!!!
         public string Normalize(string s)
         {
             s = s.Replace("\\", "/");
@@ -22,14 +23,11 @@ namespace StoreCellsNormalizer
                 return s;
             }
             s = s.ToUpper().Replace(".", " ").Replace("№", "").Replace("/", " / ").Trim();
-
             var t = s
                 .Split(' ')
                 .Where(w => !string.IsNullOrWhiteSpace(w));
             s = string.Join(" ", t);
-
             var c = s.ToCharArray();
-
             for (int i = 1; i < c.Length; i++)
             {
                 if (i > 1 && char.IsDigit(c[i]))
@@ -38,7 +36,6 @@ namespace StoreCellsNormalizer
                         c[i - 1] = char.Parse(".");
                 }
             }
-
             string tmp = "";
             for (int i = 0; i < c.Length; i++)
             {
@@ -52,10 +49,8 @@ namespace StoreCellsNormalizer
                 }
                 tmp += c[i];
             }
-
             s = tmp;
             s = s.Replace(".", "");
-
             return s;
         }
     }

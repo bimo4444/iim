@@ -11,28 +11,24 @@ namespace Logics
     public interface ICore
     {
         UserConfig SomeUser { get; set; }
-
-        DateTime CurrentMaxDateTime { get; set; }
-        DateTime CurrentMinDateTime { get; set; }
-        DateTime ResetMinDate();
-        DateTime ResetMaxDate();
-
         IEnumerable<Item> CurrentPrimaryList { get; }
         IEnumerable<string> StoreCells { get; }
+        DateTime CurrentMaxDateTime { get; set; }
+        DateTime CurrentMinDateTime { get; set; }
         List<Store> GetStoresList();
-        List<Store> SelectStoresGroups();
         List<Store> UncheckSelectedStores();
-
+        List<Store> SelectStoresGroups();
         IEnumerable<Item> GetPrimaryItems();
-        IEnumerable<Item> GetMovementItems(Guid guidUnit, Guid guidStore);
         IEnumerable<Item> ResetPrimary();
+        IEnumerable<Item> GetMovementItems(Guid guidUnit, Guid guidStore);
         IEnumerable<string> GetStoreCellsList();
-
-        void ExportToExcel(TableView tableView, string excelFileName);
         bool CheckCellExists(string cell);
-        void UpdateStoreCell(Guid guid, string cell, string newCell);
         string NormalizeStoreCell(string cell);
+        void UpdateStoreCell(Guid guid, string cell, string newCell);
         void AddNewStoreCell(Guid guid, string newCell);
+        void ExportToExcel(TableView tableView, string excelFileName);
+        DateTime ResetMinDate();
+        DateTime ResetMaxDate();
         void OnShutDown();
     }
 }

@@ -22,132 +22,97 @@ namespace iim
     class Presenter : IPresenter
     {
         ICore core;
-
         MainWindow mainWindow = new MainWindow();
         MainViewModel mainViewModel = new MainViewModel();
-
         FirstView firstView = new FirstView();
         FirstViewModel firstViewModel = new FirstViewModel();
-
         FirstViewMenu firstViewMenu = new FirstViewMenu();
         MenuViewModel menuViewModel = new MenuViewModel();
-
-        MainMenu mainMenu;
-        MainMenuPrimaryFrame primaryMenuFrame;
-        MainMenuMovementFrame movementMenuFrame;
-
-        PrimaryView primaryView;
-        PrimaryViewModel primaryViewModel;
-
-        MovementView movementView;
-        MovementViewModel movementViewModel;
-
+        MainMenu mainMenu = new MainMenu();
+        MainMenuPrimaryFrame primaryMenuFrame = new MainMenuPrimaryFrame();
+        MainMenuMovementFrame movementMenuFrame = new MainMenuMovementFrame();
+        PrimaryView primaryView = new PrimaryView();
+        PrimaryViewModel primaryViewModel = new PrimaryViewModel();
+        MovementView movementView = new MovementView();
+        MovementViewModel movementViewModel = new MovementViewModel();
         Dialog connectionErrorDialog;
-        ConnectionErrorView connectionErrorView;
-
+        ConnectionErrorView connectionErrorView = new ConnectionErrorView();
         Dialog confirmationDialog;
-        ConfirmationView confirmationView;
-
-        private List<UserControl> oldViews;
-
+        ConfirmationView confirmationView = new ConfirmationView();
+        private List<UserControl> oldViews = new List<UserControl>();
         string previousStoreCellValue;
-
+        Guid movementGuidUnit, movementGuidStore;
         public Presenter(ICore core)
         {
             this.core = core;
             Initializing();
+            GetStores();
             Bindings();
             Subscribes();
             SetViewModels();
-            SetOtherViewModels();
-            Begin();
+            SetProperties();
             ShowFirstView();
-            GetStores();
         }
-        
-
-        private async void ShowPrimaryView()
+        private void Initializing()
         {
-            await Task.Factory.StartNew(() =>
-                {
-                    DisableControls();
-                    mainViewModel.StatusBarText = "загрузка...";
-                    DownloadPrimaryListAsync();
-                    while (primaryViewModel.ListItems.Count() == 0)
-                    {
-                        ActivateControls();
-                        if (ConnectionErrorView())
-                        {
-                            DisableControls();
-                            DownloadPrimaryListAsync();
-                        }
-                    }
-                    menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
-                    ChangeCurrentView(primaryView);
-                    menuViewModel.Time = DateTime.Now.ToShortTimeString();
-                    menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
-                    ActivateControls();
-                    mainViewModel.StatusBarText = "";
-                });
-        }
-        private void DownloadPrimaryListAsync()
-        {
-            Task.Factory.StartNew(() => 
-                {
-                    primaryViewModel.ListCells = core.GetStoreCellsList();
-                    primaryViewModel.ListItems = core.GetPrimaryItems();
-                }).Wait();
+            connectionErrorDialog = new Dialog(connectionErrorView);
+            confirmationDialog = new Dialog(confirmationView);
         }
         private async void GetStores()
         {
             await Task.Factory.StartNew(() =>
-                {
-                    DisableControls();
-                    mainViewModel.StatusBarText = "загрузка...";
-                    DownloadStoresListAsync();
-                    while (firstViewModel.ListBoxItems.Count() == 0)
-                    {
-                        ActivateControls();
-                        if (ConnectionErrorView())
-                        {
-                            DisableControls();
-                            DownloadStoresListAsync();
-                        }
-                    }
-                    menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
-                    mainViewModel.StatusBarText = "";
-                    ActivateControls();
-                });
+            {
+                DisableControls();
+                mainViewModel.StatusBarText = "загрузка...";
+                DownloadWithNullCheck(() => DownloadStoresListAsync(), () => firstViewModel.ListBoxItems.Any());
+                menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
+                mainViewModel.StatusBarText = "";
+                ActivateControls();
+            });
         }
         private void DownloadStoresListAsync()
         {
             Task.Factory.StartNew(() => firstViewModel.ListBoxItems = core.GetStoresList()).Wait();
         }
-        private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Bindings()
         {
-            menuViewModel.MaxDateTime = core.ResetMaxDate();
-            menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
-            if (oldViews.Last() == firstView)
-                return;
-            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
-            Metamorphosis();
+            menuViewModel.ShowPrimaryView = new DelegateCommand(() => ShowPrimaryView());
+            menuViewModel.SelectGroup = new DelegateCommand(() => SelectStoresGroup());
+            menuViewModel.UncheckAllButton = new DelegateCommand(() => UncheckSelectedStores());
+            menuViewModel.ShowMovementView = primaryViewModel.ShowMovement = new DelegateCommand(() => ShowMovement());
+            menuViewModel.ExcelReport = primaryViewModel.ExcelReport = new DelegateCommand(() => ExcelReportGrid());
+            menuViewModel.PreviousControl = movementViewModel.PreviousControl = new DelegateCommand(() => PreviousControl());
+            menuViewModel.ExcelReportMov = movementViewModel.ExcelReportMov = new DelegateCommand(() => ExcelReportMovement());
+            menuViewModel.Refresh = primaryViewModel.Refresh = movementViewModel.Refresh = new DelegateCommand(() => RefreshData());
+            primaryViewModel.CopyToClipboard = new DelegateCommand(() => CopyPrimaryGridControlValue());
+            movementViewModel.CopyToClipboard = new DelegateCommand(() => CopyMovementGridControlValue());
         }
-        private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Subscribes()
         {
-            menuViewModel.MinDateTime = core.ResetMinDate();
-            menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
-            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
-            Metamorphosis();
+            mainWindow.Closing += OnShutdown;
+            primaryView.tableView.CellValueChanged += OnTableViewCellChanged;
+            primaryView.tableView.KeyDown += OnPrimaryTableViewKeyDown;
+            primaryView.gridControl.SelectedItemChanged += OnPrimaryGridControlSelectionChanged;
+            movementView.tableView.KeyDown += OnMovementTableViewKeyDown;
+            mainMenu.minDateEdit.MouseDoubleClick += OnMinDateEditDoubleClick;
+            mainMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
+            firstViewMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
+            mainMenu.menuStack.MouseDown += OnHideMenuClick;
+            mainMenu.hiddeenMenuStack.MouseDown += OnHideMenuClick;
+            firstView.listBox.SelectionChanged += OnFirstViewSelectionChanged;
+            menuViewModel.PropertyChanged += OnMenuPropertyChanged;
         }
-
-        private void Begin()
+        private void SetViewModels()
         {
-            oldViews = new List<UserControl>();
-            oldViews.Add(firstView);
-
-            menuViewModel.MenuVisible = true;
-            mainViewModel.SelectedMenu = mainMenu;
-
+            mainWindow.DataContext = mainViewModel;
+            firstView.DataContext = firstViewModel;
+            firstViewMenu.DataContext = menuViewModel;
+            mainMenu.DataContext = menuViewModel;
+            primaryView.DataContext = primaryViewModel;
+            movementView.DataContext = movementViewModel;
+        }
+        private void SetProperties()
+        {
             menuViewModel.Task = core.SomeUser.TaskGrouping;
             menuViewModel.Zeros = core.SomeUser.Zeros;
             menuViewModel.Stat = core.SomeUser.StatGrouping;
@@ -157,12 +122,57 @@ namespace iim
         }
         private void ShowFirstView()
         {
+            oldViews.Add(firstView);
+            menuViewModel.MenuVisible = true;
+            mainViewModel.SelectedMenu = mainMenu;
             firstViewModel.SelectedMenu = firstViewMenu;
             mainViewModel.SelectedView = firstView;
             mainWindow.Show();
         }
-
-        Guid movementGuidUnit, movementGuidStore;
+        private void SelectStoresGroup()
+        {
+            firstViewModel.ListBoxItems = core.SelectStoresGroups();
+        }
+        private void UncheckSelectedStores()
+        {
+            firstViewModel.ListBoxItems = core.UncheckSelectedStores();
+        }
+        private async void ShowPrimaryView()
+        {
+            await Task.Factory.StartNew(() =>
+                {
+                    DisableControls();
+                    mainViewModel.StatusBarText = "загрузка...";
+                    DownloadWithNullCheck(() => DownloadPrimaryList(), () => primaryViewModel.ListItems.Any());
+                    menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
+                    ChangeCurrentView(primaryView);
+                    menuViewModel.Time = DateTime.Now.ToShortTimeString();
+                    menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
+                    ActivateControls();
+                    mainViewModel.StatusBarText = "";
+                });
+        }
+        private void DownloadPrimaryList()
+        {
+            Task.Factory.StartNew(() => 
+                {
+                    primaryViewModel.ListCells = core.GetStoreCellsList();
+                    primaryViewModel.ListItems = core.GetPrimaryItems();
+                }).Wait();
+        }
+        private void DownloadWithNullCheck(Action action, Func<bool> func)
+        {
+            action.Invoke();
+            while (!func())
+            {
+                ActivateControls();
+                if (ConnectionErrorView())
+                {
+                    DisableControls();
+                    action.Invoke();
+                }
+            }
+        }
         private void ShowMovement()
         {
             DisableControls();
@@ -172,7 +182,53 @@ namespace iim
             ChangeCurrentView(movementView);
             ActivateControls();
         }
-
+        private async void RefreshData()
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                DisableControls();
+                mainViewModel.StatusBarText = "загрузка...";
+                menuViewModel.MovButtonEnabled = false;
+                DownloadWithNullCheck(() => DownloadPrimaryList(), () => primaryViewModel.ListItems.Any());
+                if (oldViews.Contains(movementView))
+                    movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
+                mainViewModel.StatusBarText = "";
+                ActivateControls();
+            });
+        }
+        private void Metamorphosis()
+        {
+            DisableControls();
+            if (oldViews.Contains(movementView))
+            {
+                primaryViewModel.ListItems = core.ResetPrimary();
+                movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
+            }
+            else if (oldViews.Contains(primaryView))
+                primaryViewModel.ListItems = core.ResetPrimary();
+            ActivateControls();
+        }
+        private void ExcelReportGrid()
+        {
+            string excelFileName = ShowSaveFileDialog();
+            if (excelFileName != "")
+                core.ExportToExcel(primaryView.tableView, excelFileName);
+        }
+        private void ExcelReportMovement()
+        {
+            string excelFileName = ShowSaveFileDialog();
+            if (excelFileName != "")
+                core.ExportToExcel(movementView.tableView, excelFileName);
+        }
+        private void CopyMovementGridControlValue()
+        {
+            Clipboard.SetText(movementView.gridControl.GetFocusedValue().ToString());
+        }
+        private void CopyPrimaryGridControlValue()
+        {
+            Clipboard.SetText(primaryView.gridControl.GetFocusedValue().ToString());
+        }
+        //views routine
         private bool ConfirmationView(string text)
         {
             bool menuVisible = mainViewModel.MenuVisible;
@@ -219,7 +275,6 @@ namespace iim
             {
                 mainViewModel.MenuVisible = false;
                 mainViewModel.StatusBarText = "";
-                return;
             }
             else
                 SetMenuMode();
@@ -231,46 +286,11 @@ namespace iim
                 menuViewModel.SelectedFrame = primaryMenuFrame;
                 menuViewModel.GridButtonsVisibility = true;
             }
-                
-            if (oldViews.Last() == movementView)
+            else if (oldViews.Last() == movementView)
             {
                 menuViewModel.SelectedFrame = movementMenuFrame;
                 menuViewModel.GridButtonsVisibility = false;
             }
-        }
-        private async void RefreshData()
-        {
-            DisableControls();
-            mainViewModel.StatusBarText = "загрузка...";
-            menuViewModel.MovButtonEnabled = false;
-            DownloadPrimaryListAsync();
-            while (primaryViewModel.ListItems.Count() == 0)
-            {
-                ActivateControls();
-                if (ConnectionErrorView())
-                {
-                    DisableControls();
-                    DownloadPrimaryListAsync();
-                }
-            }
-            if(oldViews.Contains(movementView))
-                movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
-            mainViewModel.StatusBarText = "";
-            ActivateControls();
-        }
-        private void Metamorphosis()
-        {
-            DisableControls();
-            if (oldViews.Contains(movementView))
-            {
-                primaryViewModel.ListItems = core.ResetPrimary();
-                movementViewModel.ListItems = core.GetMovementItems(movementGuidUnit, movementGuidStore);
-                ActivateControls();
-                return;
-            }
-            if (oldViews.Contains(primaryView))
-                primaryViewModel.ListItems = core.ResetPrimary();
-            ActivateControls();
         }
         private void ActivateControls()
         {
@@ -284,93 +304,14 @@ namespace iim
             menuViewModel.ButtonsEnabled = !b;
             firstViewModel.ListEnabled = !b;
         }
-
-        private void Initializing()
+        private string ShowSaveFileDialog()
         {
-            mainMenu = new MainMenu();
-            primaryView = new PrimaryView();
-            primaryViewModel = new PrimaryViewModel();
-            movementView = new MovementView();
-            movementViewModel = new MovementViewModel();
-            connectionErrorView = new ConnectionErrorView();
-            connectionErrorDialog = new Dialog(connectionErrorView);
-            confirmationView = new ConfirmationView();
-            confirmationDialog = new Dialog(confirmationView);
-            primaryMenuFrame = new MainMenuPrimaryFrame();
-            movementMenuFrame = new MainMenuMovementFrame();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel file (*.xls)|*.xls";
+            sfd.FileName = "Наличие ТМЦ " + DateTime.Now.ToString("d.MM.yyyy HH-mm-ss");
+            return sfd.ShowDialog() == true ? sfd.FileName : "";
         }
-        private void SetViewModels()
-        {
-            mainWindow.DataContext = mainViewModel;
-            firstView.DataContext = firstViewModel;
-            firstViewMenu.DataContext = menuViewModel;
-        }
-
-        private void Bindings()
-        {
-            menuViewModel.ShowPrimaryView = new DelegateCommand(() => ShowPrimaryView());
-            menuViewModel.SelectGroup = new DelegateCommand(() => SelectStoresGroup());
-            menuViewModel.UncheckAllButton = new DelegateCommand(() => UncheckSelectedStores());
-            menuViewModel.ShowMovementView = primaryViewModel.ShowMovement = new DelegateCommand(() => ShowMovement());
-            menuViewModel.ExcelReport = primaryViewModel.ExcelReport = new DelegateCommand(() => ExcelReportGrid());
-            menuViewModel.PreviousControl = movementViewModel.PreviousControl = new DelegateCommand(() => PreviousControl());
-            menuViewModel.ExcelReportMov = movementViewModel.ExcelReportMov = new DelegateCommand(() => ExcelReportMovement());
-            menuViewModel.Refresh = primaryViewModel.Refresh = movementViewModel.Refresh = new DelegateCommand(() => RefreshData());
-            primaryViewModel.CopyToClipboard = new DelegateCommand(() => CopyPrimaryGridControlValue());
-            movementViewModel.CopyToClipboard = new DelegateCommand(() => CopyMovementGridControlValue());
-        }
-        private void ExcelReportGrid()
-        {
-            string excelFileName = ShowSaveFileDialog();
-            if (excelFileName == "")
-                return;
-            core.ExportToExcel(primaryView.tableView, excelFileName);
-        }
-        private void ExcelReportMovement()
-        {
-            string excelFileName = ShowSaveFileDialog();
-            if (excelFileName == "")
-                return;
-            core.ExportToExcel(movementView.tableView, excelFileName);
-        }
-        private void CopyMovementGridControlValue()
-        {
-            Clipboard.SetText(movementView.gridControl.GetFocusedValue().ToString());
-        }
-        private void CopyPrimaryGridControlValue()
-        {
-            Clipboard.SetText(primaryView.gridControl.GetFocusedValue().ToString());
-        }
-        private void SelectStoresGroup()
-        {
-            firstViewModel.ListBoxItems = core.SelectStoresGroups();
-        }
-        private void UncheckSelectedStores()
-        {
-            firstViewModel.ListBoxItems = core.UncheckSelectedStores();
-        }
-
-        private void Subscribes()
-        {
-            mainWindow.Closing += OnShutdown;
-            primaryView.tableView.CellValueChanged += OnTableViewCellChanged;
-            primaryView.tableView.KeyDown += OnPrimaryTableViewKeyDown;
-            primaryView.gridControl.SelectedItemChanged += OnPrimaryGridControlSelectionChanged;
-            movementView.tableView.KeyDown += OnMovementTableViewKeyDown;
-            mainMenu.minDateEdit.MouseDoubleClick += OnMinDateEditDoubleClick;
-            mainMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
-            firstViewMenu.maxDateEdit.MouseDoubleClick += OnMaxDateEditDoubleClick;
-            mainMenu.menuStack.MouseDown += OnHideMenuClick;
-            mainMenu.hiddeenMenuStack.MouseDown += OnHideMenuClick;
-            firstView.listBox.SelectionChanged += OnFirstViewSelectionChanged;
-            menuViewModel.PropertyChanged += OnMenuPropertyChanged;
-        }
-        private void SetOtherViewModels()
-        {
-            mainMenu.DataContext = menuViewModel;
-            primaryView.DataContext = primaryViewModel;
-            movementView.DataContext = movementViewModel;
-        }
+        //subscribes
         private void OnMenuPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             bool refresh = false, dates = false;
@@ -409,10 +350,26 @@ namespace iim
                     refresh = dates = true;
                     break;
             }
-            if (!refresh || oldViews.Last() == firstView)
+            if (!refresh || !oldViews.Any() || oldViews.Last() == firstView)
                 return;
             if (dates)
                 menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
+            Metamorphosis();
+        }
+        private void OnMinDateEditDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            menuViewModel.MinDateTime = core.ResetMinDate();
+            menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
+            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
+            Metamorphosis();
+        }
+        private void OnMaxDateEditDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            menuViewModel.MaxDateTime = core.ResetMaxDate();
+            menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
+            if (oldViews.Last() == firstView)
+                return;
+            menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;
             Metamorphosis();
         }
         private void OnFirstViewSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -451,7 +408,6 @@ namespace iim
             else
             {
                 string newCell = core.NormalizeStoreCell(cell);
-
                 if (ConfirmationView("Добавить новую ячейку:  " + newCell))
                 {
                     primaryViewModel.SelectedItem = null;
@@ -468,24 +424,19 @@ namespace iim
             menuViewModel.MenuVisible = !menuViewModel.MenuVisible;
             menuViewModel.MenuNotVisible = !menuViewModel.MenuNotVisible;
         }
-
         private void OnPrimaryTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            if (movementView.gridControl.GetFocusedValue() == null)
-                return;
-            OnKeyDown(primaryView.gridControl.GetFocusedValue().ToString(), e);
+            OnKeyDown(primaryView.gridControl.GetFocusedValue(), e);
         }
         private void OnMovementTableViewKeyDown(object sender, KeyEventArgs e)
         {
-            if (movementView.gridControl.GetFocusedValue() == null)
-                return;
-            OnKeyDown(movementView.gridControl.GetFocusedValue().ToString(), e);
+            OnKeyDown(movementView.gridControl.GetFocusedValue(), e);
         }
-        private void OnKeyDown(string s, KeyEventArgs e)
+        private void OnKeyDown(object o, KeyEventArgs e)
         {
-            if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            if (o != null && e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
-                Clipboard.SetText(s);
+                Clipboard.SetText(o.ToString());
                 if (e != null)
                     e.Handled = true;
             }
@@ -493,13 +444,6 @@ namespace iim
         private void OnShutdown(object sender, CancelEventArgs e)
         {
             core.OnShutDown();
-        }
-        private string ShowSaveFileDialog()
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel file (*.xls)|*.xls";
-            sfd.FileName = "Наличие ТМЦ " + DateTime.Now.ToString("d.MM.yyyy HH-mm-ss");
-            return sfd.ShowDialog() == true ? sfd.FileName : "";
         }
     }
 }

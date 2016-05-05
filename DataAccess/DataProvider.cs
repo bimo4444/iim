@@ -45,10 +45,11 @@ namespace DataAccess
         {
             return exceptionTrap.Catch(delegate()
             {
+                List<Store> result;
                 using (SomeLinqDataContext lis = new SomeLinqDataContext(builder.ConnectionString))
                 {
                     lis.CommandTimeout = connectionTimeOut;
-                    return lis
+                    result = lis
                         .mpzGetMxList()
                         .Select(
                             s => new Store
@@ -59,6 +60,7 @@ namespace DataAccess
                             })
                         .ToList();
                 }
+                return result;
             });
         }
 
@@ -109,6 +111,7 @@ namespace DataAccess
         {
             return exceptionTrap.Catch(delegate()
             {
+                List<string> result;
                 using (SomeLinqDataContext sl = new SomeLinqDataContext(builder.ConnectionString))
                 {
                     sl.CommandTimeout = connectionTimeOut;
@@ -120,11 +123,10 @@ namespace DataAccess
                         .Distinct()
                         .OrderBy(o => o)
                         .ToList();
-
                     listCells.Insert(0, "");
-
-                    return listCells;
+                    result = listCells;
                 }
+                return result;
             });
         }
 

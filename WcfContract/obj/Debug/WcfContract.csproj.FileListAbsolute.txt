@@ -1,7 +1,0 @@
-C:\dev\ConsoleTest\WcfContract\bin\Debug\WcfContract.dll
-C:\dev\ConsoleTest\WcfContract\bin\Debug\WcfContract.pdb
-C:\dev\ConsoleTest\WcfContract\bin\Debug\Entity.dll
-C:\dev\ConsoleTest\WcfContract\bin\Debug\Entity.pdb
-C:\dev\ConsoleTest\WcfContract\obj\Debug\WcfContract.csprojResolveAssemblyReference.cache
-C:\dev\ConsoleTest\WcfContract\obj\Debug\WcfContract.dll
-C:\dev\ConsoleTest\WcfContract\obj\Debug\WcfContract.pdb

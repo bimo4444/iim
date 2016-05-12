@@ -3,23 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
              mc:Ignorable="d" >
     <Grid>
-        <Button HorizontalAlignment="Left" IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReportMov}" VerticalAlignment="Bottom" Width="30" Height="30" >
-            <StackPanel Margin="-5,0,-8,0" Orientation="Horizontal" Height="30" Width="50">
-                <Image Source="/resources/page_excel.png" Width="16" Height="16" Margin="0,4,0,10">
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Style.Triggers>
-                                <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="Opacity" Value="0.5" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-            </StackPanel>
-        </Button>
+        <mvp:ImgButton StackMargin="-5,0,-8,0" HorizontalAlignment="Left" Picture="/resources/page_excel.png" IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReportMov}" Width="30" Height="30" />
         <TextBlock Height="30" Margin="37,0,0,0" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="{Binding MovementDetails}" HorizontalAlignment="Left"/>
     </Grid>
 </UserControl>

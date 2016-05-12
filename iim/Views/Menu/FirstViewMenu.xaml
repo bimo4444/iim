@@ -6,52 +6,17 @@
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
              mc:Ignorable="d" 
              dx:ThemeManager.ThemeName="Office2013">
     <StackPanel Width="250" HorizontalAlignment="Left" VerticalAlignment="Center">
         <StackPanel Margin="15,0,0,0">
-            <Button ToolTip="выбрать группу" Command="{Binding SelectGroup}" IsEnabled="{Binding ButtonsEnabled}" HorizontalAlignment="Left" Width="76" Height="30">
-                <StackPanel Margin="-5,0,-10,0" Orientation="Horizontal" Width="80" Height="30" Focusable="True">
-                    <TextBlock Text="Группа" Margin="0,3,0,0"  HorizontalAlignment="Right" FontSize="12" Width="46"/>
-                    <Image Source="/resources/tick.png" Width="16" Height="16" Margin="0,3,0,10">
-                        <Image.Style>
-                            <Style TargetType="Image">
-                                <Style.Triggers>
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Opacity" Value="0.5" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
-
-                </StackPanel>
-            </Button>
-            <Button Margin="0,5,0,0" ToolTip="очистить выбранное" Command="{Binding UncheckAllButton}" IsEnabled="{Binding ButtonsEnabled}" HorizontalAlignment="Left" Width="76" Height="30">
-                <StackPanel Margin="-5,0,-10,0" Orientation="Horizontal" Width="80" Height="30" Focusable="True">
-                    <TextBlock Text="МХ: " Margin="0,3,0,0"  HorizontalAlignment="Right" FontSize="12"/>
-                    <TextBlock Text="{Binding StoresCounter}" Margin="0,3,0,0"  HorizontalAlignment="Left" Width="22" FontSize="12"/>
-                    <Image Source="/resources/cross.png" Width="16" Height="16" Margin="0,3,0,10">
-                        <Image.Style>
-                            <Style TargetType="Image">
-                                <Style.Triggers>
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Opacity" Value="0.5" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
-
-                </StackPanel>
-            </Button>
-
+            <mvp:ImgButton StackMargin="-3,0,-2,0" Picture="/resources/tick.png" RightSide="True" Text1="Группа" ToolTip="выбрать группу" Command="{Binding SelectGroup}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
+            <mvp:ImgButton StackMargin="-3,0,-4,0" StackWidth="60" Picture="/resources/cross.png" RightSide="True" Text2="{Binding StoresCounter}" Text1="МХ: " ToolTip="очистить выбранное" Command="{Binding UncheckAllButton}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
             <Border BorderThickness="10" />
-
             <!--DATE-->
             <Label Content="Период До:" Height="30" VerticalContentAlignment="Bottom" HorizontalAlignment="Left"/>
             <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" Width="90" MaxValue="{Binding Path=MaxDateTime, Mode=TwoWay}" DateTime="{Binding Path=CurrentMaxDateTime, Mode=TwoWay}" Height="30" ShowClearButton="False"/>
-
             <!--CHECKBOXES-->
             <Border BorderThickness="10" />
             <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Zeros, Mode=TwoWay}" Content="Включая 0"  HorizontalAlignment="Left"/>
@@ -61,35 +26,9 @@
             <CheckBox IsChecked="{Binding Path=Party, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Партия" HorizontalAlignment="Left"/>
             <CheckBox IsChecked="{Binding Path=Task, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Задание" HorizontalAlignment="Left"/>
             <CheckBox IsChecked="{Binding Path=Stat, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Статус" HorizontalAlignment="Left"/>
-
             <!--SHOW GRID-->
             <Border BorderThickness="40" />
-            <Button Command="{Binding ShowPrimaryView}" IsEnabled="{Binding ButtonsEnabled}" HorizontalAlignment="Left" Width="72" Height="30">
-                <StackPanel  Orientation="Horizontal" Width="80" Height="30" Focusable="True" Margin="-6,-1,0,0">
-                    <Image Source="/resources/box.png" Width="16" Height="16" Margin="6,4,0,10">
-                        <Image.Style>
-                            <Style TargetType="Image">
-                                <Style.Triggers>
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Opacity" Value="0.5" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
-                    <TextBlock Text="ТМЦ" Margin="5,4,0,0"  HorizontalAlignment="Right" Width="43" FontSize="12">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Style.Triggers>
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Opacity" Value="0.5" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </StackPanel>
-            </Button>
+            <mvp:ImgButton  Command="{Binding ShowPrimaryView}" IsEnabled="{Binding ButtonsEnabled}" Text1="ТМЦ" Picture="/resources/box.png" Width="75" Height="30" HorizontalAlignment="Left"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

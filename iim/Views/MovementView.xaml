@@ -8,9 +8,7 @@
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:Dynamic="clr-namespace:System.Dynamic;assembly=System.Core"
-             mc:Ignorable="d" 
-             dx:ThemeManager.ThemeName="Office2013"
-             d:DesignHeight="300" d:DesignWidth="300">
+             dx:ThemeManager.ThemeName="Office2013">
     <dxb:BarManager>
         <dxb:BarManager.Items>
             <dxb:BarButtonItem Content="Назад" Name="Previous" Glyph="/Resources/resultset_previous.png" Command="{Binding PreviousControl}"/>
@@ -26,7 +24,6 @@
                 <dxg:GridSummaryItem DisplayFormat="n0" FieldName="UnitMeasurement" SummaryType="Count" Visible="True"/>
             </dxg:GridControl.TotalSummary>
             <dxg:GridControl.Columns>
-
                 <!--COLUMNS-->
                 <dxg:GridColumn FieldName="StoreKey" Header="МХ" Width="40"/>
                 <dxg:GridColumn FieldName="StoreCell" Header="Ячейка"/>

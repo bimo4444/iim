@@ -4,15 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
              dx:ThemeManager.ThemeName="Office2013">
     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-
         <!--EMPTY PANEL FOR BALANCE-->
         <StackPanel Width="250">
         </StackPanel>
-
         <!--LISTBOX-->
         <ListBox x:Name="listBox"
                              Width="500" ItemsSource="{Binding ListBoxItems}" IsEnabled="{Binding ListEnabled}"
@@ -28,11 +24,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
         <!--RIGHT PANEL-->
         <ContentControl DockPanel.Dock="Top"
                         Content="{Binding SelectedMenu}"
                         HorizontalAlignment="Stretch"/>
-
     </StackPanel>
 </UserControl>

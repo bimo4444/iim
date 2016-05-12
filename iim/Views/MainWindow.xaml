@@ -9,7 +9,6 @@
     <Window.Resources>
         <mvp:BoolToVisibilityConverter x:Key="boolToVisibility" />
     </Window.Resources>
-
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF637C87" Offset="1"/>
@@ -17,14 +16,12 @@
             <GradientStop Color="White"/>
         </LinearGradientBrush>
     </Window.Background>
-
     <DockPanel LastChildFill="True">
         <ContentControl DockPanel.Dock="Top"
                         Content="{Binding SelectedMenu}" Visibility="{Binding MenuVisible, Converter={StaticResource boolToVisibility}}"
                         HorizontalAlignment="Stretch"/>
         <!--BOTTOM-->
         <StackPanel DockPanel.Dock="Bottom">
-
             <!--STATUS BAR-->
             <StatusBar Margin="0,5,0,0" Height="20" Foreground="White">
                 <StatusBar.Background>
@@ -47,7 +44,6 @@
                 </StatusBarItem>
             </StatusBar>
         </StackPanel>
-
         <!--MID-->
         <ContentControl Margin="0,4,0,0" 
                         Content="{Binding SelectedView}" 

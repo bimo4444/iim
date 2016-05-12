@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              dx:ThemeManager.ThemeName="Office2013">
@@ -14,18 +15,8 @@
         </Label>
         <Border BorderThickness="5" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-            <Button Command="{Binding OK}" Width="96">
-                <StackPanel Margin="-3,0,0,0" Orientation="Horizontal" >
-                    <Image Source="/Resources/arrow_refresh.png" Width="16" Height="16"/>
-                    <TextBlock Text="Повторить" />
-                </StackPanel>
-            </Button>
-            <Button Margin="5,0,0,0" Command="{Binding Cancel}" Width="75">
-                <StackPanel Margin="-1,0,0,0" Orientation="Horizontal" >
-                    <Image Source="/Resources/cross.png" Width="16" Height="16"/>
-                    <TextBlock Text="Выйти" />
-                </StackPanel>
-            </Button>
+            <mvp:ImgButton  Command="{Binding OK}" StackMargin="-4,0,-3,0" Width="96" Picture="/Resources/arrow_refresh.png" Text1="Повторить" />
+            <mvp:ImgButton  Command="{Binding Cancel}" Margin="5,0,0,0" StackMargin="-1,0,0,0" Width="75" Picture="/Resources/cross.png" Text1="Выйти" />
         </StackPanel>
     </StackPanel>
 </UserControl>

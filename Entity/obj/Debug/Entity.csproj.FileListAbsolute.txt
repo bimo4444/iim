@@ -6,4 +6,3 @@ D:\Projects\iim\Entity\bin\Debug\Entity.dll
 D:\Projects\iim\Entity\bin\Debug\Entity.pdb
 D:\Projects\iim\Entity\obj\Debug\Entity.dll
 D:\Projects\iim\Entity\obj\Debug\Entity.pdb
-D:\Projects\iim\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache

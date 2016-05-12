@@ -8,8 +8,6 @@
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:Dynamic="clr-namespace:System.Dynamic;assembly=System.Core"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
              dx:ThemeManager.ThemeName="Office2013">
     <dxb:BarManager>
         <dxb:BarManager.Items>
@@ -18,7 +16,6 @@
             <dxb:BarButtonItem Content="Excel" Name="Excel" Glyph="/Resources/page_excel.png" Command="{Binding ExcelReport}"/>
             <dxb:BarButtonItem Content="Обновить" Name="Refresh" Glyph="/Resources/arrow_refresh.png" Command="{Binding Refresh}"/>
         </dxb:BarManager.Items>
-
         <dxg:GridControl x:Name="gridControl" ItemsSource="{Binding ListItems, Mode=TwoWay}" AutoGenerateColumns="None" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
             <dxg:GridControl.TotalSummary>
                 <dxg:GridSummaryItem DisplayFormat="0.#####" FieldName="Remains" SummaryType="Sum" Visible="True"/>
@@ -43,7 +40,6 @@
                 <dxg:GridColumn FieldName="ComtecNumber" Header="Номер" />
                 <dxg:GridColumn FieldName="KeyArticle" Header="Артикул" />
                 <dxg:GridColumn FieldName="UnitName" Header="Наименование" Width="300"/>
-                <!--MASK-->
                 <dxg:GridColumn FieldName="Remains" Header="Путь" UnboundType="String" UnboundExpression=""/>
                 <dxg:GridColumn FieldName="Quantity" Header="Есть"/>
                 <dxg:GridColumn FieldName="UnitMeasurement" Header="ЕИ" Width="50"/>
@@ -55,14 +51,12 @@
             <dxg:GridControl.View>
                 <dxg:TableView IsRowCellMenuEnabled="True" x:Name="tableView" ShowTotalSummary="True" IsDetailButtonVisibleBinding="{x:Null}" AllowEditing="False" ShowAutoFilterRow="True"
                                                    FilterEditorShowOperandTypeIcon="True" ShowGroupPanel="False" SearchPanelFindFilter="Like">
-                    
                     <dxg:TableView.RowCellMenuCustomizations>
                         <dxb:BarButtonItemLink BarItemName="Copy"/>
                         <dxb:BarButtonItemLink BarItemName="Mov"/>
                         <dxb:BarButtonItemLink BarItemName="Excel"/>
                         <dxb:BarButtonItemLink BarItemName="Refresh"/>
                     </dxg:TableView.RowCellMenuCustomizations>
-                    
                     <dxg:TableView.FocusedRow>  
                         <Dynamic:ExpandoObject/>
                     </dxg:TableView.FocusedRow>

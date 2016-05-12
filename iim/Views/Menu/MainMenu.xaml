@@ -3,14 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:mvp="clr-namespace:MVPLight.BoolToVisibility;assembly=MVPLight"
+             xmlns:bool="clr-namespace:MVPLight.BoolToVisibility;assembly=MVPLight"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              dx:ThemeManager.ThemeName="Office2013"
              mc:Ignorable="d" >
     <UserControl.Resources>
-        <mvp:BoolToVisibilityConverter x:Key="boolToVisibility" />
+        <bool:BoolToVisibilityConverter x:Key="boolToVisibility" />
     </UserControl.Resources>
     <StackPanel>
         <StackPanel Margin="0,10,0,0" DockPanel.Dock="Top" Visibility="{Binding MenuVisible, Converter={StaticResource boolToVisibility}}">
@@ -23,150 +24,14 @@
                 <!--GO BACK-->
                 <StackPanel Grid.Column="0" Orientation="Horizontal"  VerticalAlignment="Bottom">
                     <Border  BorderThickness="10" />
-                    <Button Height="30" Width="60" IsEnabled="{Binding ControlsEnabled}" Command="{Binding PreviousControl}">
-                        <StackPanel Margin="-9,0,-10,0" Orientation="Horizontal" Width="80" Height="30">
-                            <Image Source="/Resources/resultset_previous.png" Width="16" Height="16" Margin="0,0,0,6">
-                                <Image.Style>
-                                    <Style TargetType="Image">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                            <TextBlock Text="Назад" Margin="0,3,0,0"  HorizontalAlignment="Right" Width="66" FontSize="12">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </StackPanel>
-                    </Button>
-
+                    <mvp:ImgButton StackMargin="-13,0,-10,0" Text1="Назад" Picture="/Resources/resultset_previous.png" Height="30" Width="60" IsEnabled="{Binding ControlsEnabled}" Command="{Binding PreviousControl}"/>
                     <Border BorderThickness="5" />
-                    <!--/////////-->
                     <!--REFRESHER-->
-                    <!--/////////-->
-                    <Button HorizontalAlignment="Center" Command="{Binding Refresh}" IsEnabled="{Binding ControlsEnabled}" 
-                                 Width="63" Height="30" BorderBrush="Black" Foreground="Black">
-                        <StackPanel Margin="-11,0,-8,0" Orientation="Horizontal" Height="30" Width="95">
-                            <Image Source="/Resources/arrow_refresh.png" Width="16" Height="16" Margin="6,4,0,10">
-                                <Image.Style>
-                                    <Style TargetType="Image">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                            <TextBlock Text="{Binding Time}" Margin="4,4,0,0"  HorizontalAlignment="Right" FontSize="12">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </StackPanel>
-                    </Button>
+                    <mvp:ImgButton StackMargin="-5,0,-13,0" StackWidth="58" Text1="{Binding Time}" Picture="/Resources/arrow_refresh.png" Height="30" Width="63" IsEnabled="{Binding ControlsEnabled}" Command="{Binding Refresh}"/>
                 </StackPanel>
-
-
                 <ContentControl Grid.Column = "1" Margin="0,0,0,0" 
                         Content="{Binding SelectedFrame}" 
                         HorizontalAlignment="Stretch"/>
-                <!--MIDDLE-->
-                <!--MOV BUTTONS-->
-                <!--no stackPanel to prevent text wrap bugs-->
-                <!--<Button HorizontalAlignment="Left" Grid.Column="1" ToolTip="Обновить" IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReportMov}" VerticalAlignment="Bottom" Width="30" Height="30" 
-                        Visibility="{Binding MovButtonsVisibility, Converter={StaticResource boolToVisibility}}">
-                    <StackPanel Margin="-5,0,-8,0" Orientation="Horizontal" Height="30" Width="50">
-                        <Image Source="/resources/page_excel.png" Width="16" Height="16" Margin="0,4,0,10">
-                            <Image.Style>
-                                <Style TargetType="Image">
-                                    <Style.Triggers>
-                                        <Trigger Property="IsEnabled" Value="False">
-                                            <Setter Property="Opacity" Value="0.5" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Style>
-                        </Image>
-                    </StackPanel>
-                </Button>
-                <TextBlock Height="30" Grid.Column="1" Margin="37,0,0,0"  VerticalAlignment="Bottom" TextWrapping="Wrap" Text="{Binding MovementDetails}" Visibility="{Binding MovButtonsVisibility, Converter={StaticResource boolToVisibility}}" HorizontalAlignment="Left"/>
--->
-                <!--GRID BUTTONS--><!--
-                <StackPanel Visibility="{Binding GridButtonsVisibility, Converter={StaticResource boolToVisibility}}" Margin="0,0,0,0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center"   VerticalAlignment="Bottom">
-                    <Button IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReport}" VerticalAlignment="Bottom" Width="59" Height="30">
-                        <StackPanel Margin="-5,0,-8,0" Orientation="Horizontal" Height="30" Width="50">
-                            <Image Source="/resources/page_excel.png" Width="16" Height="16" Margin="0,4,0,10">
-                                <Image.Style>
-                                    <Style TargetType="Image">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                            <TextBlock Text="Excel" Margin="3,3,0,0"  HorizontalAlignment="Right" FontSize="12">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Border BorderThickness="5" />
--->
-                    <!--MOVEMENT--><!--
-                    <Button HorizontalAlignment="Center" Command="{Binding ShowMovement}" IsEnabled="{Binding MovButtonEnabled, Mode=OneWay}" 
-                                 Width="91" Height="30" BorderBrush="Black" Foreground="Black">
-                        <StackPanel Margin="-11,0,-8,0" Orientation="Horizontal" Height="30" Width="95">
-                            <Image Source="/Resources/mov.png" Width="16" Height="16" Margin="6,4,0,10">
-                                <Image.Style>
-                                    <Style TargetType="Image">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                            <TextBlock Text="Движение" Margin="4,3,0,0"  HorizontalAlignment="Right" FontSize="12">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="Opacity" Value="0.5" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>-->
                 <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Bottom">
                         <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Order, Mode=TwoWay}" Content="Заказ"  HorizontalAlignment="Left"/>
@@ -182,10 +47,8 @@
                         <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Minus, Mode=TwoWay}" 
                                        Content="Минусы"  HorizontalAlignment="Left"/>
                     </StackPanel>
-
                     <!--DATES-->
                     <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
-
                         <TextBlock Text="Период с: " HorizontalAlignment="Right" VerticalAlignment="Center" />
                         <dxe:DateEdit x:Name="minDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="89" MinValue="{Binding MinDateTime, Mode=OneWay}" MaxValue="{Binding MaxDateTime, Mode=TwoWay}" DateTime="{Binding CurrentMinDateTime, Mode=TwoWay}" ShowClearButton="False"/>
                     </StackPanel>
@@ -196,7 +59,6 @@
                             <TextBlock Text=" дней: " HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                             <TextBlock Margin="0,0,5,0" Text="{Binding TotalDays}" HorizontalAlignment="Right" TextAlignment="Right" VerticalAlignment="Bottom" Width="35" FontWeight="Bold"/>
                         </StackPanel>
-
                     </StackPanel>
                 </StackPanel>
             </Grid>

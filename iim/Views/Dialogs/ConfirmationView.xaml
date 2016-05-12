@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel VerticalAlignment="Center">
@@ -12,18 +13,8 @@
         </Label>
         <Border BorderThickness="5" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-            <Button Command="{Binding OK}" Width="50">
-                <StackPanel Margin="-3,0,0,0" Orientation="Horizontal" >
-                    <Image Source="/Resources/tick.png" Width="16" Height="16"/>
-                    <TextBlock Text="Да" />
-                </StackPanel>
-            </Button>
-            <Button Margin="5,0,0,0" Command="{Binding Cancel}" Width="50">
-                <StackPanel Margin="-1,0,0,0" Orientation="Horizontal" >
-                    <Image Source="/Resources/cross.png" Width="16" Height="16"/>
-                    <TextBlock Text="Нет" />
-                </StackPanel>
-            </Button>
+            <mvp:ImgButton  Command="{Binding OK}" StackMargin="-3,0,0,0" Width="50" Picture="/Resources/tick.png" Text1="Да" />
+            <mvp:ImgButton  Command="{Binding Cancel}" Margin="5,0,0,0" StackMargin="-1,0,0,0" Width="50" Picture="/Resources/cross.png" Text1="Нет" />
         </StackPanel>
     </StackPanel>
 </UserControl>

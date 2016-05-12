@@ -1,0 +1,138 @@
+*********************************************************************************************************************************************
+12.05.2016 18:49:46 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 18:50:55 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 18:52:29 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:17:21 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:17:21 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:17:51 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:17:51 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:18:05 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:18:05 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:18:18 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:18:18 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:18:31 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:18:31 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:25:42 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:25:42 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:26:08 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:26:08 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:29:10 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:29:10 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:29:10 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:30:47 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:30:47 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<>c__DisplayClass6.<GetBaseQuery>b__5() в c:\dev\iim\DataAccess\DataProvider.cs:строка 70
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35
+*********************************************************************************************************************************************
+12.05.2016 19:30:47 DESKTOP-KRUHAN2 darks
+Ссылка на объект не указывает на экземпляр объекта.
+DataAccess
+   в DataAccess.DataProvider.<GetStoreCells>b__8() в c:\dev\iim\DataAccess\DataProvider.cs:строка 112
+   в Trap.ExceptionTrap.Catch[T](Func`1 func) в d:\Projects\iim\Trap\ExceptionTrap.cs:строка 35

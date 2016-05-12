@@ -161,5 +161,7 @@ D:\Projects\iim\iim\obj\Debug\iim_MarkupCompile.cache
 D:\Projects\iim\iim\obj\Debug\iim.g.resources
 D:\Projects\iim\iim\obj\Debug\iim.Properties.Resources.resources
 D:\Projects\iim\iim\obj\Debug\iim.csproj.GenerateResource.Cache
-C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.xml
-C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.xml
+C:\dev\iim\iim\bin\Debug\de\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\es\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\ja\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\ru\DevExpress.Printing.v14.1.Core.resources.dll

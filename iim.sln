@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreCellsNormalizer", "Sto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClientLibrary", "WcfClientLibrary\WcfClientLibrary.csproj", "{A72DDFD3-D0BA-473E-A330-F9E88527776E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A72DDFD3-D0BA-473E-A330-F9E88527776E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

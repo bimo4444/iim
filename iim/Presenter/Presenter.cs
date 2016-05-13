@@ -146,7 +146,7 @@ namespace iim
                 {
                     DisableControls();
                     mainViewModel.StatusBarText = "загрузка...";
-                    Loop(() => DownloadPrimaryList(), () => primaryViewModel.ListItems.Any());
+                    Loop(() => DownloadPrimaryList(), () => !core.Error);
                     menuViewModel.MinDateTime = menuViewModel.CurrentMinDateTime = core.CurrentMinDateTime;
                     menuViewModel.Time = DateTime.Now.ToShortTimeString();
                     menuViewModel.TotalDays = (core.CurrentMaxDateTime - core.CurrentMinDateTime).Days + 1;

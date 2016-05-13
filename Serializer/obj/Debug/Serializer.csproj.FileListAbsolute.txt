@@ -2,8 +2,8 @@ C:\dev\iim\Serializer\bin\Debug\Serializer.dll
 C:\dev\iim\Serializer\bin\Debug\Serializer.pdb
 C:\dev\iim\Serializer\obj\Debug\Serializer.dll
 C:\dev\iim\Serializer\obj\Debug\Serializer.pdb
+C:\dev\iim\Serializer\obj\Debug\Serializer.csprojResolveAssemblyReference.cache
 D:\Projects\iim\Serializer\bin\Debug\Serializer.dll
 D:\Projects\iim\Serializer\bin\Debug\Serializer.pdb
 D:\Projects\iim\Serializer\obj\Debug\Serializer.dll
 D:\Projects\iim\Serializer\obj\Debug\Serializer.pdb
-C:\dev\iim\Serializer\obj\Debug\Serializer.csprojResolveAssemblyReference.cache

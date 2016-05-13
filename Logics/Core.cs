@@ -24,6 +24,7 @@ namespace Logics
         IExcelService excelService;
         ICellsNormalizer cellsNormalizer;
         Config config;
+        public bool Error { get; private set; }
         public UserConfig SomeUser { get; set; }
         public IEnumerable<Item> CurrentPrimaryList { get; private set; }
         public IEnumerable<string> StoreCells { get; private set; }
@@ -127,6 +128,11 @@ namespace Logics
         public IEnumerable<Item> GetPrimaryItems()
         {
             primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
+            if(!primaryList.Any())
+            {
+                Error = true;
+                return primaryList;
+            }
             MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;
             return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }

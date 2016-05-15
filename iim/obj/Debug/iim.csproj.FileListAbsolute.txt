@@ -74,10 +74,6 @@ C:\dev\iim\iim\bin\Debug\System.Runtime.xml
 C:\dev\iim\iim\bin\Debug\System.Threading.Tasks.xml
 C:\dev\iim\iim\obj\Debug\iim.exe
 C:\dev\iim\iim\obj\Debug\iim.pdb
-C:\dev\iim\iim\bin\Debug\de\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\iim\bin\Debug\es\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\iim\bin\Debug\ja\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\iim\bin\Debug\ru\DevExpress.Printing.v14.1.Core.resources.dll
 D:\Projects\iim\iim\obj\Debug\iim.csprojResolveAssemblyReference.cache
 D:\Projects\iim\iim\obj\Debug\Views\Dialogs\ConfirmationView.baml
 D:\Projects\iim\iim\obj\Debug\Views\Dialogs\ConnectionErrorView.baml
@@ -165,3 +161,14 @@ D:\Projects\iim\iim\bin\Debug\ja\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 D:\Projects\iim\iim\bin\Debug\ru\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 D:\Projects\iim\iim\obj\Debug\iim.exe
 D:\Projects\iim\iim\obj\Debug\iim.pdb
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.xml
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.xml
+C:\dev\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.xml
+C:\dev\iim\iim\bin\Debug\de\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\iim\bin\Debug\es\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\iim\bin\Debug\ja\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\iim\bin\Debug\ru\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\iim\bin\Debug\de\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\es\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\ja\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\iim\bin\Debug\ru\DevExpress.Xpf.Grid.v14.1.Core.resources.dll

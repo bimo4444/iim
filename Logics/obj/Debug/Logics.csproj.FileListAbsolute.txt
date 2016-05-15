@@ -29,8 +29,6 @@ C:\dev\iim\Logics\bin\Debug\StoreCellsNormalizer.pdb
 C:\dev\iim\Logics\bin\Debug\WcfClientLibrary.dll
 C:\dev\iim\Logics\bin\Debug\WcfContract.dll
 C:\dev\iim\Logics\bin\Debug\WcfClientLibrary.pdb
-C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.dll
-C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.xml
 C:\dev\iim\Logics\bin\Debug\DevExpress.Data.v14.1.xml
 C:\dev\iim\Logics\bin\Debug\de\DevExpress.Data.v14.1.resources.dll
 C:\dev\iim\Logics\bin\Debug\es\DevExpress.Data.v14.1.resources.dll
@@ -47,10 +45,6 @@ C:\dev\iim\Logics\bin\Debug\de\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 C:\dev\iim\Logics\bin\Debug\es\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 C:\dev\iim\Logics\bin\Debug\ja\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
 C:\dev\iim\Logics\bin\Debug\ru\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
-C:\dev\iim\Logics\bin\Debug\de\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\Logics\bin\Debug\es\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\Logics\bin\Debug\ja\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\Logics\bin\Debug\ru\DevExpress.Printing.v14.1.Core.resources.dll
 D:\Projects\iim\Logics\obj\Debug\Logics.csprojResolveAssemblyReference.cache
 D:\Projects\iim\Logics\bin\Debug\Logics.dll
 D:\Projects\iim\Logics\bin\Debug\Logics.pdb

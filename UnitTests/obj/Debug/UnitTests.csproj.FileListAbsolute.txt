@@ -41,10 +41,6 @@ C:\dev\iim\UnitTests\bin\Debug\Uniqueness.pdb
 C:\dev\iim\UnitTests\bin\Debug\WcfClientLibrary.pdb
 C:\dev\iim\UnitTests\bin\Debug\Microsoft.Threading.Tasks.xml
 C:\dev\iim\UnitTests\bin\Debug\DevExpress.Mvvm.v14.1.xml
-C:\dev\iim\UnitTests\bin\Debug\de\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\UnitTests\bin\Debug\es\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\UnitTests\bin\Debug\ja\DevExpress.Printing.v14.1.Core.resources.dll
-C:\dev\iim\UnitTests\bin\Debug\ru\DevExpress.Printing.v14.1.Core.resources.dll
 C:\dev\iim\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\dev\iim\UnitTests\obj\Debug\UnitTests.dll
 C:\dev\iim\UnitTests\obj\Debug\UnitTests.pdb
@@ -86,3 +82,13 @@ D:\Projects\iim\UnitTests\bin\Debug\Uniqueness.pdb
 D:\Projects\iim\UnitTests\bin\Debug\WcfClientLibrary.pdb
 D:\Projects\iim\UnitTests\bin\Debug\Microsoft.Threading.Tasks.xml
 D:\Projects\iim\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\dev\iim\UnitTests\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.xml
+C:\dev\iim\UnitTests\bin\Debug\DevExpress.Xpf.Core.v14.1.xml
+C:\dev\iim\UnitTests\bin\Debug\de\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\es\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\ja\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\ru\DevExpress.Xpf.Grid.v14.1.Core.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\de\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\es\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\ja\DevExpress.Xpf.Core.v14.1.resources.dll
+C:\dev\iim\UnitTests\bin\Debug\ru\DevExpress.Xpf.Core.v14.1.resources.dll

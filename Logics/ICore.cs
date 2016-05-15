@@ -11,11 +11,11 @@ namespace Logics
     public interface ICore
     {
         UserConfig SomeUser { get; set; }
-        bool Error { get; }
         IEnumerable<Item> CurrentPrimaryList { get; }
         IEnumerable<string> StoreCells { get; }
         DateTime CurrentMaxDateTime { get; set; }
         DateTime CurrentMinDateTime { get; set; }
+        bool NotEmpty();
         List<Store> GetStoresList();
         List<Store> UncheckSelectedStores();
         List<Store> SelectStoresGroups();

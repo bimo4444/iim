@@ -24,7 +24,7 @@ namespace Logics
         IExcelService excelService;
         ICellsNormalizer cellsNormalizer;
         Config config;
-        public bool Error { get; private set; }
+        bool notEmpty;
         public UserConfig SomeUser { get; set; }
         public IEnumerable<Item> CurrentPrimaryList { get; private set; }
         public IEnumerable<string> StoreCells { get; private set; }
@@ -70,6 +70,16 @@ namespace Logics
         {
             MaxDateTime = CurrentMaxDateTime = DateTime.Now.Date;
             MinDateTime = CurrentMinDateTime = DateTime.MinValue;
+        }
+        //reset property if list.Any();
+        public bool NotEmpty()
+        {
+            if(notEmpty)
+            {
+                notEmpty = false;
+                return true;
+            }
+            return notEmpty;
         }
         //first view listbox
         public List<Store> GetStoresList()
@@ -130,7 +140,7 @@ namespace Logics
             primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
             if(!primaryList.Any())
             {
-                Error = true;
+                notEmpty = true;
                 return primaryList;
             }
             MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;

@@ -15,6 +15,7 @@ namespace Logics
         IEnumerable<string> StoreCells { get; }
         DateTime CurrentMaxDateTime { get; set; }
         DateTime CurrentMinDateTime { get; set; }
+        void Begin();
         bool NotEmpty();
         List<Store> GetStoresList();
         List<Store> UncheckSelectedStores();

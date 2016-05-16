@@ -3,6 +3,7 @@ using DevExpress.Xpf.Grid;
 using Entity;
 using ExcelServices;
 using Metamorphosis;
+using PluginManager;
 using Serializer;
 using StoreCellsNormalizer;
 using System;
@@ -23,6 +24,7 @@ namespace Logics
         IXmlSerializer xmlSerializer;
         IExcelService excelService;
         ICellsNormalizer cellsNormalizer;
+        IPluginService pluginService;
         Config config;
         bool notEmpty;
         public UserConfig SomeUser { get; set; }
@@ -45,7 +47,8 @@ namespace Logics
             IMetamorphoses metamorphosis,
             IXmlSerializer xmlSerializer,
             IExcelService excelService,
-            ICellsNormalizer cellsNormalizer)
+            ICellsNormalizer cellsNormalizer,
+            IPluginService pluginService)
         {
             this.metamorphosis = metamorphosis;
             this.xmlSerializer = xmlSerializer;
@@ -53,12 +56,17 @@ namespace Logics
             this.dataProvider = dataProvider;
             this.wcfClient = wcfClient;
             this.cellsNormalizer = cellsNormalizer;
+            this.pluginService = pluginService;
             DeserializeConfigs();
             dataProvider.Configure(config.ConnectionString);
             dataProvider.Configure(config.ConnectionTimeOut);
             dataProvider.Init();
             wcfClient.SetUrl(config.WcfServiceAddress);
             Initializing();
+        }
+        public void Begin()
+        {
+            pluginService.Init("plugins");
         }
         private void DeserializeConfigs()
         {
@@ -226,6 +234,7 @@ namespace Logics
             //    Directory.CreateDirectory(configFilePath);
             //if (!File.Exists(configFileName))
             //    xmlSerializer.Serialize(config, configFilePath, configFileName);
+            pluginService.Dispose();
         }
     }
 }

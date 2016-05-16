@@ -92,3 +92,7 @@ C:\dev\iim\UnitTests\bin\Debug\de\DevExpress.Xpf.Core.v14.1.resources.dll
 C:\dev\iim\UnitTests\bin\Debug\es\DevExpress.Xpf.Core.v14.1.resources.dll
 C:\dev\iim\UnitTests\bin\Debug\ja\DevExpress.Xpf.Core.v14.1.resources.dll
 C:\dev\iim\UnitTests\bin\Debug\ru\DevExpress.Xpf.Core.v14.1.resources.dll
+D:\Projects\iim\UnitTests\bin\Debug\PluginManager.dll
+D:\Projects\iim\UnitTests\bin\Debug\PluginInterface.dll
+D:\Projects\iim\UnitTests\bin\Debug\PluginManager.pdb
+D:\Projects\iim\UnitTests\bin\Debug\PluginInterface.pdb

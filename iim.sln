@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iim", "iim\iim.csproj", "{7C31202A-697D-45C8-BA46-1AA521CADA40}"
 EndProject
@@ -34,6 +34,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClientLibrary", "WcfClientLibrary\WcfClientLibrary.csproj", "{A72DDFD3-D0BA-473E-A330-F9E88527776E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginInterface\PluginInterface.csproj", "{C7983674-72F1-439E-87B7-456342C6649D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginManager", "PluginManager\PluginManager.csproj", "{EC0F4F0D-C667-4784-AEAD-C5FBFAFF19FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineNameThief", "MachineNameThief\MachineNameThief.csproj", "{83DBD06A-968F-40C9-883F-0043558BB372}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +111,18 @@ Global
 		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77F7DE3D-85F0-4271-99E1-161DB36D6E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7983674-72F1-439E-87B7-456342C6649D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7983674-72F1-439E-87B7-456342C6649D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7983674-72F1-439E-87B7-456342C6649D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7983674-72F1-439E-87B7-456342C6649D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0F4F0D-C667-4784-AEAD-C5FBFAFF19FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0F4F0D-C667-4784-AEAD-C5FBFAFF19FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0F4F0D-C667-4784-AEAD-C5FBFAFF19FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0F4F0D-C667-4784-AEAD-C5FBFAFF19FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83DBD06A-968F-40C9-883F-0043558BB372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83DBD06A-968F-40C9-883F-0043558BB372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83DBD06A-968F-40C9-883F-0043558BB372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83DBD06A-968F-40C9-883F-0043558BB372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

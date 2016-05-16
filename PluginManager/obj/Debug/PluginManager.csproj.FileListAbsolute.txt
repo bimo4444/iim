@@ -1,0 +1,11 @@
+D:\Projects\iim\PluginManager\obj\Debug\PluginManager.csprojResolveAssemblyReference.cache
+D:\Projects\iim\PluginManager\bin\Debug\PluginManager.dll
+D:\Projects\iim\PluginManager\bin\Debug\PluginManager.pdb
+D:\Projects\iim\PluginManager\bin\Debug\PluginInterface.dll
+D:\Projects\iim\PluginManager\bin\Debug\PluginInterface.pdb
+D:\Projects\iim\PluginManager\obj\Debug\PluginManager.dll
+D:\Projects\iim\PluginManager\obj\Debug\PluginManager.pdb
+D:\Projects\iim\PluginManager\bin\Debug\Trap.dll
+D:\Projects\iim\PluginManager\bin\Debug\Logging.dll
+D:\Projects\iim\PluginManager\bin\Debug\Trap.pdb
+D:\Projects\iim\PluginManager\bin\Debug\Logging.pdb

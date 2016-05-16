@@ -82,6 +82,10 @@
       <Project>{80d26cce-91a9-463f-bb7d-f756f01e4d57}</Project>
       <Name>Metamorphosis</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{ec0f4f0d-c667-4784-aead-c5fbfaff19fe}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Serializer\Serializer.csproj">
       <Project>{3f98fcd1-acf2-43cb-b5b0-ed4aa85d1a11}</Project>
       <Name>Serializer</Name>

@@ -267,6 +267,10 @@
       <Project>{e45797b0-5341-43c1-8223-052ae7f6fd42}</Project>
       <Name>MVPLight</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{ec0f4f0d-c667-4784-aead-c5fbfaff19fe}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Serializer\Serializer.csproj">
       <Project>{3f98fcd1-acf2-43cb-b5b0-ed4aa85d1a11}</Project>
       <Name>Serializer</Name>

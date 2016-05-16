@@ -53,6 +53,11 @@ namespace iim
             SetViewModels();
             SetProperties();
             Show();
+            Begin();
+        }
+        private async void Begin()
+        {
+            await Task.Factory.StartNew(() => core.Begin());
         }
         private void Initializing()
         {

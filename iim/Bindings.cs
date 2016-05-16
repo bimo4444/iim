@@ -14,6 +14,7 @@ using Ninject.Parameters;
 using Trap;
 using StoreCellsNormalizer;
 using WcfClientLibrary;
+using PluginManager;
 
 namespace iim
 {
@@ -30,6 +31,7 @@ namespace iim
             this.Bind<IDataProvider>().To<DataProvider>();
             this.Bind<IWcfClient>().To<WcfClient>();
             this.Bind<IExceptionTrap>().To<ExceptionTrap>();
+            this.Bind<IPluginService>().To<PluginService>();
             this.Bind<ILog>().To<Log>().InSingletonScope();
         }
     }

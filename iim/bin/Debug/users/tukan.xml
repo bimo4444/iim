@@ -131,7 +131,7 @@
       <OidStore>4b7e1f49-0367-11e3-93fa-ac162d7559bf</OidStore>
       <Higher>4b7e1f49-0367-11e3-93fa-ac162d7559bf</Higher>
       <StoreString>36 Склад 36</StoreString>
-      <IsSelected>false</IsSelected>
+      <IsSelected>true</IsSelected>
     </Store>
     <Store>
       <OidStore>4bd63df1-0367-11e3-93fa-ac162d7559bf</OidStore>

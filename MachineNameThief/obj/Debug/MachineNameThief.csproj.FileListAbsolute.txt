@@ -2,7 +2,6 @@ D:\Projects\iim\MachineNameThief\bin\Debug\MachineNameThief.dll
 D:\Projects\iim\MachineNameThief\bin\Debug\MachineNameThief.pdb
 D:\Projects\iim\MachineNameThief\bin\Debug\PluginInterface.dll
 D:\Projects\iim\MachineNameThief\bin\Debug\PluginInterface.pdb
-D:\Projects\iim\MachineNameThief\obj\Debug\MachineNameThief.csprojResolveAssemblyReference.cache
 D:\Projects\iim\MachineNameThief\obj\Debug\MachineNameThief.dll
 D:\Projects\iim\MachineNameThief\obj\Debug\MachineNameThief.pdb
 D:\Projects\iim\MachineNameThief\bin\Debug\MachineNameThief.dll.config

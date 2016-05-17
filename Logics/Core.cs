@@ -66,6 +66,8 @@ namespace Logics
         }
         public void Begin()
         {
+            pluginService.ConnectionString = config.ConnectionString;
+            pluginService.ConnectionTimeout = config.ConnectionTimeOut;
             pluginService.Init("plugins");
         }
         private void DeserializeConfigs()
@@ -148,10 +150,10 @@ namespace Logics
             primaryList = dataProvider.GetBaseQuery(SomeUser.StoresList.Where(w => w.IsSelected).Select(s => s.OidStore).ToList());
             if(!primaryList.Any())
             {
-                notEmpty = true;
                 return primaryList;
             }
             MinDateTime = CurrentMinDateTime = primaryList.Min(m => m.Date) ?? DateTime.MinValue;
+            notEmpty = true;
             return CurrentPrimaryList = PrimaryMetamorphosis(primaryList);
         }
         public IEnumerable<Item> ResetPrimary()

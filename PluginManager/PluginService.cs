@@ -9,10 +9,12 @@ using Trap;
 
 namespace PluginManager
 {
-    public class PluginService : IPluginService
+    public class PluginService : IPluginService, IPluginHost
     {
         IExceptionTrap exceptionTrap;
         private List<IPlugin> plugins = new List<IPlugin>();
+        public string ConnectionString { get; set; }
+        public int ConnectionTimeout { get; set; }
         public PluginService(IExceptionTrap exceptionTrap)
         {
             this.exceptionTrap = exceptionTrap;
@@ -21,7 +23,10 @@ namespace PluginManager
         {
             FindPlugins(path);
             foreach (var plugin in plugins)
+            {
+                plugin.Host = this;
                 exceptionTrap.Catch(() => plugin.Init());
+            }
         }
         private void FindPlugins(string path)
         {

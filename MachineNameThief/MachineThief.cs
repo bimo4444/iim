@@ -1,6 +1,7 @@
 ﻿using PluginInterface;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,10 +12,12 @@ namespace MachineNameThief
     {
         string machine = System.Environment.MachineName;
         string user = System.Environment.UserName;
-
+        public IPluginHost Host { get; set; }
         public void Init()
         {
-            SomeLinqDataContext linq = new SomeLinqDataContext();
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(Host.ConnectionString);
+            SomeLinqDataContext linq = new SomeLinqDataContext(
+                builder.ConnectionString) { CommandTimeout = Host.ConnectionTimeout };
             var v = linq.SecuritySystemUsers
                 .Where(w => w.UserName == user && w.GCRecord == null)
                 .Select(s => s)

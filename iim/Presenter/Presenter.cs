@@ -75,6 +75,7 @@ namespace iim
                 menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
                 mainViewModel.StatusBarText = "";
                 ActivateControls();
+                firstView.Dispatcher.BeginInvoke(new Action(() => { menuViewModel.ButtonsEnabled = firstView.listBox.SelectedItems.Count > 0 ? true : false; }));
             });
         }
         private void DownloadStoresList()
@@ -250,7 +251,7 @@ namespace iim
                 return true;
             }
             else
-                Application.Current.Shutdown();
+                Application.Current.Dispatcher.BeginInvoke(new Action(() => { Application.Current.Shutdown(); }));
             //
             return false;
         }

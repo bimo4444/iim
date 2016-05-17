@@ -2,3 +2,4 @@ D:\Projects\iim\PluginInterface\bin\Debug\PluginInterface.dll
 D:\Projects\iim\PluginInterface\bin\Debug\PluginInterface.pdb
 D:\Projects\iim\PluginInterface\obj\Debug\PluginInterface.dll
 D:\Projects\iim\PluginInterface\obj\Debug\PluginInterface.pdb
+D:\Projects\iim\PluginInterface\obj\Debug\PluginInterface.csprojResolveAssemblyReference.cache

@@ -7,6 +7,8 @@ namespace PluginManager
 {
     public interface IPluginService : IDisposable
     {
+        string ConnectionString { set; }
+        int ConnectionTimeout { set; }
         void Init(string path);
     }
 }

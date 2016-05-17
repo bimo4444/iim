@@ -1,7 +1,5 @@
 C:\dev\iim\ExcelServices\obj\Release\ExcelServices.csprojResolveAssemblyReference.cache
 C:\dev\iim\ExcelServices\bin\Release\ExcelServices.dll
 C:\dev\iim\ExcelServices\bin\Release\ExcelServices.pdb
-C:\dev\iim\ExcelServices\bin\Release\DevExpress.Data.v14.1.dll
-C:\dev\iim\ExcelServices\bin\Release\DevExpress.Mvvm.v14.1.dll
 C:\dev\iim\ExcelServices\obj\Release\ExcelServices.dll
 C:\dev\iim\ExcelServices\obj\Release\ExcelServices.pdb

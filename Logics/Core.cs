@@ -69,6 +69,7 @@ namespace Logics
             pluginService.ConnectionString = config.ConnectionString;
             pluginService.ConnectionTimeout = config.ConnectionTimeOut;
             pluginService.Init("plugins");
+            pluginService.Dispose();
         }
         private void DeserializeConfigs()
         {

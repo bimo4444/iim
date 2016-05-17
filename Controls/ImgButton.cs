@@ -12,6 +12,7 @@ namespace Controls
 {
     public class ImgButton : Button
     {
+        //will be image size here
         public static readonly DependencyProperty MyPicture =
             DependencyProperty.Register("Picture", typeof(string), typeof(ImgButton), new PropertyMetadata(string.Empty, ChangedPic));
         public static readonly DependencyProperty MyProperty1 =
@@ -24,7 +25,7 @@ namespace Controls
             DependencyProperty.Register("StackHeight", typeof(double), typeof(ImgButton), new PropertyMetadata((double)0.0, ChangedHeight));
         public static readonly DependencyProperty MyWidth =
             DependencyProperty.Register("StackWidth", typeof(double), typeof(ImgButton), new PropertyMetadata((double)0.0, ChangedWidth));
-
+        
 
         TextBlock block1 = new TextBlock();
         TextBlock block2 = new TextBlock();
@@ -89,20 +90,20 @@ namespace Controls
         }
         public ImgButton()
         {
-            image.Width = 16;
-            image.Height = 16;
-            Style style = new Style();
+            image.Width = 16;   //
+            image.Height = 16;  //
+            Style style = new Style();  //trigger IsEnabled opacity changing
             style.TargetType = typeof(Image);
             Trigger trigger = new Trigger();
             trigger.Property = Button.IsEnabledProperty;
             trigger.Value = false;
             Setter setter = new Setter();
             setter.Property = Image.OpacityProperty;
-            setter.Value = (double)0.5;
+            setter.Value = (double)0.5; //50% opacity
             trigger.Setters.Add(setter);
             style.Triggers.Add(trigger);
             image.Style = style;
-            stack.Orientation = Orientation.Horizontal;
+            stack.Orientation = Orientation.Horizontal; //horizontal stack
             stack.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             RightSide = false;
             this.Content = stack;

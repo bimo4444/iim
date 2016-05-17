@@ -9,9 +9,8 @@ namespace MVPLight
 {
     public class DelegateCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
         Action action;
-
+        public event EventHandler CanExecuteChanged;
         public DelegateCommand(Action action)
         {
             this.action = action;

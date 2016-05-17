@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using Trap;
 
 namespace PluginManager
@@ -22,11 +23,19 @@ namespace PluginManager
         public void Init(string path)
         {
             FindPlugins(path);
+            if (!plugins.Any())
+                return;
+            List<Task> tasks = new List<Task>();
             foreach (var plugin in plugins)
             {
-                plugin.Host = this;
-                exceptionTrap.Catch(() => plugin.Init());
+                Task t = Task.Factory.StartNew(() => 
+                { 
+                    plugin.Host = this;
+                    exceptionTrap.Catch(() => plugin.Init()); 
+                });
+                tasks.Add(t);
             }
+            Task.WaitAll(tasks.ToArray());
         }
         private void FindPlugins(string path)
         {
@@ -44,14 +53,13 @@ namespace PluginManager
         }
         private void AddPlugin(string file)
         {
-            try
+            exceptionTrap.Catch(() => 
             {
-                var asm = Assembly.LoadFile(file);
+                var assembly = Assembly.LoadFile(file);
                 var plugin = Activator.CreateInstance(
-                    asm.GetTypes().First(t => t.GetInterfaces().Contains(typeof(IPlugin)))) as IPlugin;
+                    assembly.GetTypes().First(t => t.GetInterfaces().Contains(typeof(IPlugin)))) as IPlugin;
                 plugins.Add(plugin);
-            }
-            catch { }
+            });
         }
         public void Dispose()
         {

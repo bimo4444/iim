@@ -9,6 +9,6 @@ namespace PluginManager
     {
         string ConnectionString { set; }
         int ConnectionTimeout { set; }
-        void Init(string path);
+        void Init(string directoryName);
     }
 }

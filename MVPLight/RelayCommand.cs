@@ -11,34 +11,27 @@ namespace MVPLight
     {
         private Action action;
         private Func<bool> canExecute;
-
+        public event EventHandler CanExecuteChanged;
         public RelayCommand(
             Action action, ref EventHandler propertyChanged, Func<bool> canExecute)
         {
             this.action = action;
             this.canExecute = canExecute;
-            //subscribing event
-            propertyChanged += RaiseCanExecuteChanged;
+            propertyChanged += RaiseCanExecuteChanged;//subscribing event
         }
-
         public RelayCommand(Action action)
         {
             this.action = action;
             this.canExecute = null;
         }
-
         public bool CanExecute(object parameter)
         {
             return canExecute == null ? true : canExecute.Invoke();
         }
-
         public void Execute(object parameter)
         {
             action.Invoke();
         }
-
-        public event EventHandler CanExecuteChanged;
-
         void RaiseCanExecuteChanged(object sender, EventArgs e)
         {
             EventHandler handler = CanExecuteChanged;

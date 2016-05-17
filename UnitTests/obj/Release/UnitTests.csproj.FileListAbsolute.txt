@@ -47,3 +47,4 @@ C:\dev\iim\UnitTests\bin\Release\PluginInterface.pdb
 C:\dev\iim\UnitTests\obj\Release\UnitTests.csprojResolveAssemblyReference.cache
 C:\dev\iim\UnitTests\obj\Release\UnitTests.dll
 C:\dev\iim\UnitTests\obj\Release\UnitTests.pdb
+C:\dev\iim\UnitTests\bin\Release\DevExpress.Mvvm.v14.1.xml

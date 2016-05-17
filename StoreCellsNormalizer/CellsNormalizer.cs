@@ -16,8 +16,8 @@ namespace StoreCellsNormalizer
             {
                 s = s.ToUpper().Replace(".", "").Replace("№", "").Replace(" ", "").Replace("/", " / ").Trim();
                 return s;
-            }
-            if (s.Contains("/"))
+            } 
+            else if (s.Contains("/")) 
             {
                 s = s.ToUpper().Replace(".", "").Replace("№", "").Replace(" ", "").Replace("/", " / ").Trim();
                 return s;

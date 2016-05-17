@@ -75,3 +75,13 @@ D:\Projects\iim\Logics\bin\Debug\PluginManager.dll
 D:\Projects\iim\Logics\bin\Debug\PluginInterface.dll
 D:\Projects\iim\Logics\bin\Debug\PluginManager.pdb
 D:\Projects\iim\Logics\bin\Debug\PluginInterface.pdb
+C:\dev\iim\Logics\bin\Debug\PluginManager.dll
+C:\dev\iim\Logics\bin\Debug\PluginInterface.dll
+C:\dev\iim\Logics\bin\Debug\DevExpress.Mvvm.v14.1.dll
+C:\dev\iim\Logics\bin\Debug\PluginManager.pdb
+C:\dev\iim\Logics\bin\Debug\DevExpress.Printing.v14.1.Core.xml
+C:\dev\iim\Logics\bin\Debug\PluginInterface.pdb
+C:\dev\iim\Logics\bin\Debug\de\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\Logics\bin\Debug\es\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\Logics\bin\Debug\ja\DevExpress.Printing.v14.1.Core.resources.dll
+C:\dev\iim\Logics\bin\Debug\ru\DevExpress.Printing.v14.1.Core.resources.dll

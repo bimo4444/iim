@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
-             mc:Ignorable="d" >
+             xmlns:controls="clr-namespace:Controls;assembly=Controls">
     <Grid>
-        <mvp:ImgButton StackMargin="-5,0,-8,0" HorizontalAlignment="Left" Picture="/resources/page_excel.png" IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReportMov}" Width="30" Height="30" />
+        <controls:ImgButton StackMargin="-5,0,-8,0" HorizontalAlignment="Left" Picture="/resources/page_excel.png" IsEnabled="{Binding ControlsEnabled}" Command="{Binding ExcelReportMov}" Width="30" Height="30" />
         <TextBlock Height="30" Margin="37,0,0,0" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="{Binding MovementDetails}" HorizontalAlignment="Left"/>
     </Grid>
 </UserControl>

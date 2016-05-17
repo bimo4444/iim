@@ -6,13 +6,12 @@
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
-             mc:Ignorable="d" 
+             xmlns:controls="clr-namespace:Controls;assembly=Controls"
              dx:ThemeManager.ThemeName="Office2013">
     <StackPanel Width="250" HorizontalAlignment="Left" VerticalAlignment="Center">
         <StackPanel Margin="15,0,0,0">
-            <mvp:ImgButton StackMargin="-3,0,-2,0" Picture="/resources/tick.png" RightSide="True" Text1="Группа" ToolTip="выбрать группу" Command="{Binding SelectGroup}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
-            <mvp:ImgButton StackMargin="-3,0,-4,0" StackWidth="60" Picture="/resources/cross.png" RightSide="True" Text2="{Binding StoresCounter}" Text1="МХ: " ToolTip="очистить выбранное" Command="{Binding UncheckAllButton}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
+            <controls:ImgButton StackMargin="-3,0,-2,0" Picture="/resources/tick.png" RightSide="True" Text1="Группа" ToolTip="выбрать группу" Command="{Binding SelectGroup}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
+            <controls:ImgButton StackMargin="-3,0,-4,0" StackWidth="60" Picture="/resources/cross.png" RightSide="True" Text2="{Binding StoresCounter}" Text1="МХ: " ToolTip="очистить выбранное" Command="{Binding UncheckAllButton}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
             <Border BorderThickness="10" />
             <!--DATE-->
             <Label Content="Период До:" Height="30" VerticalContentAlignment="Bottom" HorizontalAlignment="Left"/>
@@ -28,7 +27,7 @@
             <CheckBox IsChecked="{Binding Path=Stat, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Статус" HorizontalAlignment="Left"/>
             <!--SHOW GRID-->
             <Border BorderThickness="40" />
-            <mvp:ImgButton  Command="{Binding ShowPrimaryView}" IsEnabled="{Binding ButtonsEnabled}" Text1="ТМЦ" Picture="/resources/box.png" Width="75" Height="30" HorizontalAlignment="Left"/>
+            <controls:ImgButton  Command="{Binding ShowPrimaryView}" IsEnabled="{Binding ButtonsEnabled}" Text1="ТМЦ" Picture="/resources/box.png" Width="75" Height="30" HorizontalAlignment="Left"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

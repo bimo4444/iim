@@ -8,8 +8,8 @@
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:mvp="clr-namespace:MVPLight;assembly=MVPLight"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             dx:ThemeManager.ThemeName="Office2013"
-             mc:Ignorable="d" >
+             xmlns:controls="clr-namespace:Controls;assembly=Controls"
+             dx:ThemeManager.ThemeName="Office2013">
     <UserControl.Resources>
         <bool:BoolToVisibilityConverter x:Key="boolToVisibility" />
     </UserControl.Resources>
@@ -24,10 +24,10 @@
                 <!--GO BACK-->
                 <StackPanel Grid.Column="0" Orientation="Horizontal"  VerticalAlignment="Bottom">
                     <Border  BorderThickness="10" />
-                    <mvp:ImgButton StackMargin="-13,0,-10,0" Text1="Назад" Picture="/Resources/resultset_previous.png" Height="30" Width="60" IsEnabled="{Binding ControlsEnabled}" Command="{Binding PreviousControl}"/>
+                    <controls:ImgButton StackMargin="-13,0,-10,0" Text1="Назад" Picture="/Resources/resultset_previous.png" Height="30" Width="60" IsEnabled="{Binding ControlsEnabled}" Command="{Binding PreviousControl}"/>
                     <Border BorderThickness="5" />
                     <!--REFRESHER-->
-                    <mvp:ImgButton StackMargin="-5,0,-13,0" StackWidth="58" Text1="{Binding Time}" Picture="/Resources/arrow_refresh.png" Height="30" Width="63" IsEnabled="{Binding ControlsEnabled}" Command="{Binding Refresh}"/>
+                    <controls:ImgButton StackMargin="-5,0,-13,0" StackWidth="58" Text1="{Binding Time}" Picture="/Resources/arrow_refresh.png" Height="30" Width="63" IsEnabled="{Binding ControlsEnabled}" Command="{Binding Refresh}"/>
                 </StackPanel>
                 <ContentControl Grid.Column = "1" Margin="0,0,0,0" 
                         Content="{Binding SelectedFrame}" 

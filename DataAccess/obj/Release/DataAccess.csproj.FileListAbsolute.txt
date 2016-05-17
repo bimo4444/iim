@@ -1,0 +1,14 @@
+C:\dev\iim\DataAccess\bin\Release\DataAccess.dll.config
+C:\dev\iim\DataAccess\bin\Release\DataAccess.dll
+C:\dev\iim\DataAccess\bin\Release\DataAccess.pdb
+C:\dev\iim\DataAccess\bin\Release\ADOLib.dll
+C:\dev\iim\DataAccess\bin\Release\Entity.dll
+C:\dev\iim\DataAccess\bin\Release\Trap.dll
+C:\dev\iim\DataAccess\bin\Release\Logging.dll
+C:\dev\iim\DataAccess\bin\Release\ADOLib.pdb
+C:\dev\iim\DataAccess\bin\Release\Entity.pdb
+C:\dev\iim\DataAccess\bin\Release\Trap.pdb
+C:\dev\iim\DataAccess\bin\Release\Logging.pdb
+C:\dev\iim\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+C:\dev\iim\DataAccess\obj\Release\DataAccess.dll
+C:\dev\iim\DataAccess\obj\Release\DataAccess.pdb

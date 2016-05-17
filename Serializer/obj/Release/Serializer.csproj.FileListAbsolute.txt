@@ -1,0 +1,4 @@
+C:\dev\iim\Serializer\bin\Release\Serializer.dll
+C:\dev\iim\Serializer\bin\Release\Serializer.pdb
+C:\dev\iim\Serializer\obj\Release\Serializer.dll
+C:\dev\iim\Serializer\obj\Release\Serializer.pdb

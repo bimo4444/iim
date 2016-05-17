@@ -1,0 +1,11 @@
+C:\dev\iim\PluginManager\bin\Release\PluginManager.dll
+C:\dev\iim\PluginManager\bin\Release\PluginManager.pdb
+C:\dev\iim\PluginManager\bin\Release\PluginInterface.dll
+C:\dev\iim\PluginManager\bin\Release\Trap.dll
+C:\dev\iim\PluginManager\bin\Release\Logging.dll
+C:\dev\iim\PluginManager\bin\Release\PluginInterface.pdb
+C:\dev\iim\PluginManager\bin\Release\Trap.pdb
+C:\dev\iim\PluginManager\bin\Release\Logging.pdb
+C:\dev\iim\PluginManager\obj\Release\PluginManager.csprojResolveAssemblyReference.cache
+C:\dev\iim\PluginManager\obj\Release\PluginManager.dll
+C:\dev\iim\PluginManager\obj\Release\PluginManager.pdb

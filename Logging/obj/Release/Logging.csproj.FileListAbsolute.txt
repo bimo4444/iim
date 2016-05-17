@@ -1,0 +1,4 @@
+C:\dev\iim\Logging\bin\Release\Logging.dll
+C:\dev\iim\Logging\bin\Release\Logging.pdb
+C:\dev\iim\Logging\obj\Release\Logging.dll
+C:\dev\iim\Logging\obj\Release\Logging.pdb

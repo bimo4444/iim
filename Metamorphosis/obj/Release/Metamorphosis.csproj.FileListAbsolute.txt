@@ -1,0 +1,7 @@
+C:\dev\iim\Metamorphosis\bin\Release\Metamorphosis.dll
+C:\dev\iim\Metamorphosis\bin\Release\Metamorphosis.pdb
+C:\dev\iim\Metamorphosis\bin\Release\Entity.dll
+C:\dev\iim\Metamorphosis\bin\Release\Entity.pdb
+C:\dev\iim\Metamorphosis\obj\Release\Metamorphosis.csprojResolveAssemblyReference.cache
+C:\dev\iim\Metamorphosis\obj\Release\Metamorphosis.dll
+C:\dev\iim\Metamorphosis\obj\Release\Metamorphosis.pdb

@@ -1,0 +1,8 @@
+C:\dev\iim\MachineNameThief\bin\Release\MachineNameThief.dll.config
+C:\dev\iim\MachineNameThief\bin\Release\MachineNameThief.dll
+C:\dev\iim\MachineNameThief\bin\Release\MachineNameThief.pdb
+C:\dev\iim\MachineNameThief\bin\Release\PluginInterface.dll
+C:\dev\iim\MachineNameThief\bin\Release\PluginInterface.pdb
+C:\dev\iim\MachineNameThief\obj\Release\MachineNameThief.csprojResolveAssemblyReference.cache
+C:\dev\iim\MachineNameThief\obj\Release\MachineNameThief.dll
+C:\dev\iim\MachineNameThief\obj\Release\MachineNameThief.pdb

@@ -1,0 +1,12 @@
+C:\dev\iim\WcfClientLibrary\bin\Release\WcfClientLibrary.dll
+C:\dev\iim\WcfClientLibrary\bin\Release\WcfClientLibrary.pdb
+C:\dev\iim\WcfClientLibrary\bin\Release\Entity.dll
+C:\dev\iim\WcfClientLibrary\bin\Release\Trap.dll
+C:\dev\iim\WcfClientLibrary\bin\Release\WcfContract.dll
+C:\dev\iim\WcfClientLibrary\bin\Release\Logging.dll
+C:\dev\iim\WcfClientLibrary\bin\Release\Entity.pdb
+C:\dev\iim\WcfClientLibrary\bin\Release\Trap.pdb
+C:\dev\iim\WcfClientLibrary\bin\Release\Logging.pdb
+C:\dev\iim\WcfClientLibrary\obj\Release\WcfClientLibrary.csprojResolveAssemblyReference.cache
+C:\dev\iim\WcfClientLibrary\obj\Release\WcfClientLibrary.dll
+C:\dev\iim\WcfClientLibrary\obj\Release\WcfClientLibrary.pdb

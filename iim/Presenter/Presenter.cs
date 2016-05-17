@@ -130,8 +130,7 @@ namespace iim
         }
         private void Show()
         {
-            //to unhide menu first time (show/hide arrows)
-            menuViewModel.MenuVisible = true;
+            menuViewModel.MenuVisible = true;//to unhide menu first time (show/hide arrows)
             mainViewModel.SelectedMenu = mainMenu;
             firstViewModel.SelectedMenu = firstViewMenu;
             mainViewModel.SelectedView = firstView;

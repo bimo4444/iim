@@ -1,0 +1,4 @@
+C:\dev\iim\MVPLight\bin\Release\MVPLight.dll
+C:\dev\iim\MVPLight\bin\Release\MVPLight.pdb
+C:\dev\iim\MVPLight\obj\Release\MVPLight.dll
+C:\dev\iim\MVPLight\obj\Release\MVPLight.pdb

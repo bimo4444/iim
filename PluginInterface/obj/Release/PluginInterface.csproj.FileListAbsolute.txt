@@ -1,0 +1,4 @@
+C:\dev\iim\PluginInterface\bin\Release\PluginInterface.dll
+C:\dev\iim\PluginInterface\bin\Release\PluginInterface.pdb
+C:\dev\iim\PluginInterface\obj\Release\PluginInterface.dll
+C:\dev\iim\PluginInterface\obj\Release\PluginInterface.pdb

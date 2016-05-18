@@ -70,6 +70,7 @@ namespace Logics
             pluginService.ConnectionTimeout = config.ConnectionTimeOut;
             pluginService.Init("plugins");
             pluginService.Dispose();
+            pluginService = null;
         }
         private void DeserializeConfigs()
         {
@@ -237,7 +238,6 @@ namespace Logics
             //    Directory.CreateDirectory(configFilePath);
             //if (!File.Exists(configFileName))
             //    xmlSerializer.Serialize(config, configFilePath, configFileName);
-            pluginService.Dispose();
         }
     }
 }

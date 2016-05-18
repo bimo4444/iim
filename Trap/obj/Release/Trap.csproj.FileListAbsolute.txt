@@ -5,3 +5,10 @@ C:\dev\iim\Trap\bin\Release\Logging.pdb
 C:\dev\iim\Trap\obj\Release\Trap.csprojResolveAssemblyReference.cache
 C:\dev\iim\Trap\obj\Release\Trap.dll
 C:\dev\iim\Trap\obj\Release\Trap.pdb
+D:\Projects\iim\Trap\bin\Release\Trap.dll
+D:\Projects\iim\Trap\bin\Release\Trap.pdb
+D:\Projects\iim\Trap\bin\Release\Logging.dll
+D:\Projects\iim\Trap\bin\Release\Logging.pdb
+D:\Projects\iim\Trap\obj\Release\Trap.csprojResolveAssemblyReference.cache
+D:\Projects\iim\Trap\obj\Release\Trap.dll
+D:\Projects\iim\Trap\obj\Release\Trap.pdb

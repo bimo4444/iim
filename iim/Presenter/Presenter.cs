@@ -36,10 +36,10 @@ namespace iim
         PrimaryViewModel primaryViewModel = new PrimaryViewModel();
         MovementView movementView = new MovementView();
         MovementViewModel movementViewModel = new MovementViewModel();
-        Dialog connectionErrorDialog;
-        ConnectionErrorView connectionErrorView = new ConnectionErrorView();
-        Dialog confirmationDialog;
-        ConfirmationView confirmationView = new ConfirmationView();
+        Lazy<ConfirmationView> confirmationView = new Lazy<ConfirmationView>();
+        Lazy<ConnectionErrorView> connectionErrorView = new Lazy<ConnectionErrorView>();
+        Lazy<Dialog> connectionErrorDialog;
+        Lazy<Dialog> confirmationDialog;
         private List<UserControl> oldViews = new List<UserControl>();
         string previousStoreCellValue;
         Guid movementGuidUnit, movementGuidStore;
@@ -61,8 +61,8 @@ namespace iim
         }
         private void Initializing()
         {
-            connectionErrorDialog = new Dialog(connectionErrorView);
-            confirmationDialog = new Dialog(confirmationView);
+            confirmationDialog = new Lazy<Dialog>(() => new Dialog(confirmationView.Value));
+            connectionErrorDialog = new Lazy<Dialog>(() => new Dialog(connectionErrorView.Value));
         }
         //stores for the first view
         private async void GetStores()
@@ -75,7 +75,10 @@ namespace iim
                 menuViewModel.MaxDateTime = menuViewModel.CurrentMaxDateTime = core.CurrentMaxDateTime;
                 mainViewModel.StatusBarText = "";
                 ActivateControls();
-                firstView.Dispatcher.BeginInvoke(new Action(() => { menuViewModel.ButtonsEnabled = firstView.listBox.SelectedItems.Count > 0 ? true : false; }));
+                firstView.Dispatcher.BeginInvoke(new Action(() => 
+                { 
+                    menuViewModel.ButtonsEnabled = firstView.listBox.SelectedItems.Count > 0 ? true : false; 
+                }));
             });
         }
         private void DownloadStoresList()
@@ -231,19 +234,19 @@ namespace iim
         {
             bool menuVisible = mainViewModel.MenuVisible;
             mainViewModel.MenuVisible = false;
-            mainViewModel.SelectedView = confirmationView;
-            confirmationDialog.Show(text);
+            mainViewModel.SelectedView = confirmationView.Value;
+            confirmationDialog.Value.Show(text);
             mainViewModel.SelectedView = oldViews.Last();
             mainViewModel.MenuVisible = menuVisible;
-            return confirmationDialog.result ?? false;
+            return confirmationDialog.Value.result ?? false;
         }
         private bool ConnectionErrorView()
         {
             bool menuVisible = mainViewModel.MenuVisible;
             mainViewModel.MenuVisible = false;
-            mainViewModel.SelectedView = connectionErrorView;
-            connectionErrorDialog.Show();
-            if (connectionErrorDialog.result == true)
+            mainViewModel.SelectedView = connectionErrorView.Value;
+            connectionErrorDialog.Value.Show();
+            if (connectionErrorDialog.Value.result == true)
             {
                 mainViewModel.SelectedView = oldViews.Last();
                 mainViewModel.MenuVisible = menuVisible;

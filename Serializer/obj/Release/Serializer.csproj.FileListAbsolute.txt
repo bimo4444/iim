@@ -2,3 +2,7 @@ C:\dev\iim\Serializer\bin\Release\Serializer.dll
 C:\dev\iim\Serializer\bin\Release\Serializer.pdb
 C:\dev\iim\Serializer\obj\Release\Serializer.dll
 C:\dev\iim\Serializer\obj\Release\Serializer.pdb
+D:\Projects\iim\Serializer\bin\Release\Serializer.dll
+D:\Projects\iim\Serializer\bin\Release\Serializer.pdb
+D:\Projects\iim\Serializer\obj\Release\Serializer.dll
+D:\Projects\iim\Serializer\obj\Release\Serializer.pdb

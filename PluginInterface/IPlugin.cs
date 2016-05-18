@@ -5,11 +5,10 @@ using System.Text;
 
 namespace PluginInterface
 {
-    public interface IPlugin
+    public interface IPlugin : IDisposable
     {
         IPluginHost Host { set; }
         void Init();
-        void Dispose();
     }
     public interface IPluginHost
     {

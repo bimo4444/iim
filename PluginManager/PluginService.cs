@@ -16,6 +16,7 @@ namespace PluginManager
         private List<IPlugin> plugins = new List<IPlugin>();
         public string ConnectionString { get; set; }
         public int ConnectionTimeout { get; set; }
+        private bool disposed = false;
         public PluginService(IExceptionTrap exceptionTrap)
         {
             this.exceptionTrap = exceptionTrap;
@@ -63,8 +64,30 @@ namespace PluginManager
         }
         public void Dispose()
         {
-            foreach (var plugin in plugins)
-                plugin.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        ~PluginService()
+        {
+            Dispose(false);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+            if (disposing)
+            {
+                if(plugins != null)
+                {
+                    foreach (var plugin in plugins)
+                        plugin.Dispose();
+                    plugins.Clear();
+                    plugins = null;
+                }
+                exceptionTrap = null;
+                ConnectionString = null;
+            }
+            disposed = true;
         }
     }
 }

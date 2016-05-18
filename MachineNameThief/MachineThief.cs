@@ -15,6 +15,7 @@ namespace MachineNameThief
         SomeLinqDataContext linq;
         string machine = System.Environment.MachineName;
         string user = System.Environment.UserName;
+        private bool disposed = false;
         public void Init()
         {
             builder = new SqlConnectionStringBuilder(Host.ConnectionString);
@@ -37,8 +38,33 @@ namespace MachineNameThief
         }
         public void Dispose()
         {
-            builder = null;
-            linq = null;
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        ~MachineThief()
+        {
+            Dispose(false);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+            if (disposing)
+            {
+                if (builder != null)
+                {
+                    builder.Clear();
+                    builder = null;
+                }
+                if (linq != null)
+                {
+                    linq.Dispose();
+                    linq = null;
+                }
+                if (Host != null)
+                    Host = null;
+            }
+            disposed = true;
         }
     }
 }

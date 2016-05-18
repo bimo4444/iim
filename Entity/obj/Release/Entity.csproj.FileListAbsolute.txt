@@ -2,3 +2,8 @@ C:\dev\iim\Entity\bin\Release\Entity.dll
 C:\dev\iim\Entity\bin\Release\Entity.pdb
 C:\dev\iim\Entity\obj\Release\Entity.dll
 C:\dev\iim\Entity\obj\Release\Entity.pdb
+D:\Projects\iim\Entity\bin\Release\Entity.dll
+D:\Projects\iim\Entity\bin\Release\Entity.pdb
+D:\Projects\iim\Entity\obj\Release\Entity.dll
+D:\Projects\iim\Entity\obj\Release\Entity.pdb
+D:\Projects\iim\Entity\obj\Release\Entity.csprojResolveAssemblyReference.cache

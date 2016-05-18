@@ -5,3 +5,10 @@ C:\dev\iim\Metamorphosis\bin\Release\Entity.pdb
 C:\dev\iim\Metamorphosis\obj\Release\Metamorphosis.csprojResolveAssemblyReference.cache
 C:\dev\iim\Metamorphosis\obj\Release\Metamorphosis.dll
 C:\dev\iim\Metamorphosis\obj\Release\Metamorphosis.pdb
+D:\Projects\iim\Metamorphosis\bin\Release\Metamorphosis.dll
+D:\Projects\iim\Metamorphosis\bin\Release\Metamorphosis.pdb
+D:\Projects\iim\Metamorphosis\bin\Release\Entity.dll
+D:\Projects\iim\Metamorphosis\bin\Release\Entity.pdb
+D:\Projects\iim\Metamorphosis\obj\Release\Metamorphosis.csprojResolveAssemblyReference.cache
+D:\Projects\iim\Metamorphosis\obj\Release\Metamorphosis.dll
+D:\Projects\iim\Metamorphosis\obj\Release\Metamorphosis.pdb

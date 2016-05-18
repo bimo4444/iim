@@ -2,3 +2,7 @@ C:\dev\iim\Uniqueness\bin\Release\Uniqueness.dll
 C:\dev\iim\Uniqueness\bin\Release\Uniqueness.pdb
 C:\dev\iim\Uniqueness\obj\Release\Uniqueness.dll
 C:\dev\iim\Uniqueness\obj\Release\Uniqueness.pdb
+D:\Projects\iim\Uniqueness\bin\Release\Uniqueness.dll
+D:\Projects\iim\Uniqueness\bin\Release\Uniqueness.pdb
+D:\Projects\iim\Uniqueness\obj\Release\Uniqueness.dll
+D:\Projects\iim\Uniqueness\obj\Release\Uniqueness.pdb

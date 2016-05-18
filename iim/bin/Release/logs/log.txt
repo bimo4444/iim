@@ -316,3 +316,39 @@ System.Core
    в System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
    в PluginManager.PluginService.<>c__DisplayClass7.<AddPlugin>b__5() в c:\dev\iim\PluginManager\PluginService.cs:строка 59
    в Trap.ExceptionTrap.Catch(Action action) в c:\dev\iim\Trap\ExceptionTrap.cs:строка 23
+*********************************************************************************************************************************************
+18.05.2016 10:04:23 GAL-PIX8318 tukan
+Sequence contains no matching element
+System.Core
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at PluginManager.PluginService.<>c__DisplayClass7.<AddPlugin>b__5() in d:\Projects\iim\PluginManager\PluginService.cs:line 60
+   at Trap.ExceptionTrap.Catch(Action action) in d:\Projects\iim\Trap\ExceptionTrap.cs:line 23
+*********************************************************************************************************************************************
+18.05.2016 10:04:26 GAL-PIX8318 tukan
+Object reference not set to an instance of an object.
+iim
+   at iim.Presenter.ConnectionErrorView() in d:\Projects\iim\iim\Presenter\Presenter.cs:line 263
+   at iim.Presenter..ctor(ICore core) in d:\Projects\iim\iim\Presenter\Presenter.cs:line 58
+   at DynamicInjector77076487d765408886121f4f8ec28b77(Object[] )
+   at Ninject.Activation.Providers.StandardProvider.Create(IContext context)
+   at Ninject.Activation.Context.Resolve()
+   at Ninject.KernelBase.<>c__DisplayClass10.<Resolve>b__c(IBinding binding)
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.<CastIterator>d__b1`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Ninject.ResolutionExtensions.Get[T](IResolutionRoot root, IParameter[] parameters)
+   at iim.Program.Main() in d:\Projects\iim\iim\Program.cs:line 34
+*********************************************************************************************************************************************
+18.05.2016 10:08:31 GAL-PIX8318 tukan
+Sequence contains no matching element
+System.Core
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at PluginManager.PluginService.<>c__DisplayClass7.<AddPlugin>b__5() in d:\Projects\iim\PluginManager\PluginService.cs:line 60
+   at Trap.ExceptionTrap.Catch(Action action) in d:\Projects\iim\Trap\ExceptionTrap.cs:line 23
+*********************************************************************************************************************************************
+18.05.2016 10:09:15 GAL-PIX8318 tukan
+Sequence contains no matching element
+System.Core
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at PluginManager.PluginService.<>c__DisplayClass7.<AddPlugin>b__5() in d:\Projects\iim\PluginManager\PluginService.cs:line 60
+   at Trap.ExceptionTrap.Catch(Action action) in d:\Projects\iim\Trap\ExceptionTrap.cs:line 23

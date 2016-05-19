@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="iim.Views.FirstView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             dx:ThemeManager.ThemeName="Office2013">
+    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+        <!--EMPTY PANEL FOR BALANCE-->
+        <StackPanel Width="250">
+        </StackPanel>
+        <!--LISTBOX-->
+        <ListBox x:Name="listBox"
+                             Width="500" ItemsSource="{Binding ListBoxItems}" IsEnabled="{Binding ListEnabled}"
+                             SelectionMode="Multiple" FontSize="14">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="IsSelected" Value="{Binding Mode=TwoWay, Path=IsSelected}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding StoreString}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <!--RIGHT PANEL-->
+        <ContentControl DockPanel.Dock="Top"
+                        Content="{Binding SelectedMenu}"
+                        HorizontalAlignment="Stretch"/>
+    </StackPanel>
+</UserControl>

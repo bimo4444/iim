@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="iim.Views.FirstViewMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:controls="clr-namespace:Controls;assembly=Controls"
+             dx:ThemeManager.ThemeName="Office2013">
+    <StackPanel Width="250" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <StackPanel Margin="15,0,0,0">
+            <controls:ImgButton StackMargin="-3,0,-2,0" Picture="/resources/tick.png" RightSide="True" Text1="Группа" ToolTip="выбрать группу" Command="{Binding SelectGroup}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
+            <controls:ImgButton StackMargin="-3,0,-4,0" StackWidth="60" Picture="/resources/cross.png" RightSide="True" Text2="{Binding StoresCounter}" Text1="МХ: " ToolTip="очистить выбранное" Command="{Binding UncheckAllButton}" IsEnabled="{Binding ButtonsEnabled}" Width="75" Height="30" HorizontalAlignment="Left"/>
+            <Border BorderThickness="10" />
+            <!--DATE-->
+            <Label Content="Период До:" Height="30" VerticalContentAlignment="Bottom" HorizontalAlignment="Left"/>
+            <dxe:DateEdit x:Name="maxDateEdit" IsEnabled="{Binding ControlsEnabled}" HorizontalAlignment="Left" Width="90" MaxValue="{Binding Path=MaxDateTime, Mode=TwoWay}" DateTime="{Binding Path=CurrentMaxDateTime, Mode=TwoWay}" Height="30" ShowClearButton="False"/>
+            <!--CHECKBOXES-->
+            <Border BorderThickness="10" />
+            <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Zeros, Mode=TwoWay}" Content="Включая 0"  HorizontalAlignment="Left"/>
+            <CheckBox IsEnabled="{Binding ControlsEnabled}" IsChecked="{Binding Minus, Mode=TwoWay}" Content="Минусы"  HorizontalAlignment="Left"/>
+            <Border BorderThickness="10" />
+            <CheckBox IsChecked="{Binding Path=Order, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Заказ"  HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Party, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Партия" HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Task, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Задание" HorizontalAlignment="Left"/>
+            <CheckBox IsChecked="{Binding Path=Stat, Mode=TwoWay}" IsEnabled="{Binding ControlsEnabled}" Content="Статус" HorizontalAlignment="Left"/>
+            <!--SHOW GRID-->
+            <Border BorderThickness="40" />
+            <controls:ImgButton  Command="{Binding ShowPrimaryView}" IsEnabled="{Binding ButtonsEnabled}" Text1="ТМЦ" Picture="/resources/box.png" Width="75" Height="30" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

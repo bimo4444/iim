@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E701686D-AC8E-4C03-98A9-47B5084A7E0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logics</RootNamespace>
+    <AssemblyName>Logics</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iims\iim4\iim\bin\Debug\DevExpress.Data.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.1.Core, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Core.cs" />
+    <Compile Include="ICore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{e3edce1a-79a8-433d-bc20-149ba2bdb4ba}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{e1c08f18-990a-437f-a850-d52c6f903599}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcelServices\ExcelServices.csproj">
+      <Project>{5a0dade8-61c0-45ba-8fc3-c0155585077e}</Project>
+      <Name>ExcelServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Metamorphosis\Metamorphosis.csproj">
+      <Project>{80d26cce-91a9-463f-bb7d-f756f01e4d57}</Project>
+      <Name>Metamorphosis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{ec0f4f0d-c667-4784-aead-c5fbfaff19fe}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Serializer\Serializer.csproj">
+      <Project>{3f98fcd1-acf2-43cb-b5b0-ed4aa85d1a11}</Project>
+      <Name>Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreCellsNormalizer\StoreCellsNormalizer.csproj">
+      <Project>{0f687f70-29f4-4d61-873e-5edb77ae3040}</Project>
+      <Name>StoreCellsNormalizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfClientLibrary\WcfClientLibrary.csproj">
+      <Project>{a72ddfd3-d0ba-473e-a330-f9e88527776e}</Project>
+      <Name>WcfClientLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

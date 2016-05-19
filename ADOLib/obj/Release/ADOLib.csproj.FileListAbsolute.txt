@@ -1,9 +1,0 @@
-C:\dev\iim\ADOLib\bin\Release\ADOLib.dll
-C:\dev\iim\ADOLib\bin\Release\ADOLib.pdb
-C:\dev\iim\ADOLib\obj\Release\ADOLib.dll
-C:\dev\iim\ADOLib\obj\Release\ADOLib.pdb
-D:\Projects\iim\ADOLib\bin\Release\ADOLib.dll
-D:\Projects\iim\ADOLib\bin\Release\ADOLib.pdb
-D:\Projects\iim\ADOLib\obj\Release\ADOLib.dll
-D:\Projects\iim\ADOLib\obj\Release\ADOLib.pdb
-D:\Projects\iim\ADOLib\obj\Release\ADOLib.csprojResolveAssemblyReference.cache

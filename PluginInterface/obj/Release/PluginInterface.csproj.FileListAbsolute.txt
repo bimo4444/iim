@@ -1,9 +1,0 @@
-C:\dev\iim\PluginInterface\bin\Release\PluginInterface.dll
-C:\dev\iim\PluginInterface\bin\Release\PluginInterface.pdb
-C:\dev\iim\PluginInterface\obj\Release\PluginInterface.dll
-C:\dev\iim\PluginInterface\obj\Release\PluginInterface.pdb
-D:\Projects\iim\PluginInterface\bin\Release\PluginInterface.dll
-D:\Projects\iim\PluginInterface\bin\Release\PluginInterface.pdb
-D:\Projects\iim\PluginInterface\obj\Release\PluginInterface.dll
-D:\Projects\iim\PluginInterface\obj\Release\PluginInterface.pdb
-D:\Projects\iim\PluginInterface\obj\Release\PluginInterface.csprojResolveAssemblyReference.cache

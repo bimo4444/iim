@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ConnectionTimeOut>300</ConnectionTimeOut>
-  <ConnectionString>Data Source=SRVGALDB2;Initial Catalog=GalAMM_test;Integrated Security=True</ConnectionString>
-  <UsingWcfService>true</UsingWcfService>
-  <WcfServiceAddress>http://192.168.0.13:666/test</WcfServiceAddress>
-</Config>

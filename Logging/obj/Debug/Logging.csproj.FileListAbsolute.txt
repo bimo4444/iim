@@ -1,9 +1,0 @@
-C:\dev\iim\Logging\bin\Debug\Logging.dll
-C:\dev\iim\Logging\bin\Debug\Logging.pdb
-C:\dev\iim\Logging\obj\Debug\Logging.dll
-C:\dev\iim\Logging\obj\Debug\Logging.pdb
-D:\Projects\iim\Logging\bin\Debug\Logging.dll
-D:\Projects\iim\Logging\bin\Debug\Logging.pdb
-D:\Projects\iim\Logging\obj\Debug\Logging.dll
-D:\Projects\iim\Logging\obj\Debug\Logging.pdb
-D:\Projects\iim\Logging\obj\Debug\Logging.csprojResolveAssemblyReference.cache

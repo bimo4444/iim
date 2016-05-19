@@ -1,8 +1,0 @@
-C:\dev\iim\Controls\bin\Release\Controls.dll
-C:\dev\iim\Controls\bin\Release\Controls.pdb
-C:\dev\iim\Controls\obj\Release\Controls.dll
-C:\dev\iim\Controls\obj\Release\Controls.pdb
-D:\Projects\iim\Controls\bin\Release\Controls.dll
-D:\Projects\iim\Controls\bin\Release\Controls.pdb
-D:\Projects\iim\Controls\obj\Release\Controls.dll
-D:\Projects\iim\Controls\obj\Release\Controls.pdb

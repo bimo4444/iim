@@ -1,9 +1,0 @@
-C:\dev\iim\MVPLight\bin\Release\MVPLight.dll
-C:\dev\iim\MVPLight\bin\Release\MVPLight.pdb
-C:\dev\iim\MVPLight\obj\Release\MVPLight.dll
-C:\dev\iim\MVPLight\obj\Release\MVPLight.pdb
-D:\Projects\iim\MVPLight\bin\Release\MVPLight.dll
-D:\Projects\iim\MVPLight\bin\Release\MVPLight.pdb
-D:\Projects\iim\MVPLight\obj\Release\MVPLight.dll
-D:\Projects\iim\MVPLight\obj\Release\MVPLight.pdb
-D:\Projects\iim\MVPLight\obj\Release\MVPLight.csprojResolveAssemblyReference.cache

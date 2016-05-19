@@ -1,4 +1,0 @@
-C:\dev\iim\Controls\bin\Debug\Controls.dll
-C:\dev\iim\Controls\bin\Debug\Controls.pdb
-C:\dev\iim\Controls\obj\Debug\Controls.dll
-C:\dev\iim\Controls\obj\Debug\Controls.pdb

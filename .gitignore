@@ -15,8 +15,6 @@
 *.userprefs
 
 # Build results
-.vs/
-.gitexcludes
 [Dd]ebug/
 Debug/
 [Dd]ebugPublic/

@@ -1,8 +1,0 @@
-C:\dev\iim\StoreCellsNormalizer\bin\Release\StoreCellsNormalizer.dll
-C:\dev\iim\StoreCellsNormalizer\bin\Release\StoreCellsNormalizer.pdb
-C:\dev\iim\StoreCellsNormalizer\obj\Release\StoreCellsNormalizer.dll
-C:\dev\iim\StoreCellsNormalizer\obj\Release\StoreCellsNormalizer.pdb
-D:\Projects\iim\StoreCellsNormalizer\bin\Release\StoreCellsNormalizer.dll
-D:\Projects\iim\StoreCellsNormalizer\bin\Release\StoreCellsNormalizer.pdb
-D:\Projects\iim\StoreCellsNormalizer\obj\Release\StoreCellsNormalizer.dll
-D:\Projects\iim\StoreCellsNormalizer\obj\Release\StoreCellsNormalizer.pdb
